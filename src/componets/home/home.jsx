@@ -2,7 +2,7 @@ import React from "react";
 import "../../css/comm/index.css"
 import "../../css/home/home.css"
 import TopSheet from "./TopSheet";
-import "../../pages/imcon-expend"
+import "../../pages/income-expend"
 import Nav from "../comm/nav";
 
 const Home = () => {

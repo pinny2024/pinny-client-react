@@ -1,0 +1,13 @@
+.data-none-container {
+    margin-top: 30.13vh;
+    margin-left: 19.44vw;
+    position: fixed;
+}
+
+.coin-text{
+    text-align: center;
+    margin-top: 1.88vh;
+    font-weight: bold;
+    font-size: 20px;
+    color : rgb(0, 0, 0, 0.87);
+}
