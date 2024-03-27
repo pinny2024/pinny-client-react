@@ -1,0 +1,28 @@
+.list-top {
+    display: flex;
+    width: 33.33vw;
+    height: 3.75vh;
+    margin-top: 3.75vh;
+    position: fixed;
+}
+
+.list-top-item1, .list-top-item2{
+    font-size: 10px;
+    box-sizing: border-box;
+    width: 50%;
+
+}
+
+.list-top-item1{
+    float: left;
+    background-color:#84E2D0;
+}
+
+.list-top-item2{
+    float: right;
+}
+
+.center{
+    text-align: center;
+    margin-top : 1vh;
+}
