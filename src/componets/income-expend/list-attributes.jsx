@@ -23,10 +23,10 @@ const ListAttributes = () => {
 
     return (
         <div className="list-top">
-            <div className={clickIcon === 'seperate' ? 'list-top-item1-active' : 'list-top-item1'}>
+            <div onClick={handleSeperateClick} className={clickIcon === 'seperate' ? 'list-top-item1-active' : 'list-top-item1'}>
                 <p className={clickIcon === 'seperate' ? 'center-active' : 'center'}>따로보기</p>
             </div>
-            <div className={clickIcon === 'collection' ? 'list-top-item2-active' : 'list-top-item2'}>
+            <div onClick={handleCollectionClick} className={clickIcon === 'collection' ? 'list-top-item2-active' : 'list-top-item2'}>
                 <p className={clickIcon === 'collection' ? 'center-active' : 'center'}>모아보기</p>
             </div>
         </div>
