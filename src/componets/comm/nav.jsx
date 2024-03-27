@@ -22,7 +22,7 @@ const Nav = () => {
         navigate('/home');
     }
     const handleIncomeExpendClick = () => {
-        navigate('/income-expend');
+        navigate('/income-expend/seperate');
     }
     const handlePlanClick = () => {
         navigate('/plan');

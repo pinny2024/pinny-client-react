@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage/>} />
-        <Route path="/income-expend" element={<IncomeExpendPage/>}/>
+        <Route path="/income-expend/seperate" element={<IncomeExpendPage/>}/>
       </Routes>
     </Router>
   )

@@ -6,23 +6,33 @@
     position: fixed;
 }
 
-.list-top-item1, .list-top-item2{
+.list-top-item1, .list-top-item2, .list-top-item1-active, .list-top-item2-active{
     font-size: 10px;
     box-sizing: border-box;
     width: 50%;
-
 }
 
-.list-top-item1{
+
+.list-top-item1-active, .list-top-item2-active{
+    background-color: #84E2D0;
+}
+
+.list-top-item1, .list-top-item1-active{
     float: left;
-    background-color:#84E2D0;
 }
 
-.list-top-item2{
+.list-top-item2, .list-top-item2-active{
     float: right;
 }
 
-.center{
+.center, .center-active {
     text-align: center;
     margin-top : 1vh;
+}
+.center{
+    color: rgb(0,0,0,0.34);
+}
+
+.center-active{
+    color:#ffffff;
 }
