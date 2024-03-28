@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../../css/home/TopSheet.css'; 
 import Calendar from 'react-calendar';
+import '../../css/home/Calendar.css'; 
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 const TopSheet = () => {
   const [open, setOpen] = useState(false);
@@ -15,18 +17,27 @@ const TopSheet = () => {
     setShowFullCalendar(!showFullCalendar);
   };
 
+  const [value, onChange] = useState(new Date());
+  
+  
   return (
     <div className={`top-sheet ${open ? 'open' : ''}`}>
       <div className="content">
-        <div className="header" onClick={toggleSheet}>
+        <div className="header">
           <p>수입,지출기록</p>
-          <button className="arrow-button" onClick={toggleFullCalendar}>
-            {open ? '▼' : '▲'}
-          </button>
         </div>
+        
         <div className={`calendar-container ${open ? 'open' : ''} ${showFullCalendar ? 'show-full' : ''}`}>
-          <Calendar />
+          <div>
+            <Calendar onChange={onChange} value={value} />
+          </div>
         </div>
+
+        <div className="arrow-button" onClick={toggleSheet}>
+            {open ? <BsChevronUp /> : <BsChevronDown />}
+        </div>
+        
+        
       </div>
     </div>
   );

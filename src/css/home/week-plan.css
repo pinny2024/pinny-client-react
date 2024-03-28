@@ -1,0 +1,22 @@
+.bottom-plan{
+    margin-top: 24px;
+    margin-left: 20px;
+}
+.week-plan-button button{
+    background-color: #5edcc4;
+    color: white;
+    width: 320px;
+    height:35px;
+    font-size: 14px;
+    border-radius: 5px;
+    
+}
+
+.week-plan-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.week-plan-name .week-budget {
+    color: #5edcc4; /* 원하는 색상으로 변경하세요 */
+}
