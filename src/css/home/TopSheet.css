@@ -11,10 +11,7 @@
   padding: 10px;
   
 }
-
 .header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   cursor: pointer;
 }
@@ -24,14 +21,18 @@
   font-weight: bold;
   margin-bottom: 15px;
   margin-top: 40px;
-  
 }
 
 .calendar-container {
-  max-height: 68px; /* 최초에는 1주일까지만 보이도록 설정 */
+  max-height: 130px; /* 최초에는 1주일까지만 보이도록 설정 */
   overflow: hidden;
   transition: max-height 0.3s ease;
   
+}
+
+.arrow-button{
+  margin-top: 20px;
+  margin-left: 160px;
 }
 
 
