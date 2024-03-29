@@ -9,14 +9,28 @@
     height:35px;
     font-size: 14px;
     border-radius: 5px;
-    
+    border-color: #5edcc4;
+    border-style: none;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.bottom-plan hr{
+    width: 320px;
+    color: #e6e6e6;
+    margin-bottom: 10px;
 }
 
-.week-plan-name{
+.week-plan-name, .career-name{
     font-size: 20px;
     font-weight: bold;
 }
 
-.week-plan-name .week-budget {
+.week-plan-name .week-budget,
+.career-name .action-plan{
     color: #5edcc4; /* 원하는 색상으로 변경하세요 */
+}
+.career .career-button button{
+    width: 320px;
+    height:70px;
 }
