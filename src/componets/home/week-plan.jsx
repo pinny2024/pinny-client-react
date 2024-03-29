@@ -9,7 +9,7 @@ const WeekPlan = () =>{
             </div> 
             <div className="week-plan">
                 <div className="week-plan-name">
-                    남은 <span className="week-budget">일주일 예산</span>을<br />세워보세요!
+                    <span className="week-budget">일주일 예산</span>을<br />세워보세요!
                 </div>
                         
                 <div className="week-plan-button">
@@ -19,7 +19,7 @@ const WeekPlan = () =>{
             <hr />
             <div className="career">
                 <div className="career-name">
-                    오늘 실천한 계획을 체크해 주세요!
+                    오늘 <span className="action-plan">실천한 계획</span>을<br />체크해주세요!
                 </div>
                 <div className="career-button">
                     <button></button>
