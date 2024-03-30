@@ -7,19 +7,29 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 const TopSheet = () => {
   const [open, setOpen] = useState(false);
   const [showFullCalendar, setShowFullCalendar] = useState(false);
+  const [value, onChange] = useState(new Date());
 
   const toggleSheet = () => {
     setOpen(!open);
-    setShowFullCalendar(false); // 화살표를 누를 때마다 캘린더를 숨김
+    setShowFullCalendar(false);
   };
 
   const toggleFullCalendar = () => {
     setShowFullCalendar(!showFullCalendar);
   };
 
-  const [value, onChange] = useState(new Date());
-  
-  
+  const renderDay = (locale, date) => {
+    // 원형 점 2개 표시코드
+    return (
+      <div className="calendar-day">
+        <div className="calendar-day-number">{date.toLocaleString("en", {day: "numeric"})}</div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </div>
+    );
+  };
+
+/*--------------------------------------------------*/
   return (
     <div className={`top-sheet ${open ? 'open' : ''}`}>
       <div className="content">
@@ -29,15 +39,23 @@ const TopSheet = () => {
         
         <div className={`calendar-container ${open ? 'open' : ''} ${showFullCalendar ? 'show-full' : ''}`}>
           <div>
-            <Calendar onChange={onChange} value={value} />
+            <Calendar 
+              className="calendar" 
+              onChange={onChange} 
+              value={value}
+              formatDay={(locale, date) => renderDay(locale, date)}
+              calendarType="US"
+              formatMonthYear={(locale, date) => {
+                // 원하는 형식으로 날짜 포맷
+                return `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, '0')}`;
+              }}
+              />
           </div>
         </div>
 
         <div className="arrow-button" onClick={toggleSheet}>
-            {open ? <BsChevronUp /> : <BsChevronDown />}
+          {open ? <BsChevronUp /> : <BsChevronDown />}
         </div>
-        
-        
       </div>
     </div>
   );
