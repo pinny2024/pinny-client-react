@@ -13,7 +13,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage/>} />
         <Route path="/income-expend/seperate" element={<IncomeExpendPage/>}/>
-        <Route path="/income-expend/post" element={<IncomeExpendPostPage/>}/>
+        <Route path="/expend/post" element={<IncomeExpendPostPage/>}/>
       </Routes>
     </Router>
   )
