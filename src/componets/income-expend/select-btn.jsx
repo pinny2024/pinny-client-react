@@ -20,7 +20,7 @@ const SelectBtn = () => {
         navigate('/income/post');
     }
     const handleExpendClick = () => {
-        navigate('expend/post');
+        navigate('/expend/post');
     }
 
     return (
