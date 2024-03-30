@@ -39,5 +39,13 @@
     float: left;
     background-color: #ffffff;
     color: rgb(0, 0, 0, 0.87);
+}
+
+.select-btn-income, .select-btn-income-active{
     border-radius:0px 100px 100px 0px;
 }
+
+.select-btn-expend, .select-btn-expend-active{
+    border-radius: 100px 0px 0px 100px;
+}
+
