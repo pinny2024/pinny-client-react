@@ -1,9 +1,9 @@
 .top-sheet {
   position: relative;
-  border-bottom-left-radius: 10px; 
-  border-bottom-right-radius: 10px; 
+  border-bottom-left-radius: 15px; 
+  border-bottom-right-radius: 15px; 
   border-bottom: 2px solid #0000;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .content {
@@ -21,10 +21,11 @@
   font-weight: bold;
   margin-bottom: 15px;
   margin-top: 40px;
+  margin-left: 10px;
 }
 
 .calendar-container {
-  max-height: 130px; /* 최초에는 1주일까지만 보이도록 설정 */
+  max-height: 110px; /* 최초에는 1주일까지만 보이도록 설정 */
   overflow: hidden;
   transition: max-height 0.3s ease;
   
@@ -32,6 +33,7 @@
 
 .arrow-button{
   margin-top: 20px;
+  margin-bottom: -10px;
   margin-left: 160px;
 }
 
