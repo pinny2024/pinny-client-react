@@ -44,11 +44,13 @@ const TopSheet = () => {
               onChange={onChange} 
               value={value}
               formatDay={(locale, date) => renderDay(locale, date)}
-              calendarType="US"
+              calendarType="gregory"
               formatMonthYear={(locale, date) => {
                 // 원하는 형식으로 날짜 포맷
                 return `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, '0')}`;
+                
               }}
+              
               />
           </div>
         </div>
