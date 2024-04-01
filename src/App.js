@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import React from "react";
 
-import LoginPage from "./pages/login";
-import HomePage from "./pages/home"
-import IncomeExpendPage from './pages/income-expend';
-import ExpendPostPage from './pages/expend-post';
-import IncomePostPage from './pages/income-post';
-import CollectionDataPage from './pages/collection-data';
+import LoginPage from "./pages/auth/login";
+import HomePage from "./pages/home/home"
+import IncomeExpendPage from './pages/income-expend/income-expend';
+import ExpendPostPage from './pages/income-expend/expend-post';
+import IncomePostPage from './pages/income-expend/income-expend';
+import CollectionDataPage from './pages/income-expend/collection-data';
 
 function App() {
   return (
