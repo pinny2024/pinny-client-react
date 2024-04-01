@@ -10,7 +10,7 @@ const Modal = ({ handleClose, show }) => {
     // 확인 버튼을 클릭했을 때 로직 추가하는 부분!!
     console.log("입력된 돈:", moneyValue);
     handleClose();
-  };
+  }; 
 
   const formatMoney = (value) => {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
