@@ -4,8 +4,8 @@
     height: 50px;
     border-radius: 50%;
     background-color: #5EDCC4;
-    margin-left: 80.56vw;
-    margin-top: 82.5vh;
+    left: 80.56vw;
+    top: 82.5vh;
     box-shadow: 0px 0px 7px 3px rgb(0,0,0,0.1);
     display: flex;
     justify-content: center;

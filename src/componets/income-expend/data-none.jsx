@@ -6,7 +6,7 @@ const DataNone = () => {
     return (
         <div className="data-none-container">
             <div className="coin-img">
-                <img src={`${process.env.PUBLIC_URL}/img/coin.svg`} />
+                <img src={`${process.env.PUBLIC_URL}/img/income-expend/coin.svg`} />
             </div>
             <div className="coin-text">
                 <p>오늘의 <span style={{color : '#38D6B8'}}>수입,지출</span>을<br></br>입력해주세요!</p>
