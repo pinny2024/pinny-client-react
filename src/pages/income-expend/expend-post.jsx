@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../componets/comm/header";
-import SelectBtn from "../componets/income-expend/select-btn";
-import InputData from "../componets/income-expend/input-data";
+import Header from "../../componets/comm/header";
+import SelectBtn from "../../componets/income-expend/select-btn";
+import InputData from "../../componets/income-expend/input-data";
 
 const ExpendPost = () => {
     return(
