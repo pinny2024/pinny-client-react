@@ -5,8 +5,9 @@ import LoginPage from "./pages/auth/login";
 import HomePage from "./pages/home/home"
 import IncomeExpendPage from './pages/income-expend/income-expend';
 import ExpendPostPage from './pages/income-expend/expend-post';
-import IncomePostPage from './pages/income-expend/income-expend';
+import IncomePostPage from './pages/income-expend/income-post';
 import CollectionDataPage from './pages/income-expend/collection-data';
+import CollectionDataHistory from './pages/income-expend/collection-money-history';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/income-expend/collection" element={<CollectionDataPage/>}/>
         <Route path="/expend/post" element={<ExpendPostPage/>}/>
         <Route path="/income/post" element={<IncomePostPage/>}/>
+        <Route path="/collection" element={<CollectionDataHistory />} />
       </Routes>
     </Router>
   )
