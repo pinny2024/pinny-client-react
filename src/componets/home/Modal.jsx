@@ -35,7 +35,7 @@ const Modal = ({ handleClose, show }) => {
       <section className="modal-main">
         <div onClick={handleClose}><BsX className="BsX" /></div>
         <div className="modal-money">이번주에 사용할 돈은<br />얼마인가요?</div>
-        <img src={`${process.env.PUBLIC_URL}/img/coin.svg`} alt="coin" />
+        <img src={`${process.env.PUBLIC_URL}/img/income-expend/coin.svg`} alt="coin" />
         <input
           type="text" // type을 text로 변경
           placeholder="돈을 입력해주세요"

@@ -1,0 +1,37 @@
+.collection-data-btn-container {
+    text-align: center;
+    align-items: center;
+    width: 90px;
+    margin-top: 7px;
+}
+
+.collection-data-container>* {
+    margin-right: 20px;
+}
+
+.collection-data-container> :nth-child(3) {
+    margin-right: 0;
+}
+
+.collection-data-btn-box {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0, 0.34);
+    justify-content: center;
+    align-items: center;
+}
+
+.collection-data-icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.collection-data-text {
+    color: rgb(0, 0, 0, 0.87);
+    font-size: 14px;
+    margin-top: 0.25vh;
+}

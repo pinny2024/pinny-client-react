@@ -1,0 +1,49 @@
+.input-data-container{
+    margin-top: 2.5vh;
+}
+
+.input-data-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.88vh;
+}
+
+.input-data-text{
+    text-align: center;
+    font-size: 14px;
+    color: rgb(0,0,0,0.87);
+    margin-right: 5.83vw;
+}
+
+.input-data-textbox{
+    height: 4.5vh;
+    width: 75.83vw;
+    border-radius: 5px;
+    color: rgb(0, 0, 0, 0.34);
+    border: 1px solid rgb(0,0,0,0.34);
+    padding-left: 4.17vw;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-data-textbox:focus{
+    border: 1px solid #5EDCC4;
+    color: rgb(0,0,0,0.87);
+}
+
+.input-data-done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-data-done-btn{
+    height: 4.5vh;
+    width: 88.98vw;
+    background-color: #D0D0D0;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-top: 54.63vh;
+}

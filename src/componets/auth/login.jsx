@@ -24,9 +24,9 @@ const Login = () => {
                     <hr></hr>
                 </div>
                 <div className="login-auth-img">
-                    <img src="img/kakao.png"></img>
-                    <img src="img/naver.png"></img>
-                    <img src="img/google.png"></img>
+                    <img src="img/auth/kakao.png"></img>
+                    <img src="img/auth/naver.png"></img>
+                    <img src="img/auth/google.png"></img>
                 </div>
             </div>
         </>
