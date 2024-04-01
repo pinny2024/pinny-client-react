@@ -13,6 +13,7 @@ const Header = (props) => {
         <div className="header-container">
             <Icon className="header-icon" icon="material-symbols-light:arrow-back-ios-rounded" onClick={()=>navigate(-1)}/>
             <div className="header-text">{text}</div>
+            <div className="header-box"></div>
         </div>
     )
 }
