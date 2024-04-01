@@ -9,9 +9,9 @@ const CollectionDataBtn = (props) => {
     return (
         <div className="collection-data-btn-container">
             <div className="collection-data-btn-box">
-                <img src={`${process.env.PUBLIC_URL}/img/food-icon.svg`} className="collection-data-icon" />
+                <img src={`${process.env.PUBLIC_URL}/img/${img}`} className="collection-data-icon" />
             </div>
-            <div className="collection-data-text">식비</div>
+            <div className="collection-data-text">{text}</div>
         </div>
     )
 }
