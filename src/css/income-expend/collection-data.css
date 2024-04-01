@@ -1,0 +1,10 @@
+.collection-data-container{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    top: 9.12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 13.89vw);
+    flex-wrap: wrap;
+}
