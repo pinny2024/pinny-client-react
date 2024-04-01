@@ -53,7 +53,7 @@ const Nav = () => {
                     <div className={clickIcon === 'plan' ? 'nav-label-active' : 'nav-label'}>계획</div>
                 </li>
                 <li className="nav-item" onClick={handleQuestClick}>
-                    <img className="nav-icon" src={clickIcon === 'quest' ? `${process.env.PUBLIC_URL}/img/challenge-color.svg` : `${process.env.PUBLIC_URL}/img/challenge.svg`} alt="Quest" />
+                    <img className="nav-icon" src={clickIcon === 'quest' ? `${process.env.PUBLIC_URL}/img/comm/challenge-color.svg` : `${process.env.PUBLIC_URL}/img/comm/challenge.svg`} alt="Quest" />
                     <div className={clickIcon === 'quest' ? 'nav-label-active' : 'nav-label'}>퀘스트</div>
                 </li>
                 <li className="nav-item" onClick={handleMypageClick}>
