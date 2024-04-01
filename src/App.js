@@ -6,6 +6,7 @@ import HomePage from "./pages/home"
 import IncomeExpendPage from './pages/income-expend';
 import ExpendPostPage from './pages/expend-post';
 import IncomePostPage from './pages/income-post';
+import CollectionDataPage from './pages/collection-data';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage/>} />
         <Route path="/income-expend/seperate" element={<IncomeExpendPage/>}/>
+        <Route path="/income-expend/collection" element={<CollectionDataPage/>}/>
         <Route path="/expend/post" element={<ExpendPostPage/>}/>
         <Route path="/income/post" element={<IncomePostPage/>}/>
       </Routes>
