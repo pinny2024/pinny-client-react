@@ -11,7 +11,6 @@ const MoneyHistory = () => {
             <MoneyHistoryAttribute />
             <MoneyHistoryAttribute />
             <MoneyHistoryAttribute />
-
         </div>
     )
 }
