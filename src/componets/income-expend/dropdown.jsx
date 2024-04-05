@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { Icon } from "@iconify/react";
 
 import "../../css/comm/index.css"
 import "../../css/income-expend/dropdown.css"
@@ -14,6 +14,7 @@ const Dropdown = ({ handleCategorySelection }) => {
                     <li key={index} onClick={() => handleCategorySelection(category, imgURL[index])}>
                         <img src={`${process.env.PUBLIC_URL}/img/income-expend/${imgURL[index]}`} />
                         <p>{category}</p>
+                        {index === 0 && <Icon icon="uiw:down" className="input-data-icon"/>}
                     </li>
                 ))}
             </ul>

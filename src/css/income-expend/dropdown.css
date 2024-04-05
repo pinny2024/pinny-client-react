@@ -24,7 +24,15 @@
 }
 
 .dropdown-container ul li p{
-    color: rgb(0,0,0,0.87);
+    color: rgb(0,0,0,0.34);
     font-size: 14px;
     margin-left: 2.78vw;
+    width: 57.5vw;
+    text-align: left;
+}
+
+.dropdown-container ul li .input-data-icon{
+    width: 18px;
+    height: 18px;
+    color: #5EDCC4;
 }
