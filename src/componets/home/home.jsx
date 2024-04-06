@@ -2,7 +2,7 @@ import React from "react";
 import "../../css/comm/index.css"
 // import "../../css/home/home.css"
 import TopSheet from "./TopSheet";
-import "../../pages/income-expend"
+import "../../pages/income-expend/income-expend"
 import WeekPlan from "../home/week-plan"
 import Nav from "../comm/nav";
 
