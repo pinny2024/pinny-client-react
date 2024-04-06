@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../../componets/comm/header";
-import MoneyHistoryAttribute from "../../componets/income-expend/money-history-attribute";
+import MoneyHistory from "../../componets/income-expend/money-history";
 
 const CollectionDataHistory = () => {
     const location = useLocation();
@@ -12,6 +12,7 @@ const CollectionDataHistory = () => {
     return(
         <div>
           <Header text={`${type}`}/>
+          <MoneyHistory/>
         </div>
     )
 }

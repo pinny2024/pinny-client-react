@@ -10,14 +10,13 @@
 }
 
 .input-data-text{
-    text-align: center;
     font-size: 14px;
     color: rgb(0,0,0,0.87);
     margin-right: 5.83vw;
 }
 
 .input-data-textbox{
-    height: 4.5vh;
+    height: 5vh;
     width: 75.83vw;
     border-radius: 5px;
     color: rgb(0, 0, 0, 0.34);
@@ -30,6 +29,36 @@
 .input-data-textbox:focus{
     border: 1px solid #5EDCC4;
     color: rgb(0,0,0,0.87);
+}
+
+.input-data-selectbox{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    width: 75.83vw;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border: 1px solid rgb(0,0,0,0.34);
+}
+
+.input-data-selectbox img{
+    width: 18px;
+    height: 18px;
+    margin-left: 2.5vw;
+}
+
+.input-data-selectbox p{
+    color: rgb(0,0,0,0.87);
+    font-size: 14px;
+    margin-left: 2.78vw;
+    width: 57.5vw;
+    text-align: left;
+}
+
+.input-data-icon{
+    width: 18px;
+    height: 18px;
+    color: rgb(0, 0, 0,0.34);
 }
 
 .input-data-done {
