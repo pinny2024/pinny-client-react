@@ -1,0 +1,47 @@
+
+.top-planning-background,
+.expand-button {
+    background-color: #cfefe9;
+}
+.top-planning-background {
+    padding: 20px;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 515px; /* 접혀있는 상태의 높이 */
+    overflow: hidden;
+    
+}
+
+.top-planning-background.expanded {
+    max-height: 800px; /* 전체를 보여주는 상태의 높이 */
+    overflow-y: auto;
+    
+   
+}
+
+.status-text,
+.all-week-status-button,
+.expand-button {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.status-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 24px;
+    color: #0E332C;;
+}
+
+.all-week-status-button {
+    margin-top: 10px;
+}
+
+.expand-button {
+    cursor: pointer;
+    font-size: 24px;
+    text-align: center;
+    color: #22806e;
+    margin-top: -5px;
+}
+
+

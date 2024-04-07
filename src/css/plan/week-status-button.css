@@ -1,0 +1,18 @@
+.week-status-button > button {
+    width: 78.5px;
+    height: 28px;
+    margin-bottom: 20px;
+    border: none;
+    margin-right: 1.5px;                            
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+    background-color: #ffffff; /* 클릭되지 않았을 때 배경색 */
+    transition: background-color 0.3s; /* 배경색 전환 애니메이션 */
+    color:gray;
+    font-size: 12px;
+}
+
+.week-status-button > button:focus {
+    background-color: #5edcc4; /* 클릭시 배경색 변경 */
+    color:#ffffff;
+    
+}

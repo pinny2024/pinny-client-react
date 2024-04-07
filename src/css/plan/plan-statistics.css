@@ -1,0 +1,12 @@
+.week-plan-statistics .week-plan-statistics-name{
+    font-size: 20px;
+    font-weight: bold;
+    color:#0E332C;
+}
+.week-plan-statistics .plan-correction{
+    text-align: right;
+    margin-right: 5px;
+    font-size: 13px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
