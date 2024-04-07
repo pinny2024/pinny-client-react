@@ -1,0 +1,41 @@
+.job-plan-manage {
+    padding-left: 20px;
+}
+
+.job-plan-manage .job-plan-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.job-plan-button button {
+    width: 100px;
+    height: 130px;
+    margin-bottom: 80px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 0.1px solid #aaaca9;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* 변화 효과 추가 */
+}
+.job-plan-button button:focus {
+    background-color: #b2e4db; /* 클릭된 버튼의 배경색을 변경 */
+}
+
+
+.job-plan-button button:focus .job-plan-img-name {
+    color: white; /* 클릭된 버튼의 텍스트 색상을 변경 */
+}
+
+
+.job-plan-button .job-plan-img-name {
+    font-size: 12px;
+    color: #5edcc4;
+}
+
+.job-plan-button .job-plan-job {
+    font-size: 8px;
+}
+
