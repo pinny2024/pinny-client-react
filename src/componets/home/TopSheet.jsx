@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import '../../css/home/TopSheet.css'; 
 import Calendar from 'react-calendar';
 import '../../css/home/Calendar.css'; 
-import BottomSheet from './BottomSheet'; // BottomSheet 컴포넌트 import
+import BottomSheet from './BottomSheet';
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 const TopSheet = () => {
   const [open, setOpen] = useState(false);
   const [showFullCalendar, setShowFullCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null); // 선택된 날짜를 저장하는 상태 변수
-  const [showBottomSheet, setShowBottomSheet] = useState(false); // BottomSheet 표시 여부를 제어하는 상태 변수
+  const [selectedDate, setSelectedDate] = useState(null); 
+  const [showBottomSheet, setShowBottomSheet] = useState(false); 
 
   const toggleSheet = () => {
     setOpen(!open);
@@ -20,14 +20,14 @@ const TopSheet = () => {
     setShowFullCalendar(!showFullCalendar);
   };
 
-  // onChange 함수 정의
+  
   const onChange = (value) => {
     setSelectedDate(value); // 선택된 날짜 설정
   };
 
   const handleDateClick = (value) => {
     setSelectedDate(value); // 선택된 날짜 설정
-    setShowBottomSheet(true); // BottomSheet 표시
+    setShowBottomSheet(true); 
   };
 
   const renderDay = (locale, date) => {
@@ -51,7 +51,7 @@ const TopSheet = () => {
           <div>
             <Calendar 
               className="calendar" 
-              onChange={onChange} // onChange 함수 연결
+              onChange={onChange} 
               value={selectedDate} // value를 selectedDate로 변경
               formatDay={(locale, date) => renderDay(locale, date)}
               calendarType="gregory"
@@ -66,10 +66,9 @@ const TopSheet = () => {
           {open ? <BsChevronUp /> : <BsChevronDown />}
         </div>
       </div>
-      {/* BottomSheet 컴포넌트를 SlidingPanel 대신에 사용 */}
       <BottomSheet isOpen={showBottomSheet} onClose={() => setShowBottomSheet(false)}>
         {/* BottomSheet 내부에 넣을 내용 */}
-        {/* 선택된 날짜에 관한 내용을 넣으세요 */}
+        {/* 선택된 날짜에 관한 내용을 넣기 */}
         <p>선택된 날짜: {selectedDate ? selectedDate.toLocaleDateString() : '날짜를 선택해주세요'}</p>
       </BottomSheet>
     </div>
