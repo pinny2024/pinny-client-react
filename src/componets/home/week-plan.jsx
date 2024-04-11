@@ -15,7 +15,7 @@ const WeekPlan = () => {
   };
 
   return (
-    <div className="bottom-plan">
+    <div className="bottom-plan"> 
       <div className="use-money"></div>
       <div className="week-plan">
         <div className="week-plan-name">
