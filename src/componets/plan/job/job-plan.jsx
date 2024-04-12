@@ -1,7 +1,17 @@
-import React from "react";
+import React ,{ useState }from "react";
 import '../../../css/plan/job-plan.css';
+import JobPlanModal from "./job-plan-modal";
 
 const JobPlan = ()=> {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     return (
         <div className="job-plan-manage">
@@ -9,7 +19,7 @@ const JobPlan = ()=> {
                 나와 같은 직종은 이렇게<br />관리해요!
             </div>
             <div className="job-plan-button">
-                <button>
+                <button onClick={handleShowModal}>
                     <img src={`${process.env.PUBLIC_URL}/img/job-plan/job-plan-image(1).svg`} />
                     <div className="job-plan-img-name">
                         웨이드 웨이드
@@ -37,6 +47,7 @@ const JobPlan = ()=> {
                     </div>
                 </button>
             </div>
+            <JobPlanModal show={showModal} handleClose={handleCloseModal}/>
         </div>
     )
 
