@@ -1,12 +1,32 @@
 import React from "react";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 
 import "../../css/comm/index.css"
 import "../../css/quest/progressbar.css"
 
 const Progressbar = () => {
-    return(
+    return (
         <div className="progressbar-container">
             <div className="progressbar-background">
+                <CircularProgressbarWithChildren
+                    value={30}
+                    strokeWidth={11}
+                    className={"progressbar-main"}
+                    styles={{
+                        root: { height: "258px" },
+                        path: {
+                            stroke: "#79AFEF",
+                            strokeLinecap: "round",
+                            transition: "stroke-dashoffset 0.5s ease 0s",
+                        },
+                        trail: {
+                            stroke: "rgb(0,0,0,0.1)"
+                        }
+                    }}
+                >
+                    <div className="progressbar-start"></div>
+
+                </CircularProgressbarWithChildren>
             </div>
         </div>
     );

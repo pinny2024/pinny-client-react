@@ -6,9 +6,26 @@
     justify-content: center;
     align-items: center;
 }
+
 .progressbar-background{
     width: 280px;
     height: 280px;
     background-color: #ffffff;
     border-radius: 100vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.progressbar-start{
+    width: 17px;
+    height: 17px;
+    border-radius: 100vw;
+    background-color: #ffffff;
+    margin-top: -33vh;
+}
+
+.progressbar-main{
+    margin-top: 11px;
+    text-align: center;
 }
