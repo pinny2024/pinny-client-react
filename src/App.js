@@ -10,6 +10,7 @@ import IncomePostPage from './pages/income-expend/income-post';
 import CollectionDataPage from './pages/income-expend/collection-data';
 import CollectionDataHistory from './pages/income-expend/collection-money-history';
 import QuestData from './pages/quest/quest';
+import PlanCategoryPage from './pages/plan/plan-category';
 
 function App() {
   return (
@@ -23,7 +24,11 @@ function App() {
         <Route path="/expend/post" element={<ExpendPostPage/>}/>
         <Route path="/income/post" element={<IncomePostPage/>}/>
         <Route path="/collection" element={<CollectionDataHistory />} />
+<<<<<<< HEAD
         <Route path="/quest" element={<QuestData/>} />
+=======
+        <Route path="/plan/plan-categroy" element={<PlanCategoryPage/>}/>
+>>>>>>> 786d309e24c0934e339e483d9815a818f6d2e80a
       </Routes>
     </Router>
   )

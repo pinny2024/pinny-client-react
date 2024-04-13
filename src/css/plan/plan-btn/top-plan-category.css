@@ -1,0 +1,26 @@
+.top-plan-category{
+    padding-top: 70px;
+}
+.top-plan-category .plan-category-name{
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.top-plan-category .plan-category-button{
+    text-align: center;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+.top-plan-category .plan-category-button img{
+    padding-left: 10px;
+    
+}
+.plan-category-next-button {
+    text-align: center;
+    margin-top: 600px; /* 버튼과 상위 요소 간의 간격 조절 */
+}
+.plan-category-next-button button{
+    width: 320px;
+    height: 40px;
+}
+
