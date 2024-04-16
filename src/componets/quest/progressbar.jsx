@@ -25,7 +25,7 @@ const Progressbar = () => {
                     }}
                 >
                     <div className="progressbar-start"></div>
-
+                    <div className="progressbar-icon">?</div>
                 </CircularProgressbarWithChildren>
             </div>
         </div>
