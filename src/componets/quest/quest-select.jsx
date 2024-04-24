@@ -14,7 +14,6 @@ const QuestSelect = () => {
         <>
             <div className="quest-select-title">아이콘을 선택하세요</div>
             <QuestSelectBtn/>
-            <div className="quest-select-next">다음</div>
         </>
     )
 }
