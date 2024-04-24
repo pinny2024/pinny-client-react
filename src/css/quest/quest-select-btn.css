@@ -39,3 +39,24 @@
     align-items: center;
     background-color: #84E2D0;
 }
+
+.quest-select-next, .quest-select-done{
+    position: fixed;
+    top:90vh;
+    width: calc(100% - 11.11vw);
+    height: 5vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5.56vw;
+    color: #ffffff;
+}
+
+.quest-select-next{
+    background-color: #D0D0D0;
+}
+
+.quest-select-done{
+    background-color: #5EDCC4;
+}

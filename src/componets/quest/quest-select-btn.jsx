@@ -24,22 +24,26 @@ const QuestSelectBtn = () => {
     };
 
     return (
-        <div className="quest-btn-container">
-            {items.map((item, index) => (
-                <div>
-                    <div
-                        key={index}
-                        onClick={() => handleClick(item.type)}
-                        className={`${select === item.type ? 'select' : 'quest-btn-box'}`}
-                    >
-                        <img src={`${process.env.PUBLIC_URL}/img/quest/${item.img}`} className="quest-btn-icon" />
+        <>
+            <div className="quest-btn-container">
+                {items.map((item, index) => (
+                    <div>
+                        <div
+                            key={index}
+                            onClick={() => handleClick(item.type)}
+                            className={`${select === item.type ? 'select' : 'quest-btn-box'}`}
+                        >
+                            <img src={`${process.env.PUBLIC_URL}/img/quest/${item.img}`} className="quest-btn-icon" />
+                        </div>
+                        <div className="quest-btn-text">{item.type}</div>
                     </div>
-                    <div className="quest-btn-text">{item.type}</div>
-                </div>
 
-            ))}
+                ))}
 
-        </div>
+            </div>
+            <div className={`${select !== '' ? 'quest-select-done' : 'quest-select-next'}`}>확인</div>
+        </>
+
     )
 }
 

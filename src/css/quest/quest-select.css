@@ -6,16 +6,3 @@
     font-size: 20px;
     margin-left: 5.56vw;
 }
-.quest-select-next{
-    position: fixed;
-    top:90vh;
-    width: calc(100% - 11.11vw);
-    height: 5vh;
-    background-color: #D0D0D0;
-    color: #ffffff;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 5.56vw;
-}
