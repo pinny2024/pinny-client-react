@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
 import "../../css/quest/quest-select-btn.css";
@@ -17,10 +18,17 @@ const QuestSelectBtn = () => {
     ];
 
     const [select, setSelect] = useState('');
+    const navigate = useNavigate();
 
     const handleClick = (type) => {
         setSelect(type);
     };
+    const handleNextBtn = () => {
+        if (select !== '') {
+            navigate('/quest/content')
+
+        }
+    }
 
     return (
         <>
@@ -40,7 +48,7 @@ const QuestSelectBtn = () => {
                 ))}
 
             </div>
-            <div className={`${select !== '' ? 'quest-select-done' : 'quest-select-next'}`}>확인</div>
+            <div className={`${select !== '' ? 'quest-select-done' : 'quest-select-next'}`} onClick={() => handleNextBtn()}>다음</div>
         </>
 
     )
