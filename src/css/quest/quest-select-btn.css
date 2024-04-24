@@ -1,8 +1,19 @@
 .quest-btn-container{
+    top: 15.63vh;
+    left: 9.72vw;
+    width: calc(100% - 12.5vw);
+    position: fixed;
     justify-items: center;
     text-align: center;
-    width: 80px;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.quest-btn-container > * {
+    margin-right: 6.94vw;
+    margin-bottom: 1.25vh;
+}
+
 .quest-btn-box{
     width: 80px;
     height: 80px;
@@ -10,10 +21,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 0 1px #D0D0D0 inset; 
+
 }
 .quest-btn-text{
     color: rgb(0,0,0,0.87);
     font-size: 12px;
     margin-top: 0.25vh;
+}
+
+.select{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #84E2D0;
 }
