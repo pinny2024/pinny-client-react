@@ -2,7 +2,6 @@ import { React, useState } from "react";
 
 import "../../css/comm/index.css"
 import "../../css/quest/quest-select-btn.css";
-import { type } from "@testing-library/user-event/dist/type";
 
 const QuestSelectBtn = () => {
     const items = [
