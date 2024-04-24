@@ -4,23 +4,8 @@
     position: fixed;
     font-weight: bold;
     font-size: 20px;
+    margin-left: 5.56vw;
 }
-
-.quest-select-btn{
-    position: fixed;
-    top: 15.63vh;
-    left: 9.72vw;
-    display: flex;
-    width: calc(100% - 12.50vw);
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.quest-select-btn > * {
-    margin-right: 6.94vw;
-    margin-bottom: 1.25vh;
-}
-
 .quest-select-next{
     position: fixed;
     top:90vh;
