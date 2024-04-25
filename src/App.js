@@ -12,6 +12,7 @@ import CollectionDataHistory from './pages/income-expend/collection-money-histor
 import QuestData from './pages/quest/quest';
 import PlanCategoryPage from './pages/plan/plan-category';
 import QuestSelectPage from './pages/quest/quest-select';
+import QuestInputContentPage from './pages/quest/quest-input';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/quest" element={<QuestData/>} />
         <Route path="/plan/plan-categroy" element={<PlanCategoryPage/>}/>
         <Route path="/quest/select" element={<QuestSelectPage/>}/>
+        <Route path='/quest/input/content' element={<QuestInputContentPage/>}/>
       </Routes>
     </Router>
   )
