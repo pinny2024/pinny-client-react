@@ -2,12 +2,12 @@ import React from "react";
 import MoneyHistoryAttribute from "./money-history-attribute";
 
 import "../../../css/comm/index.css"
-import "../../../css/income-expend/money-history.css"
+import styles from "../../../css/income-expend/money-history.module.css"
 
 const MoneyHistory = () => {
     return (
-        <div className="money-history-box">
-            <div className="money-history-day">9일</div>
+        <div className={styles['box']}>
+            <div className={styles['day']}>9일</div>
             <MoneyHistoryAttribute />
             <MoneyHistoryAttribute />
             <MoneyHistoryAttribute />

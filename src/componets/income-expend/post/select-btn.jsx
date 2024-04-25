@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../../../css/comm/index.css"
-import "../../../css/income-expend/select-btn.css"
+import styles from "../../../css/income-expend/select-btn.module.css"
 
 const SelectBtn = () => {
     const [clickIcon, setClickIcon] = useState(null);
@@ -24,13 +24,13 @@ const SelectBtn = () => {
     }
 
     return (
-        <div className="select-btn-container">
-            <div className="select-btn-box">
-                <div className={clickIcon == "expend" ? 'select-btn-expend-active' : 'select-btn-expend'} onClick={handleExpendClick}>
-                    <p className="select-btn-text">지출</p>
+        <div className={styles['container']}>
+            <div className={styles['box']}>
+                <div className={clickIcon === "expend" ? styles['expend-active'] : styles['expend']} onClick={handleExpendClick}>
+                    <p className={styles['select-btn-text']}>지출</p>
                 </div>
-                <div className={clickIcon == "income" ? 'select-btn-income-active' : 'select-btn-income'} onClick={handleIncomeClick}>
-                    <div className="select-btn-text">수입</div>
+                <div className={clickIcon === "income" ? styles['income-active'] : styles['income']} onClick={handleIncomeClick}>
+                    <div className={styles['select-btn-text']}>수입</div>
                 </div>
             </div>
         </div>
