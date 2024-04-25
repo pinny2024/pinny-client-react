@@ -18,14 +18,26 @@
 }
 
 .progressbar-start{
+    position: fixed;
     width: 17px;
     height: 17px;
     border-radius: 100vw;
     background-color: #ffffff;
-    margin-top: -33vh;
+    margin-top: -32.5vh;
 }
 
 .progressbar-main{
     margin-top: 11px;
     text-align: center;
+    position: relative;
+}
+
+.progressbar-icon{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    color: #38D6B8;
+    font-size: 100px;
+    font-weight: bold;
 }

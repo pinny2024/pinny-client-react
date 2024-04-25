@@ -1,5 +1,6 @@
 import React from "react";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
+import {Link} from"react-router-dom";
 
 import "../../css/comm/index.css"
 import "../../css/quest/progressbar.css"
@@ -25,7 +26,9 @@ const Progressbar = () => {
                     }}
                 >
                     <div className="progressbar-start"></div>
-
+                    <Link to="/quest/select">
+                        <div className="progressbar-icon">?</div>
+                    </Link>
                 </CircularProgressbarWithChildren>
             </div>
         </div>
