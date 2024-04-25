@@ -1,4 +1,4 @@
-.nav-container {
+.container {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -10,51 +10,51 @@
     background-color: white;
   }
 
-.nav-list {
+.list {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
 }
 
-.nav-item {
+.item {
     list-style: none;
     text-align: center;
     width: 20vw;
 }
-.nav-item {
+.item {
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
-.nav-item:hover {
+.item:hover {
     color: #38d6b8;
 }
 
-.nav-item.clicked {
+.item.clicked {
     color: #38d6b8;
 }
 
-.nav-item.clicked img {
+.item.clicked img {
     filter: invert(68%) sepia(87%) saturate(4585%) hue-rotate(130deg) brightness(99%) contrast(86%);
 
 }
 
   
-.nav-icon {
+.icon {
     width: 24px;
     height: 24px;
     color: rgb(0,0,0,0.87); 
 }
   
-.nav-label {
+.label {
     margin-top: 5px;
     font-size: 10px; 
     color: rgb(0,0,0,0.87); 
     font-weight: 600;
 }
 
-.nav-label-active{
+.label-active{
     margin-top: 5px;
     font-size: 10px; 
     color: #38D6B8;
