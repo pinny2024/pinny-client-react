@@ -3,16 +3,16 @@ import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import {Link} from"react-router-dom";
 
 import "../../css/comm/index.css"
-import "../../css/quest/progressbar.css"
+import styles from "../../css/quest/progressbar.module.css"
 
 const Progressbar = () => {
     return (
-        <div className="progressbar-container">
-            <div className="progressbar-background">
+        <div className={styles['container']}>
+            <div className={styles['background']}>
                 <CircularProgressbarWithChildren
                     value={30}
                     strokeWidth={11}
-                    className={"progressbar-main"}
+                    className={styles['main']}
                     styles={{
                         root: { height: "258px" },
                         path: {
@@ -25,9 +25,9 @@ const Progressbar = () => {
                         }
                     }}
                 >
-                    <div className="progressbar-start"></div>
+                    <div className={styles['starter']}></div>
                     <Link to="/quest/select">
-                        <div className="progressbar-icon">?</div>
+                        <div className={styles['icon']}>?</div>
                     </Link>
                 </CircularProgressbarWithChildren>
             </div>

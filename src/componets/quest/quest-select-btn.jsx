@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
-import "../../css/quest/quest-select-btn.css";
+import styles from "../../css/quest/quest-select-btn.module.css";
 
 const QuestSelectBtn = () => {
     const items = [
@@ -32,23 +32,23 @@ const QuestSelectBtn = () => {
 
     return (
         <>
-            <div className="quest-btn-container">
+            <div className = {styles['container']}>
                 {items.map((item, index) => (
                     <div>
                         <div
                             key={index}
                             onClick={() => handleClick(item.type)}
-                            className={`${select === item.type ? 'select' : 'quest-btn-box'}`}
+                            className={`${select === item.type ? styles['selected-box'] : styles['box']}`}
                         >
                             <img src={`${process.env.PUBLIC_URL}/img/quest/${item.img}`} className="quest-btn-icon" />
                         </div>
-                        <div className="quest-btn-text">{item.type}</div>
+                        <div className={styles['text']}>{item.type}</div>
                     </div>
 
                 ))}
 
             </div>
-            <div className={`${select !== '' ? 'quest-select-done' : 'quest-select-next'}`} onClick={() => handleNextBtn()}>다음</div>
+            <div className={`${select !== '' ? styles['done'] : styles['next']}`} onClick={() => handleNextBtn()}>다음</div>
         </>
 
     )

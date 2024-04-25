@@ -1,0 +1,13 @@
+.container{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    top: 9.12vh;
+    left: 6.94vw;
+    width: calc(100% - 7.7vw);
+    flex-wrap: wrap;
+}
+
+.container > :nth-child(3) {
+    margin-right: 0px;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../../componets/comm/header";
-import MoneyHistory from "../../componets/income-expend/money-history";
+import MoneyHistory from "../../componets/income-expend/money-history/money-history";
 
 const CollectionDataHistory = () => {
     const location = useLocation();

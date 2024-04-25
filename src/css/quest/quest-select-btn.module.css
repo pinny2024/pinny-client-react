@@ -1,4 +1,4 @@
-.quest-btn-container{
+.container{
     top: 15.63vh;
     left: 9.72vw;
     width: calc(100% - 12.5vw);
@@ -9,12 +9,12 @@
     flex-wrap: wrap;
 }
 
-.quest-btn-container > * {
+.container > * {
     margin-right: 6.94vw;
     margin-bottom: 1.25vh;
 }
 
-.quest-btn-box{
+.box{
     width: 80px;
     height: 80px;
     border-radius: 100%;
@@ -24,13 +24,13 @@
     box-shadow: 0 0 0 1px #D0D0D0 inset; 
 
 }
-.quest-btn-text{
+.text{
     color: rgb(0,0,0,0.87);
     font-size: 12px;
     margin-top: 0.25vh;
 }
 
-.select{
+.selected-box{
     width: 80px;
     height: 80px;
     border-radius: 100%;
@@ -40,7 +40,7 @@
     background-color: #84E2D0;
 }
 
-.quest-select-next, .quest-select-done{
+.next, .done{
     position: fixed;
     top:90vh;
     width: calc(100% - 11.11vw);
@@ -53,10 +53,10 @@
     color: #ffffff;
 }
 
-.quest-select-next{
+.next{
     background-color: #D0D0D0;
 }
 
-.quest-select-done{
+.done{
     background-color: #5EDCC4;
 }

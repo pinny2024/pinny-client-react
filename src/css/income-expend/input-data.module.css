@@ -1,21 +1,21 @@
-.input-data-container{
+.container{
     margin-top: 2.5vh;
 }
 
-.input-data-box {
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1.88vh;
 }
 
-.input-data-text{
+.text{
     font-size: 14px;
     color: rgb(0,0,0,0.87);
     margin-right: 5.83vw;
 }
 
-.input-data-textbox{
+.textbox{
     height: 5vh;
     width: 75.83vw;
     border-radius: 5px;
@@ -26,12 +26,12 @@
     outline: none;
 }
 
-.input-data-textbox:focus{
+.textbox:focus{
     border: 1px solid #5EDCC4;
     color: rgb(0,0,0,0.87);
 }
 
-.input-data-selectbox{
+.selectbox{
     display: flex;
     align-items: center;
     height: 5vh;
@@ -41,13 +41,13 @@
     border: 1px solid rgb(0,0,0,0.34);
 }
 
-.input-data-selectbox img{
+.selectbox img{
     width: 18px;
     height: 18px;
     margin-left: 2.5vw;
 }
 
-.input-data-selectbox p{
+.selectbox p{
     color: rgb(0,0,0,0.87);
     font-size: 14px;
     margin-left: 2.78vw;
@@ -55,19 +55,19 @@
     text-align: left;
 }
 
-.input-data-icon{
+.icon{
     width: 18px;
     height: 18px;
     color: rgb(0, 0, 0,0.34);
 }
 
-.input-data-done {
+.done {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.input-data-done-btn{
+.done-btn{
     height: 4.5vh;
     width: 88.98vw;
     background-color: #D0D0D0;

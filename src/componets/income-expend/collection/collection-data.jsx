@@ -1,12 +1,12 @@
     import React from "react";
     import CollectionDataBtn from "./collection-data-btn";
 
-    import "../../css/comm/index.css"
-    import "../../css/income-expend/collection-data.css"
+    import "../../../css/comm/index.css"
+    import styels from "../../../css/income-expend/collection-data.module.css"
 
     const CollectionData = () => {
         return(
-            <div className="collection-data-container">
+            <div className={styels['container']}>
                 <CollectionDataBtn img="food-icon.svg" text="식비"/>
                 <CollectionDataBtn img="car-icon.svg" text="교통수단"/>
                 <CollectionDataBtn img="music-icon.svg" text="문화생활"/>
