@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import QuestSelectBtn from "./quest-select-btn";
 
 import "../../css/comm/index.css"
-import "../../css/quest/quest-select.css";
+import styles from "../../css/quest/quest-select.module.css";
 const QuestSelect = () => {
     const [selectedBtn, setSelectedBtn] = useState(null);
 
@@ -12,7 +12,7 @@ const QuestSelect = () => {
     
     return (
         <>
-            <div className="quest-select-title">아이콘을 선택하세요</div>
+            <div className={styles['title']}>아이콘을 선택하세요</div>
             <QuestSelectBtn/>
         </>
     )
