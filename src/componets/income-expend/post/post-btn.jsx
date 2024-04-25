@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
-import "../../css/income-expend/post-btn.css";
+import "../../../css/income-expend/post-btn.css";
 
 
 const PostBtn = () => {

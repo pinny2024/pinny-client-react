@@ -1,8 +1,8 @@
     import React from "react";
     import CollectionDataBtn from "./collection-data-btn";
 
-    import "../../css/comm/index.css"
-    import "../../css/income-expend/collection-data.css"
+    import "../../../css/comm/index.css"
+    import "../../../css/income-expend/collection-data.css"
 
     const CollectionData = () => {
         return(

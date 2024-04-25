@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "../../css/comm/index.css"
-import "../../css/income-expend/select-btn.css"
+import "../../../css/comm/index.css"
+import "../../../css/income-expend/select-btn.css"
 
 const SelectBtn = () => {
     const [clickIcon, setClickIcon] = useState(null);

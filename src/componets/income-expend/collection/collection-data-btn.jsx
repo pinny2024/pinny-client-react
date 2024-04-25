@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../../css/comm/index.css"
-import "../../css/income-expend/collection-data-btn.css";
+import "../../../css/comm/index.css"
+import "../../../css/income-expend/collection-data-btn.css";
 
 const CollectionDataBtn = (props) => {
     const { img, text } = props;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Dropdown from "../../componets/income-expend/dropdown"
+import Dropdown from "../../../componets/income-expend/post/dropdown"
 import { Icon } from "@iconify/react";
 
-import "../../css/comm/index.css"
-import "../../css/income-expend/input-data.css"
+import "../../../css/comm/index.css"
+import "../../../css/income-expend/input-data.css"
 
 const InputData = () => {
     const [isExpand, setIsExpand] = useState(false);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 
-import "../../css/comm/index.css"
-import "../../css/income-expend/dropdown.css"
+import "../../../css/comm/index.css"
+import "../../../css/income-expend/dropdown.css"
 
 const Dropdown = ({ handleCategorySelection }) => {
     const categories = ["식비", "교통수단", "문화생활", "금융", "기타", "저축"];

@@ -1,8 +1,8 @@
 import React from "react";
 import MoneyHistoryAttribute from "./money-history-attribute";
 
-import "../../css/comm/index.css"
-import "../../css/income-expend/money-history.css"
+import "../../../css/comm/index.css"
+import "../../../css/income-expend/money-history.css"
 
 const MoneyHistory = () => {
     return (

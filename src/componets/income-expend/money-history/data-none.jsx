@@ -1,6 +1,6 @@
 import React from "react";
-import "../../css/comm/index.css"
-import "../../css/income-expend/data-none.css"
+import "../../../css/comm/index.css"
+import "../../../css/income-expend/data-none.css"
 
 const DataNone = () => {
     return (

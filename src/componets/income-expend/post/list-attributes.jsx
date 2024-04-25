@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../css/comm/index.css";
-import "../../css/income-expend/list-attributes.css";
+import "../../../css/comm/index.css";
+import "../../../css/income-expend/list-attributes.css";
 
 const ListAttributes = () => {
     const [clickIcon, setClickIcon] = useState('seperate');
