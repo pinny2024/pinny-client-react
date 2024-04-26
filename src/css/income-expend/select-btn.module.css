@@ -1,10 +1,10 @@
-.select-btn-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.select-btn-box {
+.box {
     display: flex;
     width: 44.44vw;
     height: 4.13vh;
@@ -15,10 +15,10 @@
     border-radius: 100px 100px 100px 100px;
 }
 
-.select-btn-income-active,
-.select-btn-expend-active,
-.select-btn-income,
-.select-btn-expend{
+.income-active,
+.expend-active,
+.income,
+.expend{
     flex: 1;
     font-size: 13px;
     justify-content: center;
@@ -26,26 +26,26 @@
     display: flex;
 }
 
-.select-btn-income-active,
-.select-btn-expend-active {
+.income-active,
+.expend-active {
     float: left;
     background-color: #5EDCC4;
     color: #ffffff;
     border-radius:100px 0px 0px 100px;
 }
 
-.select-btn-income,
-.select-btn-expend {
+.income,
+.expend {
     float: left;
     background-color: #ffffff;
     color: rgb(0, 0, 0, 0.87);
 }
 
-.select-btn-income, .select-btn-income-active{
+.income, .income-active{
     border-radius:0px 100px 100px 0px;
 }
 
-.select-btn-expend, .select-btn-expend-active{
+.expend, .expend-active{
     border-radius: 100px 0px 0px 100px;
 }
 

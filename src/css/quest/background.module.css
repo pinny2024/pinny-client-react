@@ -1,0 +1,22 @@
+.container {
+    background-image: url(/public/img/quest/background.svg);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    position: fixed;
+}
+
+.title{
+    text-align: center;
+    padding-top: 10vh;
+    color: #22806E;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle{
+    text-align: center;
+    padding-top: 0.63vh;
+    color: rgb(0,0,0,0.34);
+    font-size: 14px;
+}

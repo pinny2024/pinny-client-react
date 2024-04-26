@@ -1,0 +1,8 @@
+.title{
+    top: 10vh;
+    color: rgb(0,0,0,0.87);
+    position: fixed;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5.56vw;
+}

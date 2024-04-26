@@ -1,0 +1,43 @@
+.container{
+    width: 100vw;
+    top: 23vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background{
+    width: 280px;
+    height: 280px;
+    background-color: #ffffff;
+    border-radius: 100vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.starter{
+    position: fixed;
+    width: 17px;
+    height: 17px;
+    border-radius: 100vw;
+    background-color: #ffffff;
+    margin-top: -32.5vh;
+}
+
+.main{
+    margin-top: 11px;
+    text-align: center;
+    position: relative;
+}
+
+.icon{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    color: #38D6B8;
+    font-size: 100px;
+    font-weight: bold;
+}

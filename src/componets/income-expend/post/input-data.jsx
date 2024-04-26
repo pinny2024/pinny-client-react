@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Dropdown from "../../componets/income-expend/dropdown"
+import Dropdown from "./dropdown"
 import { Icon } from "@iconify/react";
 
-import "../../css/comm/index.css"
-import "../../css/income-expend/input-data.css"
+import "../../../css/comm/index.css"
+import styles from "../../../css/income-expend/input-data.module.css"
 
 const InputData = () => {
     const [isExpand, setIsExpand] = useState(false);
@@ -22,31 +22,31 @@ const InputData = () => {
 
     return (
         <>
-            <div className="input-data-container">
-                <div className="input-data-box">
-                    <p className="input-data-text">금액</p>
-                    <input type="text" className="input-data-textbox" />
+            <div className={styles['container']}>
+                <div className={styles['box']}>
+                    <p className={styles['text']}>금액</p>
+                    <input type="text" className={styles['textbox']}/>
                 </div>
-                <div className="input-data-box">
-                    <p className="input-data-text">분류</p>
+                <div className={styles['box']}>
+                    <p className={styles['text']}>분류</p>
                     {!isExpand && (
-                        <button className="input-data-selectbox" onClick={articleBtnExpandHandler}>
+                        <button className={styles['selectbox']} onClick={articleBtnExpandHandler}>
                             <img src={`${process.env.PUBLIC_URL}/img/income-expend/${selectedImageURL}`} />
                             <p>{selectedCategory}</p>
-                            <Icon icon="uiw:down" className="input-data-icon"></Icon>
+                            <Icon icon="uiw:down" className={styles['icon']}></Icon>
                         </button>
                     )}
                     {isExpand && (
                         <Dropdown handleCategorySelection={handleCategorySelection} />
                     )}
                 </div>
-                <div className="input-data-box">
-                    <p className="input-data-text">내용</p>
-                    <input type="text" className="input-data-textbox" />
+                <div className={styles['box']}>
+                    <p className={styles['text']}>내용</p>
+                    <input type="text" className={styles['textbox']}/>
                 </div>
             </div>
-            <div className="input-data-done">
-                <button className="input-data-done-btn">확인</button>
+            <div className={styles['done']}>
+                <button className={styles['done-btn']}>확인</button>
             </div>
         </>
     )

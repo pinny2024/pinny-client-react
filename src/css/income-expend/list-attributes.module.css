@@ -1,4 +1,4 @@
-.list-top {
+.top {
     display: flex;
     width: 33.33vw;
     height: 3.75vh;
@@ -6,22 +6,22 @@
     position: fixed;
 }
 
-.list-top-item1, .list-top-item2, .list-top-item1-active, .list-top-item2-active{
+.item1, .item2, .item1-active, .item2-active{
     font-size: 10px;
     box-sizing: border-box;
     width: 50%;
 }
 
 
-.list-top-item1-active, .list-top-item2-active{
+.item1-active, .item2-active{
     background-color: #84E2D0;
 }
 
-.list-top-item1, .list-top-item1-active{
+.item1, .item1-active{
     float: left;
 }
 
-.list-top-item2, .list-top-item2-active{
+.item2, .active{
     float: right;
 }
 
