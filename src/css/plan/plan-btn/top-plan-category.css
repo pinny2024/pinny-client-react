@@ -9,18 +9,39 @@
 .top-plan-category .plan-category-button{
     text-align: center;
     margin-top: 15px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 .top-plan-category .plan-category-button img{
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+.top-plan-category .plan-category-button button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #5edcc4;
     padding-left: 10px;
-    
+    background-color: white;
+    margin: 7px;
 }
 .plan-category-next-button {
     text-align: center;
-    margin-top: 600px; /* 버튼과 상위 요소 간의 간격 조절 */
+    margin-top: 560px; /* 버튼과 상위 요소 간의 간격 조절 */
 }
 .plan-category-next-button button{
     width: 320px;
     height: 40px; 
+    border-radius: 10px;
+    border: 1px;
 }
+.plan-category-next-button .grey-button{
+    background-color: #ccc;
+    border-style: none;
+}
+.plan-category-next-button .mint-button{
+    background-color: #5edcc4;
+    border-style: none;
+}
+
 
