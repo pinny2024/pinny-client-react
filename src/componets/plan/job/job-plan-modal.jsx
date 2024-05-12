@@ -8,7 +8,7 @@ const JobPlanModal = ({ handleClose, show, modalInfo }) => {
 
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
+      <section className="plan-modal">
         <div onClick={handleClose}><BsX className="BsX" /></div>
         <div className="modal-profile">
           <img 
