@@ -1,11 +1,12 @@
 import { React, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
 import styles from "../../css/quest/input-data.module.css"
 
 const InputData = (props) => {
     const location = useLocation();
+    const navigate = useNavigate();
     const category = location.state.category;
 
     const [content, setContent] = useState('');
@@ -36,6 +37,15 @@ const InputData = (props) => {
         setInputValue(e.target.value);
     };
 
+    const handleButtonClick = () => {
+        if(inputValue){
+            navigate('/quest/input/price');
+        }
+        else{
+            alert('목표를 입력해주세요');
+        }
+    }
+
     return (
         <div className={styles['input-container']}>
             <div className={styles['title']}>{props.title}</div>
@@ -48,7 +58,7 @@ const InputData = (props) => {
                     onChange={handleInputChange}
                 />
             </div>
-            <div className={styles['input-btn']}>  {props.btn}</div>
+            <div className={styles['input-btn']} onClick={handleButtonClick}>  {props.btn}</div>
         </div>
     )
 }
