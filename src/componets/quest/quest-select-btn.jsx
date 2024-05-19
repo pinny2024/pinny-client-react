@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
 import styles from "../../css/quest/quest-select-btn.module.css";
+import { type } from "@testing-library/user-event/dist/type";
 
 const QuestSelectBtn = () => {
     const items = [
@@ -25,8 +26,7 @@ const QuestSelectBtn = () => {
     };
     const handleNextBtn = () => {
         if (select !== '') {
-            navigate('/quest/input/content')
-
+            navigate('/quest/input/content', {state : {category:select}})
         }
     }
 
