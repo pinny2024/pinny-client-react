@@ -25,7 +25,7 @@ const QuestSelectBtn = () => {
     };
     const handleNextBtn = () => {
         if (select !== '') {
-            navigate('/quest/content')
+            navigate('/quest/input/content')
 
         }
     }
