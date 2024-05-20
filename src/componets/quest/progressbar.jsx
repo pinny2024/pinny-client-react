@@ -10,7 +10,7 @@ const Progressbar = () => {
         <div className={styles['container']}>
             <div className={styles['background']}>
                 <CircularProgressbarWithChildren
-                    value={30}
+                    value={70}
                     strokeWidth={11}
                     className={styles['main']}
                     styles={{

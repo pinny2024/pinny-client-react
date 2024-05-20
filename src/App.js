@@ -14,6 +14,7 @@ import PlanCategoryPage from './pages/plan/plan-category';
 // import PlanDetailPage from './pages/plan/plan-detail';
 import QuestSelectPage from './pages/quest/quest-select';
 import QuestInputPage from './pages/quest/quest-input';
+import QuestUpdatePage from './pages/quest/quest-update';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/quest/select" element={<QuestSelectPage/>}/>
         <Route path='/quest/input/content' element={<QuestInputPage/>}/>
         <Route path='/quest/input/price' element={<QuestInputPage/>}/>
+        <Route path='/quest/update/content' element={<QuestUpdatePage/>}/>
       </Routes>
     </Router>
   )
