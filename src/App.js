@@ -14,6 +14,7 @@ import PlanCategoryPage from './pages/plan/plan-category';
 import PlanDetailPage from './pages/plan/plan-detail';
 import PlanListPage from './pages/plan/plan-list';
 import QuestSelectPage from './pages/quest/quest-select';
+import QuestInputContentPage from './pages/quest/quest-input';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/plan/plan-detail" element={<PlanDetailPage/>}/>
         <Route path="/plan/plan-list" element={<PlanListPage/>}/>
         <Route path="/quest/select" element={<QuestSelectPage/>}/>
+        <Route path='/quest/input/content' element={<QuestInputContentPage/>}/>
       </Routes>
     </Router>
   )
