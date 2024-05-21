@@ -1,0 +1,19 @@
+.container{
+    position: fixed;
+    display: flex;
+    top: 5vh;
+    left: 70.83vw;
+}
+.button{
+    background-color: #ffffff;
+    width: 10.83vw;
+    height: 2.75vh;
+    border-radius: 100px;
+    border: 0.7px solid #22806E;
+    font-size: 12px;
+    color: #22806E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.94vw;
+}
