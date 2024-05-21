@@ -1,5 +1,6 @@
 import React from "react";
 
+import "../../css/comm/index.css"
 import styles from '../../css/quest/quest-btn.module.css';
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +10,7 @@ const QuestBtn = () => {
         navigate('/quest/update/content')
     }
     const handleDeleteButton = () => {
-        navigate('/quest/delete')
+        
     }
     return (
         <div className={styles['container']}>
