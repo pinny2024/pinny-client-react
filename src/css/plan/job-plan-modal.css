@@ -1,9 +1,16 @@
 
-.modal-main{
+.plan-modal{
+    position: fixed;    
+    background-color: white;
     width: 320px;
     height: 348px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    text-align: center;
 }
-.modal-main .modal-profile img{
+.plan-modal .modal-profile img{
     width: 130px;
     height: 130px;
     margin-top: -10px;
@@ -12,15 +19,14 @@
     font-size: 20px;
     font-weight: bold;
     color:rgb(96, 95, 95);
-    margin-top: -40px;
+    margin-top: 10px;
    
 }
 .modal-info .job-plan-job{
     font-size: 12px;
 }
-.modal-main img{
+.plan-modal img{
     width: 279px;
     height: 98px;
-    margin-top: 20px;
-
+    margin-top: 10px;
 }
