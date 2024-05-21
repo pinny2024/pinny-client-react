@@ -34,6 +34,7 @@
     height: 40px; 
     border-radius: 10px;
     border: 1px;
+    color: white;
 }
 .plan-category-next-button .grey-button{
     background-color: #ccc;

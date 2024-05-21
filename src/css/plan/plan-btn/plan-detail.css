@@ -1,0 +1,51 @@
+.top-detail {
+    padding-top: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.detail-plan-box {
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.detail-plan-box input {
+    width: 270px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid grey; 
+    padding-left: 10px;
+    margin-top: 10px;
+    /* transition: border-color ; */
+}
+
+.detail-plan-box input:focus {
+    outline: none; 
+    border-color: #5edcc4;
+}
+.plan-detail-check{
+    text-align: center;
+    margin-top: 560px;
+}
+.plan-detail-check button {
+    width: 320px;
+    height: 40px; 
+    border-radius: 10px;
+    border: 1px;
+    color: white;
+    margin-top: 5px;
+}
+
+.plan-detail-check button.grey-button {
+    background-color: #ccc;
+}
+
+.plan-detail-check button.mint-button {
+    background-color: #5edcc4; 
+}
+
+.plan-detail-check button:focus {
+    outline: none;
+}
