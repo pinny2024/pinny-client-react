@@ -9,11 +9,13 @@ const PlanStatistics = () => {
             <div className="plan-gragh">
                 <PlanGragh />
             </div>
-            <div className="week-plan-statistics-name">
-                이번주의 계획이예요!
-            </div>
-            <div className="plan-correction">
-                수정하기
+            <div className="all-plan-statistics">
+                <div className="week-plan-statistics-name">
+                    이번주의 계획이예요!
+                </div>
+                <button className="plan-correction-button">
+                    수정하기
+                </button>
             </div>
             <div className="week-plan-statistics-button">
                 <WeekPlanStatisticsButton />
