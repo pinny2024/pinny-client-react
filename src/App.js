@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import React from "react";
 
+import Splash  from './componets/comm/splash';
 import LoginPage from "./pages/auth/login";
 import HomePage from "./pages/home/home"
 import PlanPage from "./pages/plan/plan"
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/' element={<Splash/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage/>} />
         <Route path="/plan" element={<PlanPage/>} />
