@@ -1,7 +1,7 @@
 import React from "react";
 
+import "../../css/comm/index.css"
 import styles from '../../css/quest/pre-quest.module.css';
-
 
 const PreQuest = () => {
     return (

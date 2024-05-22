@@ -1,0 +1,44 @@
+.ReactModal__Content {
+    position: relative;
+    width: 75%;
+    height: 6.63vh;
+    background: white;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 30vh;
+    text-align: center;
+}
+
+.ReactModal__Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-yes-button{
+    color: rgba(0, 0, 0, 0.82);
+    height: 5.13vh;
+    width: 35.17vw;
+} 
+.modal-no-button {
+    background-color: #5EDCC4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    height: 4.13vh;
+    width: 35.17vw;
+}
+.ReactModal__Content p {
+    margin-top: 0;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.82);
+}
+
