@@ -1,9 +1,13 @@
 import React from "react";
 import Profile from "../../componets/mypage/profile"
+import Badge from "../../componets/mypage/badge"
 
 const MypagePage = () => {
-    return(
-        <Profile/>
+    return (
+        <>
+            <Profile />
+            <Badge />
+        </>
     )
 }
 
