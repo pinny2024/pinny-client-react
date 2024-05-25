@@ -14,6 +14,7 @@ import QuestData from './pages/quest/quest';
 import PlanCategoryPage from './pages/plan/plan-category';
 import PlanDetailPage from './pages/plan/plan-detail';
 import PlanListPage from './pages/plan/plan-list';
+import PlanChangeDetail from './pages/plan/plan-change-detail';
 import QuestSelectPage from './pages/quest/quest-select';
 import QuestInputPage from './pages/quest/quest-input';
 import QuestUpdatePage from './pages/quest/quest-update';
@@ -35,6 +36,7 @@ function App() {
         <Route path="/plan/plan-categroy" element={<PlanCategoryPage/>}/>
         <Route path="/plan/plan-detail" element={<PlanDetailPage/>}/>
         <Route path="/plan/plan-list" element={<PlanListPage/>}/>
+        <Route path="/plan/plan-change-detail" element={<PlanChangeDetail/>}/>
         <Route path="/quest/select" element={<QuestSelectPage/>}/>
         <Route path='/quest/input/content' element={<QuestInputPage/>}/>
         <Route path='/quest/input/price' element={<QuestInputPage/>}/>
