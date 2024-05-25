@@ -35,20 +35,20 @@
 }
 
 .plan-list-item .combined-button.modify {
-    border-color: #5edcc4; 
+    border-color: grey; 
 }
 
 .plan-list-item .combined-button.modify.clicked {
-    background-color: #5edcc4; 
-    color: white; 
+    border-color: #5edcc4; 
+    /* color: white;  */
 }
 
 .plan-list-item .combined-button.modify.clicked .check-icon {
-    color: white; 
+    /* color: white;  */
 }
 
 .plan-list-item .combined-button.modify:disabled {
-    background-color: #5edcc4; 
+    border-color: #5edcc4; 
     color: white; 
 }
 
@@ -68,7 +68,7 @@
 }
 
 .combined-button.completed {
-    background-color: grey;
+    /* background-color: grey; */
     color: black;
     cursor: not-allowed;
 }
