@@ -15,6 +15,8 @@ const PlanList = ({ context }) => {
     const [clickedButtons, setClickedButtons] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modalButtonTexts, setModalButtonTexts] = useState([]);
+    const [isButtonGrey, setIsButtonGrey] = useState(true); 
+    const [isBottomBarVisible, setIsBottomBarVisible] = useState(true); // 바텀바의 보임 여부~!!
 
     const images = {
         food: `${process.env.PUBLIC_URL}/img/job-plan/category-button/category-food-white.svg`,
@@ -36,14 +38,20 @@ const PlanList = ({ context }) => {
     };
 
     const handleButtonClick = (index, buttonText) => {
-        const isClicked = clickedButtons.includes(index);
-
-        if (isClicked) {
-            setClickedButtons(clickedButtons.filter(item => item !== index));
-            setModalButtonTexts(buttons => buttons.filter(button => button !== buttonText));
+        if (context === 'modify') {
+            navigate('/plan/edit-plan-input');
         } else {
-            setClickedButtons([...clickedButtons, index]);
-            setModalButtonTexts(buttons => [...buttons, buttonText]);
+            const isClicked = clickedButtons.includes(index);
+    
+            if (isClicked) {
+                setClickedButtons(clickedButtons.filter(item => item !== index));
+                setModalButtonTexts(buttons => buttons.filter(button => button !== buttonText));
+            } else {
+                setClickedButtons([...clickedButtons, index]);
+                setModalButtonTexts(buttons => [...buttons, buttonText]);
+            }
+            // 다른 버튼을 클릭할 때도 바텀바를 보이도록
+            setIsBottomBarVisible(true);
         }
     };
 
@@ -52,26 +60,30 @@ const PlanList = ({ context }) => {
             button.classList.add('completed');
             button.disabled = true;
         });
-       
-        setClickedButtons([]);
-        setModalIsOpen(false); 
-        setModalButtonTexts([]); 
+
+        setIsButtonGrey(true); // 완료 시 버튼을 회색으로 변경..
+        setIsBottomBarVisible(false); // 완료 시 바텀바 숨김,.
     };
 
     const handleCancel = () => {
         setClickedButtons([]);
-        setModalIsOpen(false); 
-        setModalButtonTexts([]); 
+        setModalIsOpen(false);
+        setModalButtonTexts([]);
+    };
+
+    const handleTrashClick = () => {
+        if (isButtonGrey) {
+            setModalIsOpen(true);
+        }
     };
 
     return (
-         <>
+        <>
             <div className="plan-list-name">
                 내 계획을 확인해보세요!
-                <div className="trash-icon" onClick={() => setModalIsOpen(true)}><FaTrashAlt color="grey" /></div>
+                <div className="trash-icon" onClick={handleTrashClick}><FaTrashAlt color={isButtonGrey ? "grey" : "black"} /></div>
             </div>
             <div className="plan-list-item">
-                {/* 예시 데이터 */}
                 <button
                     key={0}
                     className={`combined-button ${clickedButtons.includes(0) ? 'clicked' : ''} ${context === 'modify' ? 'modify' : ''}`}
@@ -88,8 +100,9 @@ const PlanList = ({ context }) => {
                     등등,,
                     <AiOutlineCheckCircle className="check-icon" size={30} />
                 </button>
+                
             </div>
-            {clickedButtons.length > 0 && <PlanListBottomBar handleComplete={handleComplete} handleCancel={handleCancel} />}
+            {isBottomBarVisible && clickedButtons.length > 0 && <PlanListBottomBar handleComplete={handleComplete} handleCancel={handleCancel} />}
             <div className="plan-list-plus">
                 <AiFillPlusCircle size={50} onClick={handleNextButtonClick} className={context === 'modify' ? 'mint' : 'grey'} />
             </div>

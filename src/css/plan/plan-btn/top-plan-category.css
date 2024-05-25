@@ -1,7 +1,7 @@
-.top-plan-category{
+.plan-category{
     padding-top: 70px;
 }
-.top-plan-category .plan-category-name{
+.plan-category .plan-category-name{
     margin-left: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -27,7 +27,7 @@
 }
 .plan-category-next-button {
     text-align: center;
-    margin-top: 560px; /* 버튼과 상위 요소 간의 간격 조절 */
+    margin-top: 560px; 
 }
 .plan-category-next-button button{
     width: 320px;
