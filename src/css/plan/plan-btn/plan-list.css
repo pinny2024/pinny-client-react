@@ -4,11 +4,13 @@
     font-weight: bold;
     margin-left: 20px;
 }
-.trash-icon{
+
+.trash-icon {
     text-align: right;
     margin-right: 20px;
     margin-top: -23px;
 }
+
 .plan-list-plus {
     text-align: right;
     color: #5edcc4;
@@ -17,23 +19,43 @@
     right: 7px;
 }
 
-.plan-list-item{
+.plan-list-item {
     margin-left: 20px;
     margin-bottom: 60px;
 }
-.plan-list-item .combined-button{
+
+.plan-list-item .combined-button {
     width: 320px;
-    height: 70px; 
+    height: 70px;
     border-radius: 10px;
     border: 1px solid grey;
+    
     background-color: white;
     margin-top: 10px;
+}
+
+.plan-list-item .combined-button.modify {
+    border-color: #5edcc4; 
+}
+
+.plan-list-item .combined-button.modify.clicked {
+    background-color: #5edcc4; 
+    color: white; 
+}
+
+.plan-list-item .combined-button.modify.clicked .check-icon {
+    color: white; 
+}
+
+.plan-list-item .combined-button.modify:disabled {
+    background-color: #5edcc4; 
+    color: white; 
 }
 
 .combined-button {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -42,22 +64,22 @@
 }
 
 .combined-button.clicked {
-    background-color: rgba(128, 128, 128, 0.5); 
+    background-color: rgba(128, 128, 128, 0.5);
 }
 
 .combined-button.completed {
-    background-color: grey; 
-    color: black; 
-    cursor: not-allowed; 
+    background-color: grey;
+    color: black;
+    cursor: not-allowed;
 }
 
-.plan-list-item .combined-button:disabled {
-    background-color: rgba(128, 128, 128, 0.5); 
-    color: black; 
-    cursor: not-allowed; 
+.combined-button:disabled {
+    background-color: rgba(128, 128, 128, 0.5);
+    color: black;
+    cursor: not-allowed;
 }
 
-.combined-button>.check-icon {
+.combined-button > .check-icon {
     color: grey;
 }
 
@@ -65,8 +87,9 @@
     color: grey;
 }
 
-.complete-button.clicked, .cancel-button.clicked {
-    background-color: rgba(128, 128, 128, 0.5); 
-    color: white; 
-    cursor: default; 
+.complete-button.clicked,
+.cancel-button.clicked {
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white;
+    cursor: default;
 }
