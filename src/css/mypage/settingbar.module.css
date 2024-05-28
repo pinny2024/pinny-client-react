@@ -1,23 +1,7 @@
-.container{
-    position: fixed;
-    top:39.75vh;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
-    font-weight: 700;
-    color: rgb(0,0,0,0.87);
-    width: calc(100vw - 11.11vw);
-}
-
-.graph{
-    background-color: red;
-    width: 88.89vw;
-    height: 19.5vh;
-    margin-top: 1.25vh;
-}
-
 .setting-bar{
-    margin-top: 1.68vh;
+    position : fixed;
+    width: 100vw;
+    top: 65.75vh;
     border-top: 1px solid rgb(0,0,0,0.1);
 }
 
