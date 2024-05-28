@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../../componets/comm/header";
-import PlanList from "../../componets/plan/plan-btn/plan-list";
-const PlanListPage = () => {
+import EditPlanInput from "../../componets/plan/plan-btn/edit-plan-input";
+
+const EditPlanInputPage = () => {
     return(
         <div>
             <Header text="계획 세우기!"/>
-            <PlanList context="add"/>
+            <EditPlanInput />
         </div>
     )
 }
 
-export default PlanListPage;
+export default EditPlanInputPage;

@@ -1,0 +1,49 @@
+.edit-plan-input-container{
+    padding-top: 50px;
+}
+.edit-plan-input-box {
+    font-size: 15px;
+    margin-top: 0px;
+    text-align: center;
+    margin-right: 10px
+}
+
+.edit-plan-input-box input {
+    width: 260px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid grey; 
+    padding-left: 10px;
+    margin-top: 10px;
+    /* transition: border-color ; */
+    margin-left: 7px;
+}
+
+.edit-plan-input-box input:focus {
+    outline: none; 
+    border-color: #5edcc4;
+}
+.edit-plan-input-check{
+    text-align: center;
+    margin-top: 560px;
+}
+.edit-plan-input-check button {
+    width: 320px;
+    height: 40px; 
+    border-radius: 10px;
+    border: 1px;
+    color: white;
+    margin-top: 5px;
+}
+
+.edit-plan-input-check button.grey-button {
+    background-color: #ccc;
+}
+
+.edit-plan-input-check button.mint-button {
+    background-color: #5edcc4; 
+}
+
+.edit-plan-input-check button:focus {
+    outline: none;
+}
