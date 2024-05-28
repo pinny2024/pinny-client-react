@@ -1,15 +1,17 @@
 import React from "react";
 import Profile from "../../componets/mypage/profile"
 import Badge from "../../componets/mypage/badge"
-import Overconsumption from "../../componets/mypage/overconsumption";
+import SettingBar from "../../componets/mypage/settingbar";
 import Nav from "../../componets/comm/nav";
+import Graph from "../../componets/mypage/graph";
 
 const MypagePage = () => {
     return (
         <>
             <Profile />
             <Badge />
-            <Overconsumption/>
+            <Graph />
+            <SettingBar/>
             <Nav />
         </>
     )
