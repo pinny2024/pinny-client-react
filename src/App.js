@@ -19,6 +19,11 @@ import EditPlanInputPage from './pages/plan/edit-plan-input';
 import QuestSelectPage from './pages/quest/quest-select';
 import QuestInputPage from './pages/quest/quest-input';
 import QuestUpdatePage from './pages/quest/quest-update';
+import MyPagePage from './pages/mypage/mypage';
+import MyInformationPage from './pages/mypage/myinformation';
+import NicknameEditPage from './pages/mypage/nickname-edit';
+import MyBadgePage from './pages/mypage/mybadge';
+import LogoutPage from './pages/mypage/logout';
 
 function App() {
   return (
@@ -43,6 +48,11 @@ function App() {
         <Route path='/quest/input/content' element={<QuestInputPage/>}/>
         <Route path='/quest/input/price' element={<QuestInputPage/>}/>
         <Route path='/quest/update/content' element={<QuestUpdatePage/>}/>
+        <Route path='/mypage' element={<MyPagePage/>}/>
+        <Route path='/mypage/myinformation' element={<MyInformationPage/>}/>
+        <Route path='/mypage/myinformation/nickname-edit' element={<NicknameEditPage />}/>
+        <Route path='/mypage/mybadge' element={<MyBadgePage/>}/>
+        <Route path='/logout' element={<LogoutPage/>}/>
       </Routes>
     </Router>
   )

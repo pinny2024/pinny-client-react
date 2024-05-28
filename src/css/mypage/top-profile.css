@@ -1,0 +1,47 @@
+#top-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 38vh; 
+    background-color: white; 
+    border-bottom-left-radius: 60px; 
+    border-bottom-right-radius: 60px; 
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-photo {
+    width: 100px; 
+    height: 100px; 
+    background-color: #ccc; 
+    border-radius: 30%; 
+    margin-bottom: 5px; 
+    margin-top: 10px;
+}
+
+.profile-name {
+    font-size: 1.4em; 
+    font-weight: bold; 
+    color: black; 
+    margin-bottom: 10px;
+    text-align: center; 
+}
+
+.profile-badge {
+    align-self: flex-start; /* 왼쪽 정렬!! */
+    margin-left: 20px; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    font-size: 14px;
+}
+
+.badge-list {
+    display: flex;
+    justify-content: center; /* 가로 정렬!*/
+    margin-top: 5px; 
+}
+
+.badge-list img {
+    margin: 0 5px;
+}

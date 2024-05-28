@@ -1,0 +1,41 @@
+#mypage-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mypage-myinformation,
+.mypage-mybadge,
+.mypage-logout {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: none; 
+    background-color: #fff; 
+
+}
+
+.mypage-myinformation,
+.mypage-mybadge {
+    border-top: 1px solid #ccc; 
+}
+
+.mypage-logout {
+    border-top: 1px solid #ccc; 
+    border-bottom: 1px solid #ccc; 
+}
+
+#mypage-list >button {
+    /* border: none;  */
+    background: none; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; /* 텍스트와 아이콘이 양 끝에 위치하도록 설정 */
+}
+
+#mypage-list >button:hover {
+    background-color: #f0f0f0; 
+}
