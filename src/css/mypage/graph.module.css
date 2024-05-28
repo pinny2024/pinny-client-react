@@ -1,0 +1,40 @@
+.container{
+    position: fixed;
+    top:39.75vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(0,0,0,0.87);
+    width: calc(100vw - 11.11vw);
+}
+
+.graph{
+    background-color: rgb(86, 163, 255, 0.5);
+    width: 88.89vw;
+    height: 19.5vh;
+    margin-top: 1.25vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.name1{
+    position: fixed;
+    top: 8.95vh;
+    margin-left: 8vw;
+    z-index: 100;
+    color: rgb(0,0,0,0.5);
+    font-size: 12px;
+}
+
+.name2{
+    position: fixed;
+    top: 14.35vh;
+    margin-left: 8vw;
+    z-index: 100;
+    color: #38D6B8;
+    font-size: 12px;
+}

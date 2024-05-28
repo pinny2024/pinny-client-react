@@ -24,6 +24,7 @@ import MyInformationPage from './pages/mypage/myinformation';
 import NicknameEditPage from './pages/mypage/nickname-edit';
 import MyBadgePage from './pages/mypage/mybadge';
 import LogoutPage from './pages/mypage/logout';
+import MypagePage from './pages/mypage/mypage';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path='/mypage/myinformation/nickname-edit' element={<NicknameEditPage />}/>
         <Route path='/mypage/mybadge' element={<MyBadgePage/>}/>
         <Route path='/logout' element={<LogoutPage/>}/>
+        <Route path='/mypage' element={<MypagePage/>}/>
       </Routes>
     </Router>
   )
