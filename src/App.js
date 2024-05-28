@@ -19,6 +19,7 @@ import EditPlanInputPage from './pages/plan/edit-plan-input';
 import QuestSelectPage from './pages/quest/quest-select';
 import QuestInputPage from './pages/quest/quest-input';
 import QuestUpdatePage from './pages/quest/quest-update';
+import MypagePage from './pages/mypage/mypage';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path='/quest/input/content' element={<QuestInputPage/>}/>
         <Route path='/quest/input/price' element={<QuestInputPage/>}/>
         <Route path='/quest/update/content' element={<QuestUpdatePage/>}/>
+        <Route path='/mypage' element={<MypagePage/>}/>
       </Routes>
     </Router>
   )
