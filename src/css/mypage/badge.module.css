@@ -1,0 +1,22 @@
+.container{
+    top : 22.75vh;
+    position: fixed;
+}
+.title{
+    margin-left: 8.33vw;
+    font-size: 14px;
+    color: rgb(0,0,0,0.87);
+}
+
+.badge{
+    margin-left: 6.67vw;
+    height: 11.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.badge-icon{
+    width: 8.88vh;
+    height: 8.88vh;
+    margin-right: 3.06vw;
+}
