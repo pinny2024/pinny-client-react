@@ -1,0 +1,62 @@
+.nickname-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+  }
+  
+  .nickname-line {
+    margin-top: 10px;
+  }
+  
+  .nickname-input-all {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .nickname-input-name {
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .nickname-container input,
+  .nickname-container select {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 40px;
+    padding-left: 10px;
+  }
+  
+  .nickname-container input:focus,
+  .nickname-container select:focus {
+    border: 1px solid #5EDCC4;
+    outline: none;
+  }
+  
+  .nickname-button {
+    position: fixed;
+    width: 90%;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nickname-button.active {
+    background-color: #5EDCC4;
+  }
+  
+  .nickname-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
