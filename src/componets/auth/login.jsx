@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../css/auth/login.css"
 import "../../css/comm/index.css"
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    const handleTermUse = () =>{
+        navigate('/term-use')
+    }
+
     return (
         <>
             <div className="login-text">
@@ -13,7 +21,7 @@ const Login = () => {
                 <input type="text" className="login-input-password" placeholder="비밀번호를 입력해주세요"></input>
                 <button type="submit" className="login-submit-btn">확인</button>
                 <div className="login-list">
-                    <p>회원가입</p>
+                    <p onClick={handleTermUse}>회원가입</p>
                     <p>아이디/비번 찾기</p>
                 </div>
             </div>

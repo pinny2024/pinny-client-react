@@ -1,0 +1,102 @@
+/* term-use.css */
+.terms-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.terms-name {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.term-header {
+    display: flex;
+    align-items: center;
+}
+
+.term {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* padding-bottom: 70px; */
+}
+
+.term label {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.term .required {
+    color: #5EDCC4;
+}
+
+.term-content-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+    position: relative;
+    /* margin-bottom: 80px; */
+    
+}
+
+.term-content {
+    max-height: 100px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+    font-size: 14px;
+    /* padding-bottom: 40px; */
+}
+
+.term-content.expanded {
+    max-height: none;
+}
+
+.term .icon,
+.term .arrow-icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.term .icon.checked {
+    color: #5EDCC4;
+}
+
+.arrow-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    margin-bottom: -10px;
+    transition: transform 0.3s ease;
+}
+
+.chevron-wrapper{
+    /* margin-bottom: 20px; */
+}
+
+
+.arrow-icon.expanded {
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.term-arrow-button {
+    position: fixed; 
+    width: 90%;
+    bottom: 30px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    padding: 10px 20px;
+    background-color: #5EDCC4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* margin-top: 80px; */
+}
