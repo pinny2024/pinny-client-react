@@ -1,0 +1,11 @@
+.select-container {
+    margin-bottom: 10px;
+  }
+  
+  .select-container select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  
