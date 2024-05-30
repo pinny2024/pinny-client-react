@@ -3,6 +3,11 @@ import React from "react";
 
 import Splash  from './componets/comm/splash';
 import LoginPage from "./pages/auth/login";
+import TermUsePage from './pages/auth/term-use';
+import EmailPage from './pages/auth/email';
+import NickNamePage from './pages/auth/nickname';
+import PassWordPage from './pages/auth/password';
+import ProfilePage from './pages/auth/profile';
 import HomePage from "./pages/home/home"
 import PlanPage from "./pages/plan/plan"
 import IncomeExpendPage from './pages/income-expend/income-expend';
@@ -24,7 +29,7 @@ import MyInformationPage from './pages/mypage/myinformation';
 import NicknameEditPage from './pages/mypage/nickname-edit';
 import MyBadgePage from './pages/mypage/mybadge';
 import LogoutPage from './pages/mypage/logout';
-import MypagePage from './pages/mypage/mypage';
+import MypagePage from './pages/mypage/mypage'; 
 
 function App() {
   return (
@@ -32,6 +37,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Splash/>} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/term-use" element={<TermUsePage />} />
+        <Route path="/term-use/email" element={<EmailPage />} />
+        <Route path="/term-use/password" element={<PassWordPage />} />
+        <Route path="/term-use/nickname" element={<NickNamePage />} />
+        <Route path="/term-use/profile" element={<ProfilePage />} />
         <Route path="/home" element={<HomePage/>} />
         <Route path="/plan" element={<PlanPage/>} />
         <Route path="/income-expend/seperate" element={<IncomeExpendPage/>}/>
