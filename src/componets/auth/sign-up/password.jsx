@@ -23,8 +23,8 @@ const PassWord = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Entered Password:", password); //비밀번호 값 콘솔에 찍기
     alert("비밀번호가 설정되었습니다.");
+    localStorage.setItem("password", password);
     navigate('/term-use/nickname');
   };
 
