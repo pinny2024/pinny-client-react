@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Dropdown from "./dropdown"
 import { Icon } from "@iconify/react";
+import axios from "axios";
+import config from "../../../config";
 
 import "../../../css/comm/index.css"
 import styles from "../../../css/income-expend/input-data.module.css"
@@ -11,6 +14,15 @@ const InputData = () => {
     const [selectedImageURL, setSelectedImageURL] = useState("food-gray-icon.svg");
     const [amount, setAmount] = useState("");
     const [content, setContent] = useState("");
+    const [path, setPath] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        switch(window.location.pathname){
+            case '/income/post' : setPath('incomes');
+            case '/expend/post' : setPath('expenditures');
+        }
+    }, [navigate]);
 
     const articleBtnExpandHandler = () => {
         setIsExpand(!isExpand);
@@ -24,6 +36,23 @@ const InputData = () => {
 
     const isFormComplete = amount !== "" && selectedCategory !== "" && content !== "";
 
+    const handleSubmitClick = () => {
+        const userId = localStorage.getItem("id");
+        const data = {
+            money: amount,
+            category: selectedCategory,
+            content: content
+        };
+
+        axios.post(`${config.baseUrl}/${path}/${userId}`, data)
+        .then(function(response) {
+            console.log(response);
+            navigate("/income-expend/seperate");
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    }
 
     return (
         <>
@@ -60,6 +89,7 @@ const InputData = () => {
             <div className={styles['done']}>
                 <button
                     className={`${styles['done-btn']} ${isFormComplete ? styles['done-btn-active'] : ''}`}
+                    onClick={handleSubmitClick}
                 >
                     확인
                 </button>
