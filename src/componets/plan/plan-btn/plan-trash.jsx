@@ -1,26 +1,34 @@
+// PlanTrash.js
+
 import React from 'react';
 import DeleteModal from '../../comm/delete-modal';
 
-const PlanTrash = ({ modalIsOpen, closeModal, buttonTexts }) => {
-    
-    const count = buttonTexts.length;
-    const firstButtonText = buttonTexts[0];
-    
+
+
+  const PlanTrash = ({ modalIsOpen, closeModal, buttonTexts, deletePlans, clickedButtons, planName }) => {
+    const count = clickedButtons.length;
+  
     let content;
-
+  
     if (count === 1) {
-        content = ` ${firstButtonText} 계획을 삭제할까요?`;
+      content = `${planName} 계획을 삭제할까요?`;
     } else {
-        content = `${firstButtonText} 외 ${count - 1}개의\n 계획을 삭제할까요?`;
+      content = `${planName} 외 ${count - 1}개의 계획을 삭제할까요?`;
     }
-
+  
+    const handleDelete = () => {
+      deletePlans();
+    };
+  
     return (
-        <DeleteModal
-            modalIsOpen={modalIsOpen}
-            closeModal={closeModal}
-            content={content}
-        />
+      <DeleteModal
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        content={content}
+        onConfirm={handleDelete}
+      />
     );
-};
-
-export default PlanTrash;
+  };
+  
+  export default PlanTrash;
+  
