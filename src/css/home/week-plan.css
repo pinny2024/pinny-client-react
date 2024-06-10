@@ -33,7 +33,7 @@
 .career-name .action-plan{
     color: #5edcc4; /* 원하는 색상으로 변경하세요 */
 }
-.career .career-button button{
+.career .career-button >button{
     width: 320px;
     height:70px;
     border-radius: 5px;
@@ -42,6 +42,7 @@
     box-shadow: none;
     border: 0.1px solid #aaaca9; 
     cursor: pointer;
+    margin-bottom: 10px;
 }
 .career .career-button{
     margin-bottom: 80px;

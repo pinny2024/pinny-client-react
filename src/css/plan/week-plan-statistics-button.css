@@ -12,3 +12,13 @@
     border: 0.1px solid #aaaca9; 
     cursor: pointer;
 }
+.combined-button.checked {
+    background-color: grey; /* 배경색을 회색으로 변경 */
+    color: white; /* 글자색 변경 */
+  }
+  
+  /* 체크 아이콘 스타일링 */
+  .combined-button.checked .check-icon {
+    color: white; /* 아이콘 색상 변경 */
+  }
+  
