@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import config from '../../../config.js';
+
 import '../../../css/auth/sign-up/profile.css';
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
     const { state } = useLocation();
-    const nickName = state?.nickName; 
+    const nickName = state?.nickName;
     const [showModal, setShowModal] = useState(false);
-    const [isCompleted, setIsCompleted] = useState(false); 
+    const [isCompleted, setIsCompleted] = useState(false);
     const [profileImage, setProfileImage] = useState("");
     const navigate = useNavigate();
 
@@ -36,7 +38,49 @@ const Profile = () => {
     }, [showModal]);
 
     const handleConfirm = () => {
-        navigate('/login');
+        const email = localStorage.getItem("email");
+        const password = localStorage.getItem("password");
+        const nickname = localStorage.getItem("nickname");
+        const career = localStorage.getItem("job");
+        const salary = parseInt(localStorage.getItem("salary"));
+        const saving = parseInt(localStorage.getItem("saving"));
+        const ageRange = parseInt(localStorage.getItem("ageGroup"));
+        const introduction = localStorage.getItem("introduction");
+
+        const data = {
+            email: email,
+            password: password,
+            nickname: nickname,
+            career: career,
+            salary: salary,
+            saving: saving,
+            ageRange: ageRange,
+            introduction: introduction
+        }
+
+        console.log(data)
+
+        axios.post(`${config.baseUrl}/join`, data)
+        .then(function (response) {
+            console.log(response);
+            localStorage.removeItem("email");
+            localStorage.removeItem("password");
+            localStorage.removeItem("nickname");
+            localStorage.removeItem("job");
+            localStorage.removeItem("salary");
+            localStorage.removeItem("saving");
+            localStorage.removeItem("ageGroup");
+            localStorage.removeItem("introduction");
+            localStorage.removeItem("profileImage");
+
+            alert("회원가입 성공");
+
+            navigate('/login');
+        })
+        .catch(function (error) {
+            alert("회원가입 실패")
+            console.log(error);
+        });
     };
 
     const handleProfileClick = () => {
@@ -67,11 +111,27 @@ const Profile = () => {
             console.error('카메라를 열 수 없습니다:', error);
         }
     };
-    
+
     const handleChooseFromAlbum = () => {
-        console.log("앨범에서 가져오기");
-        window.location.href = "photosapp://"; // 사진 앱의 URL로 변경해주세요
         handleCloseModal();
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.onchange = (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const imageUrl = e.target.result;
+                    setProfileImage(imageUrl);
+                    localStorage.setItem("profileImage", imageUrl);
+                    setIsCompleted(true);
+                    handleCloseModal();
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        fileInput.click();
     };
 
     return (
@@ -84,12 +144,12 @@ const Profile = () => {
             <div className="profile-all-name">프로필 사진을 설정해주세요</div>
             <div className="all-profile">
                 <div className="profile-circle" onClick={handleProfileClick}>
-                {!profileImage && (
-                    <span className="plus-icon">+</span>
-                )}
-                {profileImage && (
-                    <img src={profileImage} alt="프로필 이미지" className="profile-image" />
-                )}
+                    {!profileImage && (
+                        <span className="plus-icon">+</span>
+                    )}
+                    {profileImage && (
+                        <img src={profileImage} alt="프로필 이미지" className="profile-image" />
+                    )}
                 </div>
                 {nickName && <div className="nickname-display">{nickName}</div>}
                 {showModal && (

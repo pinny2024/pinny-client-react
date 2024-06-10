@@ -19,12 +19,6 @@ const NickName = ({ onNickNameChange }) => {
     setIsCompleted(allInputsCompleted);
   }, [localNickName, job, salary, savings, ageGroup, introduction]);
 
-  // useEffect(() => {
-  //   if (localNickName !== "") {
-  //     onNickNameChange(localNickName); 
-  //   }
-  // }, [localNickName, onNickNameChange]);
-
   const jobOptions = {
     placeholder: "직업 선택",
     values: ["교사", "의사", "회사원", "예술인", "개발자", "아르바이트"]
@@ -36,12 +30,12 @@ const NickName = ({ onNickNameChange }) => {
   };
 
   const handleConfirm = () => {
-    console.log("닉네임:", localNickName);
-    console.log("직업:", job);
-    console.log("월급:", salary);
-    console.log("저축:", savings);
-    console.log("나이대:", ageGroup);
-    console.log("한 줄 소개:", introduction);
+    localStorage.setItem("nickname", localNickName);
+    localStorage.setItem("job", job);
+    localStorage.setItem("salary", salary);
+    localStorage.setItem("saving", savings);
+    localStorage.setItem("ageGroup", ageGroup);
+    localStorage.setItem("introduction", introduction);
     navigate('/term-use/profile', {
       state: {
         nickName: localNickName
