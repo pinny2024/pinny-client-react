@@ -63,33 +63,17 @@
     cursor: pointer;
 }
 
-.combined-button.clicked {
-    background-color: rgba(128, 128, 128, 0.5);
-}
-
-.combined-button.completed {
-    /* background-color: grey; */
-    color: black;
-    cursor: not-allowed;
-}
-
-.combined-button:disabled {
-    background-color: rgba(128, 128, 128, 0.5);
-    color: black;
-    cursor: not-allowed;
-}
 
 .combined-button > .check-icon {
     color: grey;
 }
-
-.combined-button.clicked > .check-icon {
-    color: grey;
-}
-
-.complete-button.clicked,
-.cancel-button.clicked {
-    background-color: rgba(128, 128, 128, 0.5);
-    color: white;
-    cursor: default;
-}
+.combined-button.checked {
+    background-color: rgba(128, 128, 128, 0.7); /* 배경색을 회색으로 변경 */
+    color: white; /* 글자색 변경 */
+  }
+  
+  /* 체크 아이콘 스타일링 */
+  .combined-button.checked .check-icon {
+    color: white; 
+  }
+  

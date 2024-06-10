@@ -54,7 +54,7 @@ function App() {
         <Route path="/plan/plan-detail" element={<PlanDetailPage/>}/>
         <Route path="/plan/plan-list" element={<PlanListPage/>}/>
         <Route path="/plan/plan-change-detail" element={<PlanChangeDetail/>}/>
-        <Route path="/plan/edit-plan-input" element={<EditPlanInputPage/>} />
+        <Route path="/plan/edit-plan-input/:id" element={<EditPlanInputPage />} />
         <Route path="/quest/select" element={<QuestSelectPage/>}/>
         <Route path='/quest/input/content' element={<QuestInputPage/>}/>
         <Route path='/quest/input/price' element={<QuestInputPage/>}/>

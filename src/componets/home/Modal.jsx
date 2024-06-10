@@ -2,30 +2,30 @@ import React, { useState } from "react";
 import "../../css/home/modal.css";
 import { BsX } from "react-icons/bs";
 
-const Modal = ({ handleClose, show }) => {
+const Modal = ({ handleClose, show, handleConfirm }) => {
   const [moneyValue, setMoneyValue] = useState(""); 
   const [isTyped, setIsTyped] = useState(false);
 
-  const handleConfirm = () => {
-   
-    console.log("입력된 돈:", moneyValue);
-    handleClose();
-  }; 
-
-  const formatMoney = (value) => {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const handleConfirmClick = () => {
+    // Validate if moneyValue is not empty
+    if (moneyValue.trim() !== "") {
+      handleConfirm(parseInt(moneyValue.replace(/,/g, ""))); // Remove commas before parsing to integer
+      handleClose(); // Close the modal
+    }
   };
 
   const handleChange = (e) => {
     const value = e.target.value;
     
-    const newValue = value.replace(/,/g, '');
-    
-    if (/^\d*\.?\d*$/.test(newValue)) {
-      const formattedValue = formatMoney(newValue); 
-      setMoneyValue(formattedValue); 
-      setIsTyped(newValue.length > 0);
-    }
+    // Remove non-numeric characters and commas
+    const newValue = value.replace(/,/g, "");
+
+    // Parse the numeric value and format it with commas
+    const formattedValue = parseInt(newValue).toLocaleString();
+
+    // Update the moneyValue state and set isTyped based on the length of newValue
+    setMoneyValue(formattedValue);
+    setIsTyped(newValue.length > 0);
   };
 
   const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -42,7 +42,7 @@ const Modal = ({ handleClose, show }) => {
           value={moneyValue}
           onChange={handleChange}
         />
-        <button className={isTyped ? "mint-button" : "grey-button"} onClick={handleConfirm}>확인</button>
+        <button className={isTyped ? "mint-button" : "grey-button"} onClick={handleConfirmClick}>확인</button>
       </section>
     </div>
   );

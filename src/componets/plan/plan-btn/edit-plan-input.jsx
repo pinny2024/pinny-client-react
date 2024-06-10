@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from 'axios';
 import Header from "../../comm/header";
 import TopPlanCategory from "./top-plan-category";
-// import '../../../css/plan/plan-btn/top-plan-category.css';
 import '../../../css/plan/plan-btn/edit-plan-input.css';
 
-const EditPlanInput = () => {
+const EditPlanInput = ({ updatePlan }) => {
+    const navigate = useNavigate();
+    const { id: planId } = useParams(); // URL에서 계획의 ID를 가져옴
+
+    const [inputValue, setInputValue] = useState(""); 
     const [clickedButtons, setClickedButtons] = useState({
         food: false,
         car: false,
@@ -13,35 +17,48 @@ const EditPlanInput = () => {
         money: false,
         etc: false
     });
+    const [planImage, setPlanImage] = useState("");
+
+    useEffect(() => {
+        const fetchPlanDetails = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8082/plans/${planId}`);
+                const { plan, image } = response.data;
+                setInputValue(plan);
+                setPlanImage(image);
+            } catch (error) {
+                console.error('Error fetching plan details:', error);
+            }
+        };
+
+        fetchPlanDetails();
+    }, [planId]);
 
     const handleButtonClick = (category) => {
-        setClickedButtons({
-            ...clickedButtons,
-            [category]: true
-        });
+        setClickedButtons(prevState => ({
+            ...prevState,
+            [category]: !prevState[category] // Toggle the button state
+        }));
     };
-
-    const navigate = useNavigate();
-
-    const [inputValue, setInputValue] = useState(""); 
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value); 
     };
 
-    const handleNextButtonClick = () => {
-        navigate('/plan/plan-change-detail', { state: { inputValue } });
+    const handleNextButtonClick = async () => {
+        try {
+            await axios.put(`http://localhost:8082/plans/${planId}`, { plan: inputValue });
+            navigate(`/plan/plan-change-detail`);
+        } catch (error) {
+            console.error('Error updating plan:', error);
+        }
     };
-
 
     return (
         <>
             <Header />
             <div className="edit-plan-input-container">
-           
                 <TopPlanCategory clickedButtons={clickedButtons} handleButtonClick={handleButtonClick} />
-                
-                
             </div>
             <div className="edit-plan-input-box">
                 계획
@@ -55,9 +72,8 @@ const EditPlanInput = () => {
             <div className="edit-plan-input-check">
                 <button className={inputValue ? "mint-button" : "grey-button"} onClick={handleNextButtonClick}>확인</button>
             </div>
-            
         </>
-    )
-}
+    );
+};
 
 export default EditPlanInput;
