@@ -1,5 +1,7 @@
 .container {
     background-image: url(/public/img/quest/background.svg);
+    background-size: cover;
+    background-position: center;
     width: 100vw;
     height: 100vh;
     z-index: -1;
