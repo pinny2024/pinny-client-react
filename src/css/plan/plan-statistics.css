@@ -1,16 +1,25 @@
+.week-plan-statistics{
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
 .week-plan-statistics .week-plan-statistics-name{
     font-size: 20px;
     font-weight: bold;
     color:#0E332C;
+    
 }
 
 .all-plan-statistics{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 18px;
 }
 .all-plan-statistics .week-plan-statistics-name{
-    padding-right: 70px;
+    padding-right: 120px;
+    
 }
 .all-plan-statistics .plan-correction-button{
     border: none;

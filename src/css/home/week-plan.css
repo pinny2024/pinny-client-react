@@ -1,12 +1,13 @@
 .bottom-plan{
     margin-top: 24px;
-    margin-left: 20px;
+    text-align: center;
 }
+
 .week-plan-button button{
     background-color: #5edcc4;
     color: white;
-    width: 320px;
-    height:35px;
+    width: 90%;
+    height:40px;
     font-size: 14px;
     border-radius: 5px;
     border-color: #5edcc4;
@@ -14,16 +15,19 @@
     margin-top: 10px;
     margin-bottom: 15px;
     cursor: pointer;
+    text-align: center;
 }
 .bottom-plan hr{
-    width: 320px;
+    width: 90%;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .week-plan-name, .career-name{
     font-size: 20px;
     font-weight: bold;
-    /* margin-bottom: 20px; */
+    text-align: left;
+    margin-left: 20px;
 }
 .career .career-name{
     margin-bottom:10px;
@@ -34,8 +38,8 @@
     color: #5edcc4; /* 원하는 색상으로 변경하세요 */
 }
 .career .career-button >button{
-    width: 320px;
-    height:70px;
+    width: 90%;
+    height:80px;
     border-radius: 5px;
     background-color: white;
     border-width: 1px;
@@ -43,7 +47,9 @@
     border: 0.1px solid #aaaca9; 
     cursor: pointer;
     margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 15px;
 }
 .career .career-button{
-    margin-bottom: 80px;
+    margin-bottom: 90px;
 }

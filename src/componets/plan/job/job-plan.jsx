@@ -51,7 +51,7 @@ const JobPlan = () => {
             {selectedModal && <JobPlanModal 
                 show={showModal} 
                 handleClose={handleCloseModal} 
-                modalInfo={selectedModal} 
+                modalInfo={selectedModal}  
             />}
         </div>
     )

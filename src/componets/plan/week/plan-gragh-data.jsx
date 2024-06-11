@@ -12,16 +12,17 @@ const PlanGragh = () => {
                 backgroundColor: '#79AFEF', // Blue color for bars
                 borderWidth: 0,
                 borderRadius: 7,
-                
             },
         ],
     };
 
     const options = {
+        maintainAspectRatio: false, // Allow the chart to stretch to fill the container
         layout: {
             padding: {
-                top: 40, // Adjust the padding from the top
-                right: 10, // Adjust the padding from the right
+                top: 30, // Adjust the padding from the top
+                right:10,
+                left:10,
             },
         },
         scales: {
@@ -31,7 +32,7 @@ const PlanGragh = () => {
                 },
             },
             y: {
-                display:false,
+                display: false,
             },
         },
         plugins: {
@@ -46,8 +47,7 @@ const PlanGragh = () => {
             enabled: false, // Disable tooltips
         },
     };
-    
-    
+
     return (
         <div className={styles['graph-container']}>
             <div className={styles['graph']}>

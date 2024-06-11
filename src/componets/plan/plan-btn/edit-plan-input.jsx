@@ -15,9 +15,10 @@ const EditPlanInput = ({ updatePlan }) => {
         car: false,
         music: false,
         money: false,
-        etc: false
+        etc: false 
     });
     const [planImage, setPlanImage] = useState("");
+    const [previewImage, setPreviewImage] = useState("");
 
     useEffect(() => {
         const fetchPlanDetails = async () => {
@@ -26,6 +27,7 @@ const EditPlanInput = ({ updatePlan }) => {
                 const { plan, image } = response.data;
                 setInputValue(plan);
                 setPlanImage(image);
+                setPreviewImage(image);
             } catch (error) {
                 console.error('Error fetching plan details:', error);
             }
@@ -41,24 +43,41 @@ const EditPlanInput = ({ updatePlan }) => {
         }));
     };
 
+    const handleImageChange = (image) => {
+        setPlanImage(image);
+        setPreviewImage(image);
+    };
+
     const handleInputChange = (e) => {
         setInputValue(e.target.value); 
     };
 
     const handleNextButtonClick = async () => {
         try {
-            await axios.put(`http://localhost:8082/plans/${planId}`, { plan: inputValue });
+            // 이미지가 아닌 이미지 경로만을 전달합니다.
+            const data = {
+                plan: inputValue,
+                image: planImage // 선택한 이미지 경로를 서버에 전달
+            };
+    
+            await axios.put(`http://localhost:8082/plans/${planId}`, data);
             navigate(`/plan/plan-change-detail`);
         } catch (error) {
             console.error('Error updating plan:', error);
         }
     };
+    
 
     return (
         <>
             <Header />
             <div className="edit-plan-input-container">
-                <TopPlanCategory clickedButtons={clickedButtons} handleButtonClick={handleButtonClick} />
+                <TopPlanCategory 
+                    clickedButtons={clickedButtons} 
+                    handleButtonClick={handleButtonClick} 
+                    handleImageChange={handleImageChange} 
+                    currentImage={planImage} // 현재 이미지 전달
+                />
             </div>
             <div className="edit-plan-input-box">
                 계획

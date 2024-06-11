@@ -63,7 +63,7 @@ const TopSheet = () => {
         </div>
 
         <div className="arrow-button" onClick={toggleSheet}>
-          {open ? <BsChevronUp /> : <BsChevronDown />}
+          {open ? <BsChevronUp size={20}/> : <BsChevronDown size={20}/>}
         </div>
       </div>
       <BottomSheet isOpen={showBottomSheet} onClose={() => setShowBottomSheet(false)}>

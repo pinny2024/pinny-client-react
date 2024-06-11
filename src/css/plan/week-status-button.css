@@ -1,5 +1,12 @@
+.week-status-button{
+    /* display: flex; */
+    /* flex-direction: column;
+    align-items: center; */
+    text-align: center;
+    /* width: auto; */
+}
 .week-status-button > button {
-    width: 77.3px;
+    width:24%;
     height: 28px;
     margin-bottom: 20px;
     border: none;

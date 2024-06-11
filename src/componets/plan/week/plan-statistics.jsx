@@ -21,7 +21,7 @@ const WeekStatistics = ({ plans }) => {
       <div className="all-plan-statistics">
         <div className="week-plan-statistics-name">
           이번주의 계획이예요!
-        </div>
+        </div> 
         <button className="plan-correction-button mint" onClick={handleChangeButtonClick}>
           수정하기
         </button>
