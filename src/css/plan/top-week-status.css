@@ -2,6 +2,7 @@
 .top-planning-background,
 .expand-button {
     background-color: #cfefe9;
+    
 }
 .top-planning-background {
     padding: 20px;
@@ -14,7 +15,7 @@
 .top-planning-background.expanded {
     max-height: 800px; /* 전체를 보여주는 상태의 높이 */
     overflow-y: auto;
-    
+     
    
 }
 
@@ -23,6 +24,7 @@
 .expand-button {
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
+    
 }
 
 .status-text {

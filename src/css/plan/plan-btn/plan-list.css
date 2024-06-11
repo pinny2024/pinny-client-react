@@ -15,21 +15,23 @@
     text-align: right;
     color: #5edcc4;
     position: fixed;
-    top: 685px;
+    top: 800px;
     right: 7px;
 }
 
 .plan-list-item {
     margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 60px;
+    margin-top: 20px;
 }
 
 .plan-list-item .combined-button {
-    width: 320px;
-    height: 70px;
+    width: 100%;
+    height: 80px;
     border-radius: 10px;
     border: 1px solid grey;
-    
+    font-size: 15px;
     background-color: white;
     margin-top: 10px;
 }

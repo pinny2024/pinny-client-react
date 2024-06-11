@@ -1,5 +1,5 @@
 .edit-plan-input-container{
-    padding-top: 50px;
+    padding-top: 60px;
 }
 .edit-plan-input-box {
     font-size: 15px;
@@ -9,7 +9,7 @@
 }
 
 .edit-plan-input-box input {
-    width: 260px;
+    width: 80%;
     height: 40px;
     border-radius: 10px;
     border: 1.5px solid grey; 
@@ -25,15 +25,16 @@
 }
 .edit-plan-input-check{
     text-align: center;
-    margin-top: 560px;
+    margin-top: 610px;
 }
 .edit-plan-input-check button {
-    width: 320px;
-    height: 40px; 
+    width: 90%;
+    height: 45px; 
     border-radius: 10px;
     border: 1px;
     color: white;
     margin-top: 5px;
+    font-size: 15px;
 }
 
 .edit-plan-input-check button.grey-button {
