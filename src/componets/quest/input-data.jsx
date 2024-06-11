@@ -32,7 +32,7 @@ const InputData = (props) => {
                 case '기타': setContent('기부하기'); break;
                 default: setContent('목표 설정');
             }
-        } 
+        }
         else if (lastPathSegment === "price") {
             setContent('500,000원');
         }
@@ -54,22 +54,46 @@ const InputData = (props) => {
             if (lastPathSegment === "content") {
                 localStorage.setItem("content", inputValue);
                 navigate('/quest/input/price');
-            } 
+            }
             else if (lastPathSegment === "price") {
                 localStorage.setItem("price", inputValue);
 
-                const unit = localStorage.getItem("unit");
-
+                const questId = 0;
+                switch (category) {
+                    case '가방': questId = 1; break;
+                    case '옷': questId = 2; break;
+                    case '악세사리': questId = 3; break;
+                    case '전자기기': questId = 4; break;
+                    case '집': questId = 5; break;
+                    case '여행': questId = 6; break;
+                    case '차': questId = 7; break;
+                    case '문화생활': questId = 8; break;
+                    case '기타': questId = 9; break;
+                }
 
                 const data = {
                     userId: userId,
                     quest: localStorage.getItem("content"),
                     price: localStorage.getItem("price"),
+                    questCategoryId : questId
                 }
+
                 axios.post(`${config.baseUrl}/quests`, data)
+                    .then(function(response){
+                        console.log(response);
+
+                        localStorage.removeItem("content");
+                        localStorage.removeItem("price");
+                        localStorage.removeItem("unit");
+
+                        navigate("/quest");
+                    })
+                    .catch(function (error){
+                        console.log(error);
+                    })
                 navigate('/quest');
             }
-        } 
+        }
         else {
             alert(lastPathSegment === "content" ? '목표를 입력해주세요' : '가격을 입력해주세요');
         }
