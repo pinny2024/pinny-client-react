@@ -2,6 +2,8 @@ import { React, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
+import axios from "axios";
+import config from "../../config";
 import styles from "../../css/quest/input-data.module.css"
 
 const InputData = (props) => {
@@ -48,9 +50,17 @@ const InputData = (props) => {
     const handleButtonClick = () => {
         if (inputValue) {
             if (lastPathSegment === "content") {
+                localStorage.setItem("content", inputValue);
                 navigate('/quest/input/price');
             } 
             else if (lastPathSegment === "price") {
+                localStorage.setItem("price", inputValue);
+
+                const data = {
+                    quest: content,
+                    
+                }
+                axios.post(`${config.baseUrl}/quests`, data)
                 navigate('/quest');
             }
         } 

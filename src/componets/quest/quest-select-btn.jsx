@@ -26,6 +26,7 @@ const QuestSelectBtn = () => {
     };
     const handleNextBtn = () => {
         if (select !== '') {
+            localStorage.setItem("unit", select);
             navigate('/quest/input/content', {state : {category:select}})
         }
     }
