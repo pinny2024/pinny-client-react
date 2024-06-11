@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
+    padding: 1.25vh 0;
 }
 
 .item {
@@ -35,28 +35,23 @@
     color: #38d6b8;
 }
 
-.item.clicked img {
-    filter: invert(68%) sepia(87%) saturate(4585%) hue-rotate(130deg) brightness(99%) contrast(86%);
-
-}
-
   
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 3vh;
+    height: 3vh;
     color: rgb(0,0,0,0.87); 
 }
   
 .label {
-    margin-top: 5px;
+    margin-top: 1.13vh;
     font-size: 10px; 
     color: rgb(0,0,0,0.87); 
     font-weight: 600;
 }
 
 .label-active{
-    margin-top: 5px;
-    font-size: 10px; 
+    margin-top: 1.13vh;
+    font-size: 11px; 
     color: #38D6B8;
     font-weight: 600;
 }

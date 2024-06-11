@@ -11,6 +11,7 @@
 .content {
     width: 100vw;
     display: flex;
+    align-items: center;
 }
 
 .icon {
@@ -23,12 +24,14 @@
     margin-left: 3.61vw;
     width: 59.72vw;
     text-align: left;
-    font-size: 14px;
+    font-size: 15px;
+    margin-top: 0.25vh;
     color: rgb(0,0,0,0.87);
 }
 
 .price{
     margin-left: 6.39vw;
-    font-size: 14px;
+    font-size: 15px;
+    margin-top: 0.25vh;
     color: rgb(0,0,0,0.87);
 }

@@ -3,6 +3,8 @@
     display: flex;
     top: 5vh;
     left: 70.83vw;
+    align-content: center;
+
 }
 .button{
     background-color: #ffffff;
