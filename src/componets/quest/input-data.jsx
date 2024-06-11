@@ -10,6 +10,8 @@ const InputData = (props) => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const userId = localStorage.getItem("id");
+
     const [content, setContent] = useState('');
     const [inputValue, setInputValue] = useState('');
 
@@ -56,9 +58,13 @@ const InputData = (props) => {
             else if (lastPathSegment === "price") {
                 localStorage.setItem("price", inputValue);
 
+                const unit = localStorage.getItem("unit");
+
+
                 const data = {
-                    quest: content,
-                    
+                    userId: userId,
+                    quest: localStorage.getItem("content"),
+                    price: localStorage.getItem("price"),
                 }
                 axios.post(`${config.baseUrl}/quests`, data)
                 navigate('/quest');
