@@ -16,13 +16,13 @@ const PlanChangeDetailPage = () => {
         if (location.state) {
             const { categoryNames, plan, category, image } = location.state;
             setCategoryNames(categoryNames);
-            setCategory(category); // category 상태 설정
-            setImage(image); // image 상태 설정
-            fetchPlans(category);
+            setCategory(category); 
+            setImage(image); 
+            fetchPlans(category, image); 
         }
     }, [location.state]);
 
-    const fetchPlans = async (categoryName = 'undefined') => {
+    const fetchPlans = async (categoryName = 'undefined', image) => {
         try {
             const response = await axios.get('http://localhost:8082/plans');
             const validPlans = response.data.filter(plan => {
@@ -33,7 +33,7 @@ const PlanChangeDetailPage = () => {
                 const category = plan.category || 'undefined';
                 return {
                     ...plan,
-                    image: image
+                    image: image // 해당 계획에 선택된 이미지 설정
                 };
             });
 
