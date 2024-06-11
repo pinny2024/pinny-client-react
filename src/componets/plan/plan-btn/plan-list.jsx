@@ -38,7 +38,6 @@ const PlanList = ({ context }) => {
         .map(plan => {
           return {
             ...plan,
-            image:image// 이미지 주소에 이미지 파일명 삽입
           };
         });
       setPlans(plansWithImages);
@@ -49,7 +48,7 @@ const PlanList = ({ context }) => {
   };
 
   const handleNextButtonClick = () => {
-    navigate('/plan/plan-category');
+    navigate('/plan/plan-categroy');
   };
 
   const handleButtonClick = (index, plan) => {

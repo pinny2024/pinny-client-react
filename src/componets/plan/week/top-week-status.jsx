@@ -16,7 +16,7 @@ const TopWeekStatus = ({ plans }) => {
       <div className={`top-planning-background ${isExpanded ? 'expanded' : ''}`}>
         <div className="status-text">
           현황을 살펴보세요!
-        </div>
+        </div> 
         <div className="all-week-status-button">
           <WeekStatusButton plans={plans} />
         </div>

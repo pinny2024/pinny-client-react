@@ -6,7 +6,7 @@ import axios from '../../utils/axiosInstance';
 const PlanDetail = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { selectedCategories, category, image } = location.state;
+  const { selectedCategories, image } = location.state || { selectedCategories: [], image: '' };
 
   const [inputValue, setInputValue] = useState('');
   const categoryNames = selectedCategories.map(cat => cat.name);
@@ -14,7 +14,7 @@ const PlanDetail = () => {
   useEffect(() => {
     console.log('Selected categories:', selectedCategories);
     console.log('Image:', image); // 이미지 값 콘솔에 출력
-  }, [selectedCategories, categoryNames, image]);
+  }, [selectedCategories, image]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -26,12 +26,13 @@ const PlanDetail = () => {
         await axios.post('/plans', {
           categories: selectedCategories,
           plan: inputValue,
+          image: image,
         });
         navigate('/plan/plan-list', {
           state: {
             categoryNames,
-            plan: inputValue, 
-            image, 
+            plan: inputValue,
+            image,
           },
         });
       }

@@ -17,17 +17,18 @@ const WeekPlan = () => {
   const fetchPlans = async () => {
     try {
       const response = await axios.get('http://localhost:8082/plans');
-      const plansWithImages = response.data.map(plan => {
-        const category = plan.category || 'undefined';
-        return {
-          ...plan,
-          image: `${process.env.PUBLIC_URL}/img/job-plan/category-button/category-${category}-white.svg`
-        };
-      });
+      const plansWithImages = response.data
+        .filter(plan => plan.plan !== null && plan.plan.trim() !== '') 
+        .map(plan => {
+          const category = plan.category || 'undefined';
+          return {
+            ...plan,
+          };
+        });
       setPlans(plansWithImages);
-      console.log('Fetched plans:', plansWithImages);
+      console.log('Fetched week plans:', plansWithImages);
     } catch (error) {
-      console.error('Error fetching plans:', error);
+      console.error('Error fetching week plans:', error);
     }
   };
 
@@ -65,7 +66,7 @@ const WeekPlan = () => {
           <div className="week-plan-button">
             <div className="week-plan-name">
               <span className="week-budget">일주일 예산</span>을
-              <br />
+              <br /> 
               세워보세요!
             </div>
             <button onClick={handleShowModal}>예산 세우기</button>

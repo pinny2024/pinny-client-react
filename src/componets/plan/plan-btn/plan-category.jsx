@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from '../../utils/axiosInstance'; // axiosInstance 사용
 import TopPlanCategory from './top-plan-category';
 import '../../../css/plan/plan-btn/top-plan-category.css';
 
@@ -8,7 +9,6 @@ const PlanCategory = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleButtonClick = (category, image) => {
-    // 이미지 변수와 함께 콘솔에 출력
     console.log('Selected category:', category);
     console.log('Selected image:', image);
 
@@ -19,12 +19,26 @@ const PlanCategory = () => {
     );
   };
 
-  const handleNextButtonClick = () => {
+  const handleNextButtonClick = async () => {
     if (selectedCategories.length > 0) {
-      navigate('/plan/plan-detail', { state: { selectedCategories, image: selectedCategories[0].image } });
+      try {
+        const response = await axios.post('/plans', {
+          categories: selectedCategories,
+          image: selectedCategories[0].image,
+        });
+        console.log('Response data:', response.data);
+
+        navigate('/plan/plan-detail', {
+          state: {
+            selectedCategories,
+            image: selectedCategories[0].image,
+          }, 
+        });
+      } catch (error) {
+        console.error('Error adding plan:', error);
+      }
     }
   };
-  
 
   return (
     <div className="plan-category">
@@ -46,4 +60,3 @@ const PlanCategory = () => {
 };
 
 export default PlanCategory;
-
