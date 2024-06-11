@@ -1,7 +1,6 @@
 
 .week-plan-statistics-button{
     margin-bottom: -20px;
-    /* font-size: 30px; */
 }
 .week-plan-statistics-button> button{
     width: 100%;
@@ -14,13 +13,10 @@
     cursor: pointer;
     font-size: 15px;
 }
-.combined-button.checked {
-    background-color: grey; /* 배경색을 회색으로 변경 */
-    color: white; /* 글자색 변경 */
-  }
+
   
-  /* 체크 아이콘 스타일링 */
-  .combined-button.checked .check-icon {
-    color: white; /* 아이콘 색상 변경 */
+
+  .combined-button .check-icon {
+     color: grey; 
   }
   

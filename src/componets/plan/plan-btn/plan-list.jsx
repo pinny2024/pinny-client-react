@@ -121,6 +121,7 @@ const PlanList = ({ context }) => {
             context={context}
             image={plan.image}
             handleButtonClick={handleButtonClick}
+            buttonStyle="plan-list-button"
           />
         ))}
       </div>
