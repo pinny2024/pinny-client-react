@@ -13,6 +13,7 @@ const InputData = (props) => {
     const userId = localStorage.getItem("id");
 
     const [content, setContent] = useState('');
+    const [questId, setQuestId] = useState(1);
     const [inputValue, setInputValue] = useState('');
 
     const category = location.state ? location.state.category : null;
@@ -21,15 +22,42 @@ const InputData = (props) => {
     useEffect(() => {
         if (lastPathSegment === "content") {
             switch (category) {
-                case '가방': setContent('핸드백 사기'); break;
-                case '옷': setContent('AA브랜드 옷 사기'); break;
-                case '악세사리': setContent('목걸이 사기'); break;
-                case '전자기기': setContent('노트북 사기'); break;
-                case '집': setContent('원룸 얻기'); break;
-                case '여행': setContent('미국 가기'); break;
-                case '차': setContent('자가용 뽑기'); break;
-                case '문화생활': setContent('콘서트 티켓 가기'); break;
-                case '기타': setContent('기부하기'); break;
+                case '가방':
+                    setContent('핸드백 사기');
+                    setQuestId(1);
+                    break;
+                case '옷':
+                    setContent('AA브랜드 옷 사기');
+                    setQuestId(2);
+                    break;
+                case '악세사리':
+                    setContent('목걸이 사기');
+                    setQuestId(3);
+                    break;
+                case '전자기기':
+                    setContent('노트북 사기');
+                    setQuestId(4);
+                    break;
+                case '집':
+                    setContent('원룸 얻기');
+                    setQuestId(5);
+                    break;
+                case '여행':
+                    setContent('미국 가기');
+                    setQuestId(6);
+                    break;
+                case '차':
+                    setContent('자가용 뽑기');
+                    setQuestId(7);
+                    break;
+                case '문화생활':
+                    setContent('콘서트 티켓 가기');
+                    setQuestId(8);
+                    break;
+                case '기타':
+                    setContent('기부하기');
+                    setQuestId(9);
+                    break;
                 default: setContent('목표 설정');
             }
         }
@@ -58,28 +86,15 @@ const InputData = (props) => {
             else if (lastPathSegment === "price") {
                 localStorage.setItem("price", inputValue);
 
-                const questId = 0;
-                switch (category) {
-                    case '가방': questId = 1; break;
-                    case '옷': questId = 2; break;
-                    case '악세사리': questId = 3; break;
-                    case '전자기기': questId = 4; break;
-                    case '집': questId = 5; break;
-                    case '여행': questId = 6; break;
-                    case '차': questId = 7; break;
-                    case '문화생활': questId = 8; break;
-                    case '기타': questId = 9; break;
-                }
-
                 const data = {
                     userId: userId,
                     quest: localStorage.getItem("content"),
                     price: localStorage.getItem("price"),
-                    questCategoryId : questId
+                    questCategoryId: parseInt(questId)
                 }
 
                 axios.post(`${config.baseUrl}/quests`, data)
-                    .then(function(response){
+                    .then(function (response) {
                         console.log(response);
 
                         localStorage.removeItem("content");
@@ -88,7 +103,7 @@ const InputData = (props) => {
 
                         navigate("/quest");
                     })
-                    .catch(function (error){
+                    .catch(function (error) {
                         console.log(error);
                     })
                 navigate('/quest');
