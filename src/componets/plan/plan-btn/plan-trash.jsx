@@ -12,8 +12,10 @@ import DeleteModal from '../../comm/delete-modal';
   
     if (count === 1) {
       content = `${planName} 계획을 삭제할까요?`;
-    } else {
+    } else if(count >1){
       content = `${planName} 외 ${count - 1}개의 계획을 삭제할까요?`;
+    }else{
+      content = `삭제할 버튼을 선택해주세요.`;
     }
   
     const handleDelete = () => {

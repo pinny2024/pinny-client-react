@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Modal from "./Modal";
-import PlanButton from "../plan/plan-btn/plan-buton"; // Corrected the import path
+import PlanButton from "../plan/plan-btn/plan-buton";
+import WeekPlanGragh from "./week-plan-gragh"; // Import WeekPlanGragh component
 
 import "../../css/home/week-plan.css";
 
 const WeekPlan = () => {
   const [showModal, setShowModal] = useState(false);
   const [plans, setPlans] = useState([]);
-  const [budgetAmount, setBudgetAmount] = useState(0); // State to hold the budget amount
+  const [budgetAmount, setBudgetAmount] = useState(0);
 
   useEffect(() => {
     fetchPlans();
@@ -23,6 +24,7 @@ const WeekPlan = () => {
           const category = plan.category || 'undefined';
           return {
             ...plan,
+            isChecked: plan.isChecked || false
           };
         });
       setPlans(plansWithImages);
@@ -45,9 +47,20 @@ const WeekPlan = () => {
     setShowModal(false);
   };
 
-  const handleButtonClick = (index, plan) => {
-    console.log(`Button clicked: ${index}, ${plan.planId}, ${plan.plan}`);
-    // Add your click handling logic here
+  const handleButtonClick = async (index, plan) => {
+    try {
+      const updatedPlan = { ...plan, isChecked: !plan.isChecked };
+      const response = await axios.put(`http://localhost:8082/plans/${plan.planId}`, updatedPlan);
+
+      if (response.status === 200) {
+        const updatedPlans = [...plans];
+        updatedPlans[index] = updatedPlan;
+        setPlans(updatedPlans);
+        console.log(`Button clicked: ${index}, ${plan.planId}, ${plan.plan}, isChecked: ${updatedPlan.isChecked}`);
+      }
+    } catch (error) {
+      console.error('Error updating plan isChecked state:', error);
+    }
   };
 
   return (
@@ -60,7 +73,8 @@ const WeekPlan = () => {
               <br />
               확인해보세요!
             </div>
-            <div className="budget-amount">{budgetAmount.toLocaleString()}원</div>
+            <WeekPlanGragh budgetAmount={budgetAmount} />
+            
           </>
         ) : (
           <div className="week-plan-button">
@@ -74,6 +88,7 @@ const WeekPlan = () => {
         )}
       </div>
       <hr />
+       
       <div className="career">
         <div className="career-name">
           오늘 <span className="action-plan">실천한 계획</span>을
@@ -86,10 +101,11 @@ const WeekPlan = () => {
               key={index}
               index={index}
               plan={plan}
-              isChecked={false} // You can implement click state logic if needed
-              context="view" // Specify the context or pass as prop
-              image={plan.image} // Pass the image to PlanButton
+              isChecked={plan.isChecked}
+              context="view"
+              image={plan.image}
               handleButtonClick={handleButtonClick}
+              buttonStyle="week-checked-button" 
             />
           ))}
         </div>

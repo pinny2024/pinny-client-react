@@ -7,7 +7,7 @@ import '../../../css/plan/plan-btn/edit-plan-input.css';
 
 const EditPlanInput = ({ updatePlan }) => {
     const navigate = useNavigate();
-    const { id: planId } = useParams(); // URL에서 계획의 ID를 가져옴
+    const { id: planId } = useParams(); 
 
     const [inputValue, setInputValue] = useState(""); 
     const [clickedButtons, setClickedButtons] = useState({
@@ -36,11 +36,12 @@ const EditPlanInput = ({ updatePlan }) => {
         fetchPlanDetails();
     }, [planId]);
 
-    const handleButtonClick = (category) => {
+    const handleButtonClick = (category, image) => {
         setClickedButtons(prevState => ({
             ...prevState,
-            [category]: !prevState[category] // Toggle the button state
+            [category]: !prevState[category] 
         }));
+        handleImageChange(image);
     };
 
     const handleImageChange = (image) => {
@@ -54,10 +55,10 @@ const EditPlanInput = ({ updatePlan }) => {
 
     const handleNextButtonClick = async () => {
         try {
-            // 이미지가 아닌 이미지 경로만을 전달합니다.
+           
             const data = {
                 plan: inputValue,
-                image: planImage // 선택한 이미지 경로를 서버에 전달
+                image: planImage
             };
     
             await axios.put(`http://localhost:8082/plans/${planId}`, data);
@@ -67,7 +68,6 @@ const EditPlanInput = ({ updatePlan }) => {
         }
     };
     
-
     return (
         <>
             <Header />
@@ -75,8 +75,6 @@ const EditPlanInput = ({ updatePlan }) => {
                 <TopPlanCategory 
                     clickedButtons={clickedButtons} 
                     handleButtonClick={handleButtonClick} 
-                    handleImageChange={handleImageChange} 
-                    currentImage={planImage} // 현재 이미지 전달
                 />
             </div>
             <div className="edit-plan-input-box">
