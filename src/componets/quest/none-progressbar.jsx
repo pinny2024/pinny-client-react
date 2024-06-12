@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import {Link} from"react-router-dom";
 
 import "../../css/comm/index.css"
 import styles from "../../css/quest/progressbar.module.css"
+import axios from "axios";
+import config from "../../config";
 
 const Progressbar = () => {
     return (
         <div className={styles['container']}>
             <div className={styles['background']}>
                 <CircularProgressbarWithChildren
-                    value={70}
+                    value={0.1}
                     strokeWidth={11}
                     className={styles['main']}
-                    styles={{
+                    styles={
+                        {
                         root: { height: "258px" },
                         path: {
                             stroke: "#79AFEF",
