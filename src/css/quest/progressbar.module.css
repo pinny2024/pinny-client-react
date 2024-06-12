@@ -1,33 +1,32 @@
 .container{
-    width: 100vw;
+    height: 280px;
     top: 23vh;
     position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .background{
-    width: 280px;
-    height: 280px;
+    width: 77.78vw;
+    height: 77.78vw;
     background-color: #ffffff;
     border-radius: 100vh;
     display: flex;
     justify-content: center;
     align-self: center;
+    left: 11vw;
+    position: fixed;
 }
 
 .starter{
     position: fixed;
-    width: 17px;
-    height: 17px;
+    width: 2.5vw;
+    height: 2.5vw;
     border-radius: 100vw;
     background-color: #ffffff;
-    margin-top: -29vh;
+    margin-top: -33.4vh;
 }
 
 .main{
-    margin-top: 11px;
+    margin-top: 1.38vh;
     text-align: center;
     position: relative;
 }
@@ -40,4 +39,8 @@
     color: #38D6B8;
     font-size: 100px;
     font-weight: bold;
+}
+
+.slider {
+    margin: auto;
 }

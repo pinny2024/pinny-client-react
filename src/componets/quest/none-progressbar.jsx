@@ -4,8 +4,6 @@ import {Link} from"react-router-dom";
 
 import "../../css/comm/index.css"
 import styles from "../../css/quest/progressbar.module.css"
-import axios from "axios";
-import config from "../../config";
 
 const Progressbar = () => {
     return (
