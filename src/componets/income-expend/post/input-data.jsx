@@ -15,12 +15,13 @@ const InputData = () => {
     const [amount, setAmount] = useState("");
     const [content, setContent] = useState("");
     const [path, setPath] = useState("");
+    const [type, setType] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
         switch(window.location.pathname){
-            case '/income/post' : setPath('incomes');
-            case '/expend/post' : setPath('expenditures');
+            case '/income/post' : setPath('incomes'); setType("수입");
+            case '/expend/post' : setPath('expenditures'); setType("지출");
         }
     }, [navigate]);
 
@@ -38,13 +39,18 @@ const InputData = () => {
 
     const handleSubmitClick = () => {
         const userId = localStorage.getItem("id");
+        if(selectedCategory === "저축"){
+            setType("저축")
+        }
+
         const data = {
-            money: amount,
+            amount: amount,
             category: selectedCategory,
-            content: content
+            type: type,
+            description: content
         };
 
-        axios.post(`${config.baseUrl}/${path}/${userId}`, data)
+        axios.post(`${config.baseUrl}/transactions/${userId}`, data)
         .then(function(response) {
             console.log(response);
             navigate("/income-expend/seperate");
