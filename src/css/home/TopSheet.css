@@ -45,7 +45,7 @@
 
 
 .calendar-container.open {
-  max-height: 300px; /* 펼쳐진 상태일 때 캘린더가 다 보이도록 */
+  max-height: 330px; /* 펼쳐진 상태일 때 캘린더가 다 보이도록 */
 }
 
 .calendar-container.show-full {
