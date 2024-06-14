@@ -11,29 +11,31 @@ const MoneyHistory = ({category}) => {
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
-        if (category) {
-            axios.get(`${config.baseUrl}/transactions/${userId}/category/${category}`)
-                .then((response) => {
-                    setTransactions(response.data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
+        axios.get(`${config.baseUrl}/transactions/${userId}/category/${category}`)
+            .then((response) => {
+                console.log(response);
+                setTransactions(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }, [userId, category]);
-
 
     return (
         <div className={styles['box']}>
-            <div className={styles['day']}>9일</div>
-            {transactions.map((transaction, index) => (
-                <MoneyHistoryAttribute
-                    key={index}
-                    name={transaction.name}
-                    description={transaction.description}
-                    type={transaction.type}
-                    category={transaction.category}
-                />
+            {transactions.map((group, index) => (
+                <div key={index}>
+                    <div className={styles['day']}>{group.createdAt.split("-")[2]}일</div>
+                    {group.transactions.map((transaction, index) => (
+                        <MoneyHistoryAttribute
+                            key={index}
+                            amount={transaction.amount}
+                            description={transaction.description}
+                            type={transaction.type}
+                            category={transaction.category}
+                        />
+                    ))}
+                </div>
             ))}
         </div>
     )
