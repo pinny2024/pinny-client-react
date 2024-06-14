@@ -23,15 +23,19 @@ const MoneyHistory = () => {
 
     return (
         <div className={styles['box']}>
-            <div className={styles['day']}>9일</div>
-            {transactions.map((transaction, index) => (
-                <MoneyHistoryAttribute
-                    key={index}
-                    name={transaction.name}
-                    description={transaction.description}
-                    type={transaction.type}
-                    category={transaction.category}
-                />
+            {transactions.map((group, index) => (
+                <div key={index}>
+                    <div className={styles['day']}>{group.createdAt.split("-")[2]}일</div>
+                    {group.transactions.map((transaction, index) => (
+                        <MoneyHistoryAttribute
+                            key={index}
+                            amount={transaction.amount}
+                            description={transaction.description}
+                            type={transaction.type}
+                            category={transaction.category}
+                        />
+                    ))}
+                </div>
             ))}
         </div>
     )
