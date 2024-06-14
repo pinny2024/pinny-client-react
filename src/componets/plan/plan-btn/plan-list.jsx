@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from '../../utils/axiosInstance';
 import '../../../css/plan/plan-btn/plan-list.css';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -12,6 +13,8 @@ const PlanList = ({ context }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { categoryNames, plan, category, image } = location.state || {};
+  const user_id = localStorage.getItem("id");
+  const { id: planId } = useParams(); 
 
   const [plans, setPlans] = useState([]);
   const [clickedButtons, setClickedButtons] = useState([]);
@@ -32,9 +35,9 @@ const PlanList = ({ context }) => {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get('/plans');
+      const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
       const plansWithImages = response.data
-        .filter(plan => plan.plan !== null && plan.plan.trim() !== '') // 빈 값을 가진 계획 제외
+        // .filter(plan => plan.plan !== null && plan.plan.trim() !== '') // 빈 값을 가진 계획 제외
         .map(plan => {
           return {
             ...plan,
@@ -53,7 +56,7 @@ const PlanList = ({ context }) => {
 
   const handleButtonClick = (index, plan) => {
     if (context === 'modify') {
-      navigate(`/plan/edit-plan-input/${plan.planId}`);
+      navigate(`/plan/edit-plan-input/${plan.id}`);
       fetchPlans();
     } else {
       const isClicked = clickedButtons.includes(index);
@@ -92,10 +95,10 @@ const PlanList = ({ context }) => {
       for (const index of clickedButtons) {
         const plan = plans[index];
         if (plan) {
-          await axios.delete(`/plans/${plan.planId}`);
-          setClickedButtons(prevButtons => prevButtons.filter(item => item !== index));
+          await axios.delete(`http://localhost:8082/plans/${plan.id}`);
         }
       }
+      setClickedButtons([]);
       setModalIsOpen(false);
       fetchPlans();
     } catch (error) {

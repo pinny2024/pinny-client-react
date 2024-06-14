@@ -7,13 +7,15 @@ const PlanDetail = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { selectedCategories, image } = location.state || { selectedCategories: [], image: '' };
+  const userId = localStorage.getItem("id");
 
   const [inputValue, setInputValue] = useState('');
   const categoryNames = selectedCategories.map(cat => cat.name);
 
   useEffect(() => {
     console.log('Selected categories:', selectedCategories);
-    console.log('Image:', image); // 이미지 값 콘솔에 출력
+    console.log('Image:', image); 
+    
   }, [selectedCategories, image]);
 
   const handleInputChange = (e) => {
@@ -23,16 +25,17 @@ const PlanDetail = () => {
   const handleNextButtonClick = async () => {
     try {
       if (inputValue.trim() !== '') {
-        await axios.post('/plans', {
-          categories: selectedCategories,
+        await axios.post('http://localhost:8082/plans', {
           plan: inputValue,
           image: image,
+          userId: userId,
         });
         navigate('/plan/plan-list', {
           state: {
             categoryNames,
             plan: inputValue,
             image,
+            userId: userId,
           },
         });
       }
