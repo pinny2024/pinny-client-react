@@ -7,23 +7,20 @@ const Modal = ({ handleClose, show, handleConfirm }) => {
   const [isTyped, setIsTyped] = useState(false);
 
   const handleConfirmClick = () => {
-    // Validate if moneyValue is not empty
     if (moneyValue.trim() !== "") {
-      handleConfirm(parseInt(moneyValue.replace(/,/g, ""))); // Remove commas before parsing to integer
-      handleClose(); // Close the modal
+      handleConfirm(parseInt(moneyValue.replace(/,/g, ""))); 
+      handleClose(); 
     }
   };
 
   const handleChange = (e) => {
     const value = e.target.value;
     
-    // Remove non-numeric characters and commas
     const newValue = value.replace(/,/g, "");
 
-    // Parse the numeric value and format it with commas
     const formattedValue = parseInt(newValue).toLocaleString();
 
-    // Update the moneyValue state and set isTyped based on the length of newValue
+    
     setMoneyValue(formattedValue);
     setIsTyped(newValue.length > 0);
   };

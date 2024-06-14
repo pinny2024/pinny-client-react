@@ -22,11 +22,11 @@ const TopSheet = () => {
 
   
   const onChange = (value) => {
-    setSelectedDate(value); // 선택된 날짜 설정
+    setSelectedDate(value); 
   };
 
   const handleDateClick = (value) => {
-    setSelectedDate(value); // 선택된 날짜 설정
+    setSelectedDate(value); 
     setShowBottomSheet(true); 
   };
 
@@ -52,7 +52,7 @@ const TopSheet = () => {
             <Calendar 
               className="calendar" 
               onChange={onChange} 
-              value={selectedDate} // value를 selectedDate로 변경
+              value={selectedDate} 
               formatDay={(locale, date) => renderDay(locale, date)}
               calendarType="gregory"
               formatMonthYear={(locale, date) => {
@@ -68,7 +68,6 @@ const TopSheet = () => {
       </div>
       <BottomSheet isOpen={showBottomSheet} onClose={() => setShowBottomSheet(false)}>
         {/* BottomSheet 내부에 넣을 내용 */}
-        {/* 선택된 날짜에 관한 내용을 넣기 */}
         <p>선택된 날짜: {selectedDate ? selectedDate.toLocaleDateString() : '날짜를 선택해주세요'}</p>
       </BottomSheet>
     </div>
