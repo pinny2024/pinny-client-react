@@ -9,14 +9,15 @@ const PlanButton = ({ index, plan, isChecked, context, categoryName, category, i
         handleButtonClick(index, plan);
     };
 
+    // console.log(isChecked)
     return (
         <button
             className={`combined-button ${isChecked ? 'checked' : ''} ${context === 'modify' ? 'modify' : ''} ${buttonStyle}`}
             onClick={handleClick}
         >
-            <img src={plan.image} alt={categoryName} className="button-image" /> 
-            <div>{plan.plan}</div>
-            <AiOutlineCheckCircle className="check-icon" size={30} />
+            <img src={plan.image} alt={categoryName} className="category-button-image" /> 
+            <div className='plan-button-text'>{plan.plan}</div>
+            <AiOutlineCheckCircle className={`check-icon ${isChecked ? 'checked' : ''}`} size={30} />
         </button>
     );
 };
