@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 import Modal from "./Modal";
 import PlanButton from "../plan/plan-btn/plan-buton";
-import WeekPlanGragh from "./week-plan-gragh"; // Import WeekPlanGragh component
+import WeekPlanGragh from "./week-plan-gragh"; 
 
 import "../../css/home/week-plan.css";
 
@@ -10,6 +11,8 @@ const WeekPlan = () => {
   const [showModal, setShowModal] = useState(false);
   const [plans, setPlans] = useState([]);
   const [budgetAmount, setBudgetAmount] = useState(0);
+  const user_id = localStorage.getItem("id");
+  const { id: planId } = useParams(); 
 
   useEffect(() => {
     fetchPlans();
@@ -17,16 +20,15 @@ const WeekPlan = () => {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/plans');
+      const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
       const plansWithImages = response.data
         .filter(plan => plan.plan !== null && plan.plan.trim() !== '') 
         .map(plan => {
-          const category = plan.category || 'undefined';
-          return {
-            ...plan,
-            isChecked: plan.isChecked || false
-          };
-        });
+          return ({
+          ...plan,
+          isChecked: plan.isChecked,
+        })
+      });
       setPlans(plansWithImages);
       console.log('Fetched week plans:', plansWithImages);
     } catch (error) {
@@ -50,13 +52,13 @@ const WeekPlan = () => {
   const handleButtonClick = async (index, plan) => {
     try {
       const updatedPlan = { ...plan, isChecked: !plan.isChecked };
-      const response = await axios.put(`http://localhost:8082/plans/${plan.planId}`, updatedPlan);
+      const response = await axios.put(`http://localhost:8082/plans/${plan.id}`, updatedPlan);
 
       if (response.status === 200) {
         const updatedPlans = [...plans];
         updatedPlans[index] = updatedPlan;
         setPlans(updatedPlans);
-        console.log(`Button clicked: ${index}, ${plan.planId}, ${plan.plan}, isChecked: ${updatedPlan.isChecked}`);
+        console.log(`Button clicked: ${index}, ${plan.id}, ${plan.plan}, isChecked: ${updatedPlan.isChecked}`);
       }
     } catch (error) {
       console.error('Error updating plan isChecked state:', error);
@@ -74,7 +76,6 @@ const WeekPlan = () => {
               확인해보세요!
             </div>
             <WeekPlanGragh budgetAmount={budgetAmount} />
-            
           </>
         ) : (
           <div className="week-plan-button">
@@ -101,9 +102,9 @@ const WeekPlan = () => {
               key={index}
               index={index}
               plan={plan}
-              isChecked={plan.isChecked}
+              isChecked={plan.isChecked} 
               context="view"
-              image={plan.image}
+              // image={plan.image}
               handleButtonClick={handleButtonClick}
               buttonStyle="week-checked-button" 
             />
