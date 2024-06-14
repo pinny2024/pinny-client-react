@@ -32,8 +32,8 @@ const Progressbar = () => {
             case 2: setIcon("clothes-icon.svg"); break;
             case 3: setIcon("ring-icon.svg"); break;
             case 4: setIcon("laptop-icon.svg"); break;
-            case 5: setIcon("airplane-icon.svg"); break;
-            case 6: setIcon("house-icon.svg"); break;
+            case 6: setIcon("airplane-icon.svg"); break;
+            case 5: setIcon("house-icon.svg"); break;
             case 7: setIcon("car-icon.svg"); break;
             case 8: setIcon("ticket-icon.svg"); break;
             case 9: setIcon("etc-icon.svg"); break;
