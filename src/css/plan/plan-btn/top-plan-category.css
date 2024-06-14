@@ -1,23 +1,28 @@
-.plan-category{
+
+.plan-category {
     padding-top: 80px;
-}
-.plan-category .plan-category-name{
+  }
+  
+  .plan-category .plan-category-name {
     margin-left: 20px;
     font-size: 20px;
     font-weight: bold;
-}
-.top-plan-category .plan-category-button{
+  }
+  
+  .top-plan-category .plan-category-button {
     text-align: center;
     margin-top: 15px;
     margin-right: 10px;
-}
-.top-plan-category .plan-category-button img{
+  }
+  
+  .top-plan-category .plan-category-button img {
     text-align: center;
     margin-right: 10px;
     margin-top: 4px;
     width: 28px;
-}
-.top-plan-category .plan-category-button button{
+  }
+  
+  .top-plan-category .plan-category-button button {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -25,26 +30,35 @@
     padding-left: 10px;
     background-color: white;
     margin: 7px;
-}
-.plan-category-next-button {
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .top-plan-category .plan-category-button button.clicked {
+    background-color: #c7f3e6; 
+  }
+  
+  .plan-category-next-button {
     text-align: center;
     margin-top: 620px; 
-}
-.plan-category-next-button button{
+  }
+  
+  .plan-category-next-button button {
     width: 370px;
-    height: 44px; 
+    height: 44px;
     border-radius: 10px;
     border: 1px;
     color: white;
     font-size: 15px;
-}
-.plan-category-next-button .grey-button{
+  }
+  
+  .plan-category-next-button .grey-button {
     background-color: #ccc;
     border-style: none;
-}
-.plan-category-next-button .mint-button{
+  }
+  
+  .plan-category-next-button .mint-button {
     background-color: #5edcc4;
     border-style: none;
-}
-
-
+  }
+  
