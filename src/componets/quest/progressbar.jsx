@@ -12,6 +12,9 @@ const Progressbar = () => {
     const [questId, setQuestId] = useState(1);
     const [title, setTitle] = useState("");
     const [icon, setIcon] = useState("");
+    const [price, setPrice] = useState("");
+    const [percent, setPercent] = useState("");
+
     const userId = localStorage.getItem("id");
 
     useEffect(() => {
@@ -20,6 +23,7 @@ const Progressbar = () => {
                 console.log(response);
                 setQuestId(response.data[0].questCategoryId);
                 setTitle(response.data[0].quest);
+                setPrice(response.data[0].price);
             })
             .catch(function (error) {
                 console.log(error);
@@ -40,11 +44,18 @@ const Progressbar = () => {
         }
     })
 
+    useEffect(() => {
+        if (price) {
+            const calculatedPercent = 100 * (1000 / price);
+            setPercent(calculatedPercent);
+        }
+    }, [price]);
+
     return (
         <div className={styles['container']}>
             <div className={styles['background']}>
                 <CircularProgressbarWithChildren
-                    value={0}
+                    value={percent}
                     strokeWidth={11}
                     className={styles['main']}
                     styles={{
