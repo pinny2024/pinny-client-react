@@ -18,11 +18,11 @@
 
 .starter{
     position: fixed;
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 4.27vw;
+    height: 4.27vw;
     border-radius: 100vw;
     background-color: #ffffff;
-    margin-top: -33.4vh;
+    margin-top: -32.4vh;
 }
 
 .main{
