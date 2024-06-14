@@ -20,8 +20,8 @@ const InputData = () => {
 
     useEffect(() => {
         switch(window.location.pathname){
-            case '/income/post' : setPath('incomes'); setType("수입");
-            case '/expend/post' : setPath('expenditures'); setType("지출");
+            case '/income/post' : setPath('incomes'); setType("수입"); break;
+            case '/expend/post' : setPath('expenditures'); setType("지출"); break;
         }
     }, [navigate]);
 
@@ -39,9 +39,6 @@ const InputData = () => {
 
     const handleSubmitClick = () => {
         const userId = localStorage.getItem("id");
-        if(selectedCategory === "저축"){
-            setType("저축")
-        }
 
         const data = {
             amount: amount,
