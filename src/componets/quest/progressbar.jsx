@@ -9,19 +9,36 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 const Progressbar = () => {
-    const [questData, setQuestData] = useState([]);
+    const [questId, setQuestId] = useState(1);
+    const [title, setTitle] = useState("");
+    const [icon, setIcon] = useState("");
     const userId = localStorage.getItem("id");
 
     useEffect(() => {
         axios.get(`${config.baseUrl}/quests/${userId}`)
             .then(function (response) {
                 console.log(response);
-                setQuestData(response.data);
+                setQuestId(response.data[0].questCategoryId);
+                setTitle(response.data[0].quest);
             })
             .catch(function (error) {
                 console.log(error);
             })
     }, [userId]);
+
+    useEffect(() => {
+        switch (questId) {
+            case 1: setIcon("bag-icon.svg"); break;
+            case 2: setIcon("clothes-icon.svg"); break;
+            case 3: setIcon("ring-icon.svg"); break;
+            case 4: setIcon("laptop-icon.svg"); break;
+            case 5: setIcon("airplane-icon.svg"); break;
+            case 6: setIcon("house-icon.svg"); break;
+            case 7: setIcon("car-icon.svg"); break;
+            case 8: setIcon("ticket-icon.svg"); break;
+            case 9: setIcon("etc-icon.svg"); break;
+        }
+    })
 
     return (
         <div className={styles['container']}>
@@ -43,11 +60,12 @@ const Progressbar = () => {
                     }}
                 >
                     <div className={styles['starter']}></div>
-                    <Link to="/quest/select">
-                        <div className={styles['icon']}>?</div>
-                    </Link>
+                    <div className={styles['icon']}>
+                        <img src={`${process.env.PUBLIC_URL}/img/quest/${icon}`} />
+                    </div>
                 </CircularProgressbarWithChildren>
             </div>
+            <div className={styles['title']}>{title}</div>
         </div>
     );
 };
