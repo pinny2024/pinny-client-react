@@ -5,7 +5,7 @@ import Header from "../../comm/header";
 import TopPlanCategory from "./top-plan-category";
 import '../../../css/plan/plan-btn/edit-plan-input.css';
 
-const EditPlanInput = ({ updatePlan }) => {
+const EditPlanInput = () => {
     const navigate = useNavigate();
     const { id: planId } = useParams(); 
 
@@ -24,10 +24,17 @@ const EditPlanInput = ({ updatePlan }) => {
         const fetchPlanDetails = async () => {
             try {
                 const response = await axios.get(`http://localhost:8082/plans/${planId}`);
-                const { plan, image } = response.data;
-                setInputValue(plan);
-                setPlanImage(image);
-                setPreviewImage(image);
+                const { plan, image, categories } = response.data;
+
+                setInputValue(plan || "");  
+                setPlanImage(image || ""); 
+                setPreviewImage(image || ""); 
+
+                const updatedClickedButtons = { ...clickedButtons };
+                (categories || []).forEach(category => {
+                    updatedClickedButtons[category] = true;
+                });
+                setClickedButtons(updatedClickedButtons);
             } catch (error) {
                 console.error('Error fetching plan details:', error);
             }
@@ -55,12 +62,13 @@ const EditPlanInput = ({ updatePlan }) => {
 
     const handleNextButtonClick = async () => {
         try {
-           
+            const selectedCategories = Object.keys(clickedButtons).filter(category => clickedButtons[category]);
             const data = {
                 plan: inputValue,
-                image: planImage
+                image: planImage,
+                categories: selectedCategories
             };
-    
+
             await axios.put(`http://localhost:8082/plans/${planId}`, data);
             navigate(`/plan/plan-change-detail`);
         } catch (error) {
