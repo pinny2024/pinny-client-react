@@ -15,8 +15,8 @@ const Progressbar = () => {
                     className={styles['main']}
                     styles={
                         {
-                        root: { height: "258px" },
-                        path: {
+                            root: { height: "32.25vh" },
+                             path: {
                             stroke: "#79AFEF",
                             strokeLinecap: "round",
                             transition: "stroke-dashoffset 0.5s ease 0s",

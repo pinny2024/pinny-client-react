@@ -40,6 +40,7 @@ const QuestData = () => {
                     <QuestDataComponent />
                     <Progressbar />
                     <PreQuest />
+                    <QuestBtn />
                     <Nav />
                 </>
             )}

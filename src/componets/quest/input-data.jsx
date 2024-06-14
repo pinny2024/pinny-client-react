@@ -2,25 +2,18 @@ import { React, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
-import axios from "axios";
-import config from "../../config";
 import styles from "../../css/quest/input-data.module.css"
 
 const InputData = (props) => {
-    const location = useLocation();
     const navigate = useNavigate();
-
-    const userId = localStorage.getItem("id");
 
     const [content, setContent] = useState('');
     const [questId, setQuestId] = useState(1);
     const [inputValue, setInputValue] = useState('');
 
-    const category = location.state ? location.state.category : null;
-    const lastPathSegment = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    const category = localStorage.getItem("unit");
 
     useEffect(() => {
-        if (lastPathSegment === "content") {
             switch (category) {
                 case '가방':
                     setContent('핸드백 사기');
@@ -59,12 +52,8 @@ const InputData = (props) => {
                     setQuestId(9);
                     break;
                 default: setContent('목표 설정');
-            }
         }
-        else if (lastPathSegment === "price") {
-            setContent('500,000원');
-        }
-    }, [lastPathSegment]);
+    }, []);
 
     useEffect(() => {
         const inputBox = document.querySelector(`.${styles['input-btn']}`);
@@ -79,38 +68,9 @@ const InputData = (props) => {
 
     const handleButtonClick = () => {
         if (inputValue) {
-            if (lastPathSegment === "content") {
                 localStorage.setItem("content", inputValue);
+                localStorage.setItem("questId", questId);
                 navigate('/quest/input/price');
-            }
-            else if (lastPathSegment === "price") {
-                localStorage.setItem("price", inputValue);
-
-                const data = {
-                    userId: userId,
-                    quest: localStorage.getItem("content"),
-                    price: localStorage.getItem("price"),
-                    questCategoryId: parseInt(questId)
-                }
-
-                axios.post(`${config.baseUrl}/quests`, data)
-                    .then(function (response) {
-                        console.log(response);
-
-                        localStorage.removeItem("content");
-                        localStorage.removeItem("price");
-                        localStorage.removeItem("unit");
-
-                        navigate("/quest");
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-                navigate('/quest');
-            }
-        }
-        else {
-            alert(lastPathSegment === "content" ? '목표를 입력해주세요' : '가격을 입력해주세요');
         }
     };
 
