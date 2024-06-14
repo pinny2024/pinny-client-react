@@ -77,5 +77,15 @@
 .plan-list-button:focus {
     outline: none;
 }
-
-  
+.category-button-image {
+    margin-left: 5px;
+    background-size: 100px;
+    background-color: #e5f9f3; 
+    width: 30px;
+    padding: 7px 7px;
+    border-radius: 50px;
+    
+}
+.plan-button-text{
+    margin-right:23px;
+}
