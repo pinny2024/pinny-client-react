@@ -12,7 +12,7 @@
                 <CollectionDataBtn img="music-icon.svg" text="문화생활"/>
                 <CollectionDataBtn img="money-icon.svg" text="금융"/>
                 <CollectionDataBtn img="etc-icon.svg" text="기타"/>
-
+                <CollectionDataBtn img="piggy-icon.svg" text="저축"/>
             </div>
         )
     }
