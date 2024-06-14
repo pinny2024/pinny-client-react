@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
-import MoneyHistoryAttribute from "./money-history-attribute";
+import MoneyHistoryAttribute from "../money-history/money-history-attribute";
 import axios from "axios";
 import config from "../../../config";
 
 import "../../../css/comm/index.css"
 import styles from "../../../css/income-expend/money-history.module.css"
 
-const MoneyHistory = () => {
+const MoneyHistory = ({category}) => {
     const userId = localStorage.getItem("id");
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
-        axios.get(`${config.baseUrl}/transactions/${userId}/type`)
-        .then((response) => {
-            console.log(response);
-            setTransactions(response.data);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    }, []);
+        axios.get(`${config.baseUrl}/transactions/${userId}/category/${category}`)
+            .then((response) => {
+                console.log(response);
+                setTransactions(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, [userId, category]);
 
     return (
         <div className={styles['box']}>

@@ -2,39 +2,58 @@ import { React, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../../css/comm/index.css"
-import axios from "axios";
-import config from "../../config";
 import styles from "../../css/quest/input-data.module.css"
 
 const InputData = (props) => {
-    const location = useLocation();
     const navigate = useNavigate();
 
     const [content, setContent] = useState('');
+    const [questId, setQuestId] = useState(1);
     const [inputValue, setInputValue] = useState('');
 
-    const category = location.state ? location.state.category : null;
-    const lastPathSegment = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    const category = localStorage.getItem("unit");
 
     useEffect(() => {
-        if (lastPathSegment === "content") {
             switch (category) {
-                case '가방': setContent('핸드백 사기'); break;
-                case '옷': setContent('AA브랜드 옷 사기'); break;
-                case '악세사리': setContent('목걸이 사기'); break;
-                case '전자기기': setContent('노트북 사기'); break;
-                case '집': setContent('원룸 얻기'); break;
-                case '여행': setContent('미국 가기'); break;
-                case '차': setContent('자가용 뽑기'); break;
-                case '문화생활': setContent('콘서트 티켓 가기'); break;
-                case '기타': setContent('기부하기'); break;
+                case '가방':
+                    setContent('핸드백 사기');
+                    setQuestId(1);
+                    break;
+                case '옷':
+                    setContent('AA브랜드 옷 사기');
+                    setQuestId(2);
+                    break;
+                case '악세사리':
+                    setContent('목걸이 사기');
+                    setQuestId(3);
+                    break;
+                case '전자기기':
+                    setContent('노트북 사기');
+                    setQuestId(4);
+                    break;
+                case '집':
+                    setContent('원룸 얻기');
+                    setQuestId(5);
+                    break;
+                case '여행':
+                    setContent('미국 가기');
+                    setQuestId(6);
+                    break;
+                case '차':
+                    setContent('자가용 뽑기');
+                    setQuestId(7);
+                    break;
+                case '문화생활':
+                    setContent('콘서트 티켓 가기');
+                    setQuestId(8);
+                    break;
+                case '기타':
+                    setContent('기부하기');
+                    setQuestId(9);
+                    break;
                 default: setContent('목표 설정');
-            }
-        } 
-        else if (lastPathSegment === "price") {
-            setContent('500,000원');
         }
-    }, [lastPathSegment]);
+    }, []);
 
     useEffect(() => {
         const inputBox = document.querySelector(`.${styles['input-btn']}`);
@@ -49,23 +68,9 @@ const InputData = (props) => {
 
     const handleButtonClick = () => {
         if (inputValue) {
-            if (lastPathSegment === "content") {
                 localStorage.setItem("content", inputValue);
+                localStorage.setItem("questId", questId);
                 navigate('/quest/input/price');
-            } 
-            else if (lastPathSegment === "price") {
-                localStorage.setItem("price", inputValue);
-
-                const data = {
-                    quest: content,
-                    
-                }
-                axios.post(`${config.baseUrl}/quests`, data)
-                navigate('/quest');
-            }
-        } 
-        else {
-            alert(lastPathSegment === "content" ? '목표를 입력해주세요' : '가격을 입력해주세요');
         }
     };
 
