@@ -12,6 +12,7 @@
     width: 100vw;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .icon {
@@ -30,8 +31,9 @@
 }
 
 .price{
-    margin-left: 6.39vw;
+    margin-right: 5.56vw;
     font-size: 15px;
     margin-top: 0.25vh;
     color: rgb(0,0,0,0.87);
+    margin-left: auto;
 }

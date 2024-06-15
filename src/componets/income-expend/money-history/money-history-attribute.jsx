@@ -26,7 +26,7 @@ const MoneyHistoryAttribute = ({price, description, type, category}) => {
             <div className={styles['content']}>
                 <img src={`${process.env.PUBLIC_URL}/img/income-expend/icon/${imgUrl}`} className={styles['icon']} />
                 <p className={styles['name']}>{description}</p>
-                <p className={styles['price']}>{price}</p>
+                <p className={styles['price']}>{price}원</p>
             </div>
         </div>
     )
