@@ -12,7 +12,7 @@ const QuestBtn = () => {
     const content = `목표를 삭제할까요?`;
 
     const handleUpdateButton = () => {
-        navigate('/quest/update/content')
+        navigate('/quest/update/select')
     }
     const handleDeleteButton = () => {
         setModalOpen(true);
