@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import styles from '../../../css/plan/plan-gragh-data.module.css'; // Import CSS module
+import styles from '../../../css/plan/plan-gragh-data.module.css'; 
 
 const PlanGragh = () => {
     const data = {
@@ -9,7 +9,7 @@ const PlanGragh = () => {
             {
                 label: 'Data',
                 data: [10, 20, 30, 40, 50],
-                backgroundColor: '#79AFEF', // Blue color for bars
+                backgroundColor: '#79AFEF', 
                 borderWidth: 0,
                 borderRadius: 7,
             },
@@ -17,10 +17,10 @@ const PlanGragh = () => {
     };
 
     const options = {
-        maintainAspectRatio: false, // Allow the chart to stretch to fill the container
+        maintainAspectRatio: false, 
         layout: {
             padding: {
-                top: 30, // Adjust the padding from the top
+                top: 30, 
                 right:10,
                 left:10,
             },
@@ -28,7 +28,7 @@ const PlanGragh = () => {
         scales: {
             x: {
                 grid: {
-                    display: false, // Hide both vertical grid lines
+                    display: false, 
                 },
             },
             y: {
@@ -37,14 +37,14 @@ const PlanGragh = () => {
         },
         plugins: {
             legend: {
-                display: false, // Hide the legend
+                display: false, 
             },
             title: {
-                display: false, // Hide the title
+                display: false, 
             },
         },
         tooltips: {
-            enabled: false, // Disable tooltips
+            enabled: false,
         },
     };
 
@@ -52,7 +52,7 @@ const PlanGragh = () => {
         <div className={styles['graph-container']}>
             <div className={styles['graph']}>
                 <Bar data={data} options={options} />
-                <p className={styles['title']}>핀핀이님 식비에 쓰는 돈을<br />줄여보는 건 어떨까요?</p> {/* Text positioned in the top-left corner */}
+                <p className={styles['title']}>핀핀이님 식비에 쓰는 돈을<br />줄여보는 건 어떨까요?</p> 
             </div>
         </div>
     );

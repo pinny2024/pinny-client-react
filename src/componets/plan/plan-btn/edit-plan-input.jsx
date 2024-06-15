@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Header from "../../comm/header";
 import TopPlanCategory from "./top-plan-category";
-import '../../../css/plan/plan-btn/edit-plan-input.css';
+import styles from '../../../css/plan/plan-btn/edit-plan-input.module.css'; 
 
 const EditPlanInput = () => {
     const navigate = useNavigate();
@@ -79,13 +79,13 @@ const EditPlanInput = () => {
     return (
         <>
             <Header />
-            <div className="edit-plan-input-container">
+            <div className={styles.editPlanInputContainer}>
                 <TopPlanCategory 
                     clickedButtons={clickedButtons} 
                     handleButtonClick={handleButtonClick} 
                 />
             </div>
-            <div className="edit-plan-input-box">
+            <div className={styles.editPlanInputBox}>
                 계획
                 <input
                     type="text" 
@@ -94,8 +94,8 @@ const EditPlanInput = () => {
                     onChange={handleInputChange} 
                 />
             </div>
-            <div className="edit-plan-input-check">
-                <button className={inputValue ? "mint-button" : "grey-button"} onClick={handleNextButtonClick}>확인</button>
+            <div className={styles.editPlanInputCheck}>
+                <button className={inputValue ? styles.mintButton : styles.greyButton} onClick={handleNextButtonClick}>확인</button>
             </div>
         </>
     );

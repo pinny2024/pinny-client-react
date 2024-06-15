@@ -24,6 +24,7 @@ const PlanCategory = () => {
   const handleNextButtonClick = async () => {
     if (selectedCategories.length > 0) {
       try {
+        
         navigate('/plan/plan-detail', {
           state: {
             selectedCategories,

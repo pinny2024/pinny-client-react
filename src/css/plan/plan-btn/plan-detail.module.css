@@ -1,39 +1,43 @@
-.top-detail {
+/* plan-detail.module.css */
+
+.topDetail {
     padding-top: 80px;
     font-size: 20px;
     font-weight: bold;
     margin-left: 20px;
 }
 
-.detail-plan-box {
+.detailPlanBox {
     font-size: 16px;
     margin-top: 20px;
     text-align: center;
 }
 
-.detail-plan-box input {
+.inputField {
     width: 315px;
     height: 45px;
     border-radius: 10px;
-    border: 1.5px solid grey; 
+    border: 1.5px solid grey;
     padding-left: 10px;
     margin-top: 10px;
-    /* transition: border-color ; */
     margin-left: 7px;
     font-size: 14px;
+    transition: border-color 0.3s ease;
 }
 
-.detail-plan-box input:focus {
-    outline: none; 
+.inputField:focus {
+    outline: none;
     border-color: #5edcc4;
 }
-.plan-detail-check{
+
+.planDetailCheck {
     text-align: center;
     margin-top: 625px;
 }
-.plan-detail-check button {
+
+.planDetailCheck button {
     width: 370px;
-    height: 44px; 
+    height: 44px;
     border-radius: 10px;
     border: 1px;
     color: white;
@@ -41,14 +45,14 @@
     font-size: 15px;
 }
 
-.plan-detail-check button.grey-button {
+.planDetailCheck button.greyButton {
     background-color: #ccc;
 }
 
-.plan-detail-check button.mint-button {
-    background-color: #5edcc4; 
+.planDetailCheck button.mintButton {
+    background-color: #5edcc4;
 }
 
-.plan-detail-check button:focus {
+.planDetailCheck button:focus {
     outline: none;
 }

@@ -1,24 +1,22 @@
-.top-sheet {
+.topSheet {
   position: relative;
   border-bottom-left-radius: 15px; 
   border-bottom-right-radius: 15px; 
   border-bottom: 2px solid #0000;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2); 
-  /* text-align: center; */
 }
 
 .content {
   border: 0px solid #ccc;
   padding: 10px;
-  /* text-align: center; */
-  
 }
+
 .header {
   align-items: center;
   cursor: pointer;
 }
 
-.header p{
+.header p {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
@@ -26,8 +24,8 @@
   margin-left: 10px;
 }
 
-.calendar-container {
-  max-height: 110px; /* 최초에는 1주일까지만 보이도록 설정 */
+.calendarContainer {
+  max-height: 110px; 
   overflow: hidden;
   transition: max-height 0.3s ease;
   display: flex;
@@ -35,7 +33,7 @@
   align-items: center;
 }
 
-.arrow-button{
+.arrowButton {
   padding-top: 10px;
   margin-bottom: -5px;
   display: flex;
@@ -43,11 +41,28 @@
   align-items: center;
 }
 
-
-.calendar-container.open {
-  max-height: 330px; /* 펼쳐진 상태일 때 캘린더가 다 보이도록 */
+.calendarContainerOpen {
+  max-height: 330px; 
 }
 
-.calendar-container.show-full {
-  max-height: none; /* 전체 캘린더가 보이도록 설정 */
+.calendarContainerShowFull {
+  max-height: none; 
+}
+
+.calendarDay {
+  position: relative;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc; 
+  position: absolute;
+  bottom: -10px; 
+  left: 25%;
+}
+
+.dot:nth-child(2) {
+  left: 55%; 
 }

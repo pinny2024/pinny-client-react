@@ -26,7 +26,7 @@ const WeekPlan = () => {
         .map(plan => {
           return ({
           ...plan,
-          isChecked: plan.isChecked,
+          // isChecked: plan.isChecked,
         })
       });
       setPlans(plansWithImages);

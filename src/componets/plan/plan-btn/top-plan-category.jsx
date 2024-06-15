@@ -18,7 +18,7 @@ const TopPlanCategory = ({ handleButtonClick, clickedButtons }) => {
                             alt={category.alt}
                         />
                     </button>
-                ))}
+                ))} 
             </div>
         </div>
     );

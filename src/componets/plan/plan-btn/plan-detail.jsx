@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import '../../../css/plan/plan-btn/plan-detail.css';
+import styles from '../../../css/plan/plan-btn/plan-detail.module.css'; // Import CSS Module
 import axios from '../../utils/axiosInstance';
 
 const PlanDetail = () => {
@@ -46,19 +46,20 @@ const PlanDetail = () => {
 
   return (
     <div>
-      <div className="top-detail">내용을 입력해주세요</div>
-      <div className="detail-plan-box">
+      <div className={styles.topDetail}>내용을 입력해주세요</div>
+      <div className={styles.detailPlanBox}>
         계획
         <input
           type="text"
           placeholder="편의점에서 3000원 이상 사지 않기"
           value={inputValue}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
       </div>
-      <div className="plan-detail-check">
+      <div className={styles.planDetailCheck}>
         <button
-          className={inputValue.trim() !== '' ? 'mint-button' : 'grey-button'}
+          className={inputValue.trim() !== '' ? styles.mintButton : styles.greyButton}
           onClick={handleNextButtonClick}
         >
           확인

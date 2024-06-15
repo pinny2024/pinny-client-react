@@ -1,4 +1,4 @@
-#all-plan-bottom {
+.allPlanBottom {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -6,19 +6,19 @@
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); 
 }
 
-.plan-list-bottom-hr {
+.planListBottomHr {
     margin: 0;
     border: 1px solid #ccc; 
 }
 
-.plan-list-bottom-bar {
+.planListBottomBar {
     display: flex;
     justify-content: space-between;
     padding: 5px; 
 }
 
-.complete-button,
-.cancel-button {
+.completeButton,
+.cancelButton {
     border: none;
     background-color: transparent; 
     cursor: pointer;
@@ -26,7 +26,8 @@
     font-size: 15px; 
 }
 
-/* .complete-button:hover,
-.cancel-button:hover {
+
+.completeButton:hover,
+.cancelButton:hover {
     background-color: #f0f0f0; 
-} */
+}

@@ -26,12 +26,12 @@
 
 
 .job-plan-button button:focus {
-    background-color: #b2e4db; /* 클릭된 버튼 */
+    background-color: #b2e4db;
 }
 
 
 .job-plan-button button:focus .job-plan-img-name {
-    color: white; /* 클릭된 버튼의 */
+    color: white; 
 }
 
 
