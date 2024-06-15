@@ -7,10 +7,12 @@ import '../../../css/plan/plan-btn/top-plan-category.css';
 const PlanCategory = () => {
   const navigate = useNavigate();
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const userId = localStorage.getItem("id");
 
   const handleButtonClick = (category, image) => {
     console.log('Selected category:', category);
     console.log('Selected image:', image);
+    console.log("Id",userId)
 
     setSelectedCategories((prevState) =>
       prevState.find(cat => cat.name === category)
@@ -22,16 +24,12 @@ const PlanCategory = () => {
   const handleNextButtonClick = async () => {
     if (selectedCategories.length > 0) {
       try {
-        const response = await axios.post('/plans', {
-          categories: selectedCategories,
-          image: selectedCategories[0].image,
-        });
-        console.log('Response data:', response.data);
-
+        
         navigate('/plan/plan-detail', {
           state: {
             selectedCategories,
             image: selectedCategories[0].image,
+            userId: userId,
           }, 
         });
       } catch (error) {

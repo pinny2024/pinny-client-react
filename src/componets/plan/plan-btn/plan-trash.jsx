@@ -1,9 +1,5 @@
-// PlanTrash.js
-
 import React from 'react';
 import DeleteModal from '../../comm/delete-modal';
-
-
 
   const PlanTrash = ({ modalIsOpen, closeModal, buttonTexts, deletePlans, clickedButtons, planName }) => {
     const count = clickedButtons.length;

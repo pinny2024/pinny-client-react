@@ -1,15 +1,13 @@
 import React from "react";
-import '../../../css/plan/plan-btn/plan-list-bottom-bar.css';
+import styles from '../../../css/plan/plan-btn/plan-list-bottom-bar.module.css'; // Import CSS Module
 
 const PlanListBottomBar = ({ handleComplete, handleCancel }) => {
-    
     return (
-        <div id = "all-plan-bottom">
-            <hr className="plan-list-bottom-hr"/>
-            <div className="plan-list-bottom-bar">
-                
-                <button className="complete-button" onClick={handleComplete}>완료</button>
-                <button className="cancel-button" onClick={handleCancel}>취소</button>
+        <div className={styles.allPlanBottom}>
+            <hr className={styles.planListBottomHr} />
+            <div className={styles.planListBottomBar}>
+                <button className={styles.completeButton} onClick={handleComplete}>완료</button>
+                <button className={styles.cancelButton} onClick={handleCancel}>취소</button>
             </div>
         </div>
     );

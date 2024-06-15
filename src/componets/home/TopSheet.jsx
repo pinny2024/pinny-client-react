@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../../css/home/TopSheet.css'; 
+import styles from '../../css/home/TopSheet.module.css';
 import Calendar from 'react-calendar';
-import '../../css/home/Calendar.css'; 
+import calendarStyles from '../../css/home/Calendar.css';
 import BottomSheet from './BottomSheet';
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
@@ -20,39 +20,38 @@ const TopSheet = () => {
     setShowFullCalendar(!showFullCalendar);
   };
 
-  
   const onChange = (value) => {
-    setSelectedDate(value); // 선택된 날짜 설정
+    setSelectedDate(value); 
   };
 
   const handleDateClick = (value) => {
-    setSelectedDate(value); // 선택된 날짜 설정
+    setSelectedDate(value); 
     setShowBottomSheet(true); 
   };
 
   const renderDay = (locale, date) => {
     return (
-      <div className="calendar-day" onClick={() => handleDateClick(date)}>
-        <div className="calendar-day-number">{date.toLocaleString("en", {day: "numeric"})}</div>
-        <div className="dot"></div>
-        <div className="dot"></div>
+      <div className={styles.calendarDay} onClick={() => handleDateClick(date)}>
+        <div className={styles.calendarDayNumber}>{date.toLocaleString("en", {day: "numeric"})}</div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
       </div>
     );
   };
 
   return (
-    <div className={`top-sheet ${open ? 'open' : ''}`}>
-      <div className="content">
-        <div className="header">
+    <div className={`${styles.topSheet} ${open ? styles.open : ''}`}>
+      <div className={styles.content}>
+        <div className={styles.header}>
           <p>수입,지출기록</p>
         </div>
 
-        <div className={`calendar-container ${open ? 'open' : ''} ${showFullCalendar ? 'show-full' : ''}`}>
+        <div className={`${styles.calendarContainer} ${open ? styles.calendarContainerOpen : ''} ${showFullCalendar ? styles.calendarContainerShowFull : ''}`}>
           <div>
             <Calendar 
-              className="calendar" 
+              className={calendarStyles.reactCalendar} 
               onChange={onChange} 
-              value={selectedDate} // value를 selectedDate로 변경
+              value={selectedDate} 
               formatDay={(locale, date) => renderDay(locale, date)}
               calendarType="gregory"
               formatMonthYear={(locale, date) => {
@@ -62,13 +61,11 @@ const TopSheet = () => {
           </div>
         </div>
 
-        <div className="arrow-button" onClick={toggleSheet}>
+        <div className={styles.arrowButton} onClick={toggleSheet}>
           {open ? <BsChevronUp size={20}/> : <BsChevronDown size={20}/>}
         </div>
       </div>
       <BottomSheet isOpen={showBottomSheet} onClose={() => setShowBottomSheet(false)}>
-        {/* BottomSheet 내부에 넣을 내용 */}
-        {/* 선택된 날짜에 관한 내용을 넣기 */}
         <p>선택된 날짜: {selectedDate ? selectedDate.toLocaleDateString() : '날짜를 선택해주세요'}</p>
       </BottomSheet>
     </div>

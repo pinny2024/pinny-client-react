@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../css/home/BottomSheet.css'; 
+import styles from '../../css/home/BottomSheet.module.css';
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 const BottomSheet = ({ isOpen, onClose, children }) => {
@@ -7,12 +7,10 @@ const BottomSheet = ({ isOpen, onClose, children }) => {
   const [startY, setStartY] = useState(null); 
   const [isDragging, setIsDragging] = useState(false);
 
- 
   const handleStart = (clientY) => {
     setStartY(clientY);
   };
 
-  
   const handleMove = (clientY) => {
     if (!isDragging) return;
 
@@ -21,11 +19,9 @@ const BottomSheet = ({ isOpen, onClose, children }) => {
     setStartY(clientY); 
   };
 
-  
   const handleEnd = () => {
     setIsDragging(false);
   };
-
 
   const bottomSheetPosition = () => {
     if (isOpen) {
@@ -38,7 +34,7 @@ const BottomSheet = ({ isOpen, onClose, children }) => {
   };
 
   return (
-    <div className={`bottom-sheet ${isOpen ? 'open' : ''}`}
+    <div className={`${styles.bottomSheet} ${isOpen ? styles.bottomSheetOpen : ''}`}
          onTouchStart={(e) => handleStart(e.touches[0].clientY)}
          onTouchMove={(e) => handleMove(e.touches[0].clientY)}
          onTouchEnd={handleEnd}
@@ -46,12 +42,11 @@ const BottomSheet = ({ isOpen, onClose, children }) => {
          onMouseMove={(e) => handleMove(e.clientY)}
          onMouseUp={handleEnd}
          style={{ bottom: bottomSheetPosition() }}>
-      <div className="sheet-content">
-        {/* BottomSheet 내부에 있는 컨텐츠 */}
+      <div className={styles.sheetContent}>
         {children}
       </div>
-      <div className="drag-handle" onMouseDown={() => setIsDragging(true)}></div>
-      <button className="close-button" onClick={onClose}>Close</button>
+      <div className={styles.dragHandle} onMouseDown={() => setIsDragging(true)}></div>
+      <button className={styles.closeButton} onClick={onClose}>Close</button>
     </div>
   );
 };

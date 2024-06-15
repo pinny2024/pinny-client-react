@@ -1,15 +1,15 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import styles from '../../css/plan/plan-gragh-data.module.css'; // Import CSS module
+import styles from '../../css/plan/plan-gragh-data.module.css'; 
 
 const WeekPlanGragh = ({ budgetAmount }) => {
     const data = {
-        labels: [''], // Label for the bar
+        labels: [''], 
         datasets: [
             {
                 label: 'Budget',
-                data: [budgetAmount], // Pass budgetAmount as data
-                backgroundColor: '#5edcc4', // Blue color for bars
+                data: [budgetAmount],
+                backgroundColor: '#5edcc4', 
                 borderWidth: 0,
                 borderRadius: 7,
             },
@@ -17,31 +17,31 @@ const WeekPlanGragh = ({ budgetAmount }) => {
     };
 
     const options = {
-        maintainAspectRatio: false, // Allow the chart to stretch to fill the container
+        maintainAspectRatio: false, 
         layout: {
             padding: {
-                top: 0, // Adjust the padding from the top
-                right: 25, // Add 20px padding to the right
-                left: 10, // Add 20px padding to the left
+                top: 0, 
+                right: 25, 
+                left: 10, 
             },
         },
-        indexAxis: 'y', // Display the bars horizontally
+        indexAxis: 'y', 
         scales: {
             x: {
-                display: false, // Hide x-axis
+                display: false, 
             },
             y: {
                 grid: {
-                    display: false, // Hide both vertical grid lines
+                    display: false, 
                 },
             },
         },
         plugins: {
             legend: {
-                display: false, // Hide the legend
+                display: false, 
             },
             title: {
-                display: false, // Hide the title
+                display: false, 
             },
             annotation: {
                 annotations: {
@@ -49,22 +49,22 @@ const WeekPlanGragh = ({ budgetAmount }) => {
                         type: 'line',
                         xMin: budgetAmount,
                         xMax: budgetAmount,
-                        borderColor: '#000000', // Black color for the line
+                        borderColor: '#000000', 
                         borderWidth: 1,
                         label: {
                             enabled: true,
-                            position: 'right', // Position the label to the right of the line
-                            content: budgetAmount.toLocaleString() + '원', // Display budgetAmount with formatting
+                            position: 'right', 
+                            content: budgetAmount.toLocaleString() + '원', 
                             font: {
-                                size: 12, // Set the font size
-                                weight: 'bold', // Set the font weight to bold
+                                size: 12, 
+                                weight: 'bold', 
                             },
                         },
                     },
                 },
             },
             tooltip: {
-                enabled: false, // Disable tooltips
+                enabled: false, 
             },
         },
     };
@@ -76,7 +76,6 @@ const WeekPlanGragh = ({ budgetAmount }) => {
                 <div className={styles['budget-amount']}>
                     {budgetAmount.toLocaleString()}원
                 </div>
-                {/* Display budgetAmount inside the graph */}
             </div>
         </div>
     );
