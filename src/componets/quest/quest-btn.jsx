@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DeleteModal from '../../componets/comm/delete-modal';
+import DeleteModal from './delete-modal';
 
 import "../../css/comm/index.css"
 import styles from '../../css/quest/quest-btn.module.css';
