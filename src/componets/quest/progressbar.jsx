@@ -9,11 +9,13 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 const Progressbar = () => {
-    const [questId, setQuestId] = useState(1);
+    const [questCategoryId, setQuestCategoryId] = useState(1);
     const [title, setTitle] = useState("");
     const [icon, setIcon] = useState("");
     const [price, setPrice] = useState("");
     const [percent, setPercent] = useState("");
+    const [savedMoney, setSavedMoney] = useState(0);
+    const [questId, setQuestId] = useState(null);
 
     const userId = localStorage.getItem("id");
 
@@ -21,9 +23,10 @@ const Progressbar = () => {
         axios.get(`${config.baseUrl}/quests/${userId}`)
             .then(function (response) {
                 console.log(response);
-                setQuestId(response.data[0].questCategoryId);
+                setQuestCategoryId(response.data[0].questCategoryId);
                 setTitle(response.data[0].quest);
                 setPrice(response.data[0].price);
+                setQuestId(response.data[0].questId);
             })
             .catch(function (error) {
                 console.log(error);
@@ -31,7 +34,26 @@ const Progressbar = () => {
     }, [userId]);
 
     useEffect(() => {
-        switch (questId) {
+        console.log(questId)
+        if (questId) {
+            axios.get(`${config.baseUrl}/transactions/${userId}/저축/${questId}`)
+                .then(response => {
+                    let total = 0;
+                    response.data.forEach(item => {
+                        total += item.amount;
+                    });
+                    setSavedMoney(total);
+                })
+                .catch(error =>{
+                    console.log(error);
+                })
+        }
+
+    }, [questId, userId]);
+
+
+    useEffect(() => {
+        switch (questCategoryId) {
             case 1: setIcon("bag-icon.svg"); break;
             case 2: setIcon("clothes-icon.svg"); break;
             case 3: setIcon("ring-icon.svg"); break;
@@ -42,14 +64,14 @@ const Progressbar = () => {
             case 8: setIcon("ticket-icon.svg"); break;
             case 9: setIcon("etc-icon.svg"); break;
         }
-    })
+    }, [questCategoryId])
 
     useEffect(() => {
         if (price) {
-            const calculatedPercent = 100 * (1000 / price);
+            const calculatedPercent = 100 * (savedMoney / price);
             setPercent(calculatedPercent);
         }
-    }, [price]);
+    }, [price, savedMoney]);
 
     return (
         <div className={styles['container']}>

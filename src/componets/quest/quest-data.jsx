@@ -6,15 +6,18 @@ import styles from "../../css/quest/background.module.css";
 
 const BackgroundQuest = () => {
     const userId = localStorage.getItem("id");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(null);
     const [percent, setPercent] = useState("");
     const [title, setTitle] = useState("");
+    const [savedMoney, setSavedMoney] = useState(0);
+    const [questId, setQuestId] = useState(null);
 
     useEffect(() => {
         axios.get(`${config.baseUrl}/quests/${userId}`)
             .then(function (response) {
                 console.log(response);
                 setPrice(response.data[0].price);
+                setQuestId(response.data[0].questId);
             })
             .catch(function (error) {
                 console.log(error);
@@ -22,11 +25,28 @@ const BackgroundQuest = () => {
     }, [userId]);
 
     useEffect(() => {
+        if (questId) {
+            axios.get(`${config.baseUrl}/transactions/${userId}/저축/${questId}`)
+                .then(response => {
+                    let total = 0;
+                    response.data.forEach(item => {
+                        total += item.amount;
+                    });
+                    setSavedMoney(total);
+                })
+                .catch(error =>{
+                    console.log(error);
+                })
+        }
+
+    }, [questId, userId]);
+
+    useEffect(() => {
         if (price) {
-            const calculatedPercent = 100 * (1000 / price);
+            const calculatedPercent = 100 * (savedMoney / price);  // 1000이 저금된 돈 
             setPercent(calculatedPercent);
         }
-    }, [price]);
+    }, [price, savedMoney]);
 
     useEffect(() => {
         if (percent !== "") {
@@ -36,6 +56,7 @@ const BackgroundQuest = () => {
 
     const updateTitle = (percent) => {
         const roundedPercent = Math.floor(percent / 10) * 10;
+        console.log(percent)
 
         switch (roundedPercent) {
             case 0: setTitle("목표를 이루기 위해 힘내봐요!"); break;
