@@ -6,9 +6,11 @@ import styles from "../../css/quest/input-data.module.css"
 
 const InputData = (props) => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [content, setContent] = useState('');
     const [questId, setQuestId] = useState(1);
+    const [path, setPath] = useState('');
     const [inputValue, setInputValue] = useState('');
 
     const category = localStorage.getItem("unit");
@@ -62,6 +64,13 @@ const InputData = (props) => {
         }
     }, [inputValue]);
 
+    useEffect(() => {
+        if (location.pathname.endsWith("/update/content"))
+            setPath("update")
+        else
+            setPath("input")
+    })
+
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
@@ -70,7 +79,13 @@ const InputData = (props) => {
         if (inputValue) {
                 localStorage.setItem("content", inputValue);
                 localStorage.setItem("questId", questId);
-                navigate('/quest/input/price');
+
+                if(path === "update"){
+                    navigate('/quest/update/price');
+                }
+                else{
+                    navigate('/quest/input/price');
+                }
         }
     };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import axios from "axios";
 import config from "../../config"
@@ -8,22 +8,64 @@ import styles from "../../css/quest/input-data.module.css";
 
 const InputPrice = (props) => {
     const navigate = useNavigate();
+    const location = useLocation();
+
     const [inputValue, setInputValue] = useState('');
+    const [path, setPath] = useState('');
+    const [questId, setQuestId] = useState(null);
+    const userId = localStorage.getItem("id");
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
 
-    const handleButtonClick = () => {
-        const data = {
-            userId: parseInt(localStorage.getItem("id")),
-            quest: localStorage.getItem("content"),
-            price: parseInt(inputValue),
-            questCategoryId: parseInt(localStorage.getItem("questId"))
-        };
+    useEffect(() => {
+        if (location.pathname.endsWith("/update/price"))
+            setPath("update")
+        else
+            setPath("input")
+    })
 
-        axios.post(`${config.baseUrl}/quests`, data)
-            .then(function (response) {
+    useEffect(() => {
+        axios.get(`${config.baseUrl}/quests/${userId}`)
+        .then(function (response) {
+            console.log(response)
+            setQuestId(response.data[0].questId)
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }, [userId])
+
+    const handleButtonClick = () => {
+        if (path === "input") {
+            const data = {
+                userId: parseInt(localStorage.getItem("id")),
+                quest: localStorage.getItem("content"),
+                price: parseInt(inputValue),
+                questCategoryId: parseInt(localStorage.getItem("questId"))
+            };    
+            axios.post(`${config.baseUrl}/quests`, data)
+                .then(function (response) {
+                    console.log(response);
+                    localStorage.removeItem("unit");
+                    localStorage.removeItem("content");
+                    localStorage.removeItem("questId");
+                    navigate('/quest');
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+
+        else{
+            const data = {
+                quest: localStorage.getItem("content"),
+                price: parseInt(inputValue),
+                questCategoryId: parseInt(localStorage.getItem("questId"))
+            };  
+            axios.put(`${config.baseUrl}/quests/${questId}`, data)
+            .then(response =>{
                 console.log(response);
                 localStorage.removeItem("unit");
                 localStorage.removeItem("content");
@@ -33,6 +75,7 @@ const InputPrice = (props) => {
             .catch(function (error) {
                 console.log(error);
             })
+        }
     };
 
     useEffect(() => {

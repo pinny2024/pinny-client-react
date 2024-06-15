@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import "../../css/comm/index.css"
 import styles from "../../css/quest/quest-select-btn.module.css";
@@ -19,7 +19,15 @@ const QuestSelectBtn = () => {
     ];
 
     const [select, setSelect] = useState('');
+    const [path, setPath] = useState("input");
+
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if(location.pathname.endsWith("/update/select"))
+            setPath("/quest/update/price");
+    })
 
     const handleClick = (type) => {
         setSelect(type);
@@ -27,7 +35,13 @@ const QuestSelectBtn = () => {
     const handleNextBtn = () => {
         if (select !== '') {
             localStorage.setItem("unit", select);
-            navigate('/quest/input/content', {state : {category:select}})
+            console.log(path)
+            if(path === "input"){
+                navigate('/quest/input/content', {state : {category:select}});
+            }
+            else{
+                navigate('/quest/update/content', {state : {category:select}});
+            }
         }
     }
 
