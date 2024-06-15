@@ -16,7 +16,10 @@ const InputPrice = (props) => {
     const userId = localStorage.getItem("id");
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value);
+        const value = e.target.value;
+        const cleanedValue = value.replace(/\D/g, '');
+        const formattedValue = cleanedValue ? Number(cleanedValue).toLocaleString() : '';
+        setInputValue(formattedValue);
     };
 
     useEffect(() => {
@@ -95,7 +98,7 @@ const InputPrice = (props) => {
                 <input
                     type="text"
                     className={styles['input']}
-                    placeholder="500,000원"
+                    placeholder="500,000"
                     value={inputValue}
                     onChange={handleInputChange}
                 />
