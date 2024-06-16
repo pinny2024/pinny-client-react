@@ -68,7 +68,7 @@
 .plan-list-button.checked {
     background-color: #aeaeac;
 }
-.plan-list-button .check-icon {
+ .check-icon {
     color: grey;
 }
 .plan-list-button.checked .check-icon{
@@ -84,7 +84,7 @@
     width: 30px;
     padding: 7px 7px;
     border-radius: 50px;
-    /* border: 1px solid #5edcc4; */
+    /* border-color: #aeaeac; */
     
 }
 .plan-button-text{

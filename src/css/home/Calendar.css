@@ -176,7 +176,7 @@
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
   }
-/*-----점추가-----------*/
+/*-----점추가 하는 부분-----------*/
   .calendar-day {
     position: relative;
   }
