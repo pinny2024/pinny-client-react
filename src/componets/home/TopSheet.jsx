@@ -65,6 +65,8 @@ const TopSheet = () => {
           {open ? <BsChevronUp size={20}/> : <BsChevronDown size={20}/>}
         </div>
       </div>
+      {/* 이부분이 캘린더 날짜 누르면 BottomSheet 나오는 곳 여기에다가 데이터 넣으시면 됩니다. */}
+      {/* css 점 추가는 Calender css에 있음 */}
       <BottomSheet isOpen={showBottomSheet} onClose={() => setShowBottomSheet(false)}>
         <p>선택된 날짜: {selectedDate ? selectedDate.toLocaleDateString() : '날짜를 선택해주세요'}</p>
       </BottomSheet>
