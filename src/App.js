@@ -23,6 +23,7 @@ import PlanChangeDetail from './pages/plan/plan-change-detail';
 import EditPlanInputPage from './pages/plan/edit-plan-input';
 import QuestSelectPage from './pages/quest/quest-select';
 import QuestInputPage from './pages/quest/quest-input';
+import QuestPricePage from './pages/quest/quest-price';
 import QuestUpdatePage from './pages/quest/quest-update';
 import MyPagePage from './pages/mypage/mypage';
 import MyInformationPage from './pages/mypage/myinformation';
@@ -57,7 +58,7 @@ function App() {
         <Route path="/plan/edit-plan-input/:id" element={<EditPlanInputPage />} />
         <Route path="/quest/select" element={<QuestSelectPage/>}/>
         <Route path='/quest/input/content' element={<QuestInputPage/>}/>
-        <Route path='/quest/input/price' element={<QuestInputPage/>}/>
+        <Route path='/quest/input/price' element={<QuestPricePage/>}/>
         <Route path='/quest/update/content' element={<QuestUpdatePage/>}/>
         <Route path='/mypage' element={<MyPagePage/>}/>
         <Route path='/mypage/myinformation' element={<MyInformationPage/>}/>

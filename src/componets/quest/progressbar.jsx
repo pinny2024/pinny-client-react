@@ -1,20 +1,54 @@
-import React from "react";
-import { CircularProgressbarWithChildren } from "react-circular-progressbar";
-import {Link} from"react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../../css/comm/index.css";
+import styles from "../../css/quest/progressbar.module.css";
+import axios from "axios";
+import config from '../../config';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
-import "../../css/comm/index.css"
-import styles from "../../css/quest/progressbar.module.css"
 
 const Progressbar = () => {
+    const [questId, setQuestId] = useState(1);
+    const [title, setTitle] = useState("");
+    const [icon, setIcon] = useState("");
+    const userId = localStorage.getItem("id");
+
+    useEffect(() => {
+        axios.get(`${config.baseUrl}/quests/${userId}`)
+            .then(function (response) {
+                console.log(response);
+                setQuestId(response.data[0].questCategoryId);
+                setTitle(response.data[0].quest);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }, [userId]);
+
+    useEffect(() => {
+        switch (questId) {
+            case 1: setIcon("bag-icon.svg"); break;
+            case 2: setIcon("clothes-icon.svg"); break;
+            case 3: setIcon("ring-icon.svg"); break;
+            case 4: setIcon("laptop-icon.svg"); break;
+            case 6: setIcon("airplane-icon.svg"); break;
+            case 5: setIcon("house-icon.svg"); break;
+            case 7: setIcon("car-icon.svg"); break;
+            case 8: setIcon("ticket-icon.svg"); break;
+            case 9: setIcon("etc-icon.svg"); break;
+        }
+    })
+
     return (
         <div className={styles['container']}>
             <div className={styles['background']}>
                 <CircularProgressbarWithChildren
-                    value={70}
+                    value={0}
                     strokeWidth={11}
                     className={styles['main']}
                     styles={{
-                        root: { height: "258px" },
+                        root: { height: "33vh" },
                         path: {
                             stroke: "#79AFEF",
                             strokeLinecap: "round",
@@ -26,11 +60,12 @@ const Progressbar = () => {
                     }}
                 >
                     <div className={styles['starter']}></div>
-                    <Link to="/quest/select">
-                        <div className={styles['icon']}>?</div>
-                    </Link>
+                    <div className={styles['icon']}>
+                        <img src={`${process.env.PUBLIC_URL}/img/quest/${icon}`} />
+                    </div>
                 </CircularProgressbarWithChildren>
             </div>
+            <div className={styles['title']}>{title}</div>
         </div>
     );
 };
