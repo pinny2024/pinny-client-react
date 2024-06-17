@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import PlanButton from '../plan-btn/plan-buton'; 
+import PlanButton from '../plan-btn/plan-buton';
+import '../../../css/plan/week-plan-statistics-button.css'; 
+import '../../../css/plan/plan-btn/plan-list.css'; 
 
 const WeekPlanStatisticsButton = () => {
   const [weekPlans, setWeekPlans] = useState([]);
@@ -19,8 +21,10 @@ const WeekPlanStatisticsButton = () => {
 
       const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
       const plansWithImages = response.data
+        .filter(plan => !plan.isClosed)
         .map(plan => ({
           ...plan,
+          checkNum: plan.checkNum || 0 
         }));
       setWeekPlans(plansWithImages);
       console.log('Fetched week plans:', plansWithImages);
@@ -30,7 +34,7 @@ const WeekPlanStatisticsButton = () => {
   };
 
   const handleButtonClick = (index, plan) => {
-    console.log(`Button clicked: ${index}, ${plan.id}, ${plan.plan}, ${plan.isChecked}`);
+    console.log(`Button clicked: ${index}, ${plan.id}, ${plan.plan}, isChecked: ${plan.isChecked}`);
   };
 
   return (
@@ -41,11 +45,10 @@ const WeekPlanStatisticsButton = () => {
             key={index}
             index={index}
             plan={plan}
-            isChecked={plan.isChecked} 
-            isClicked={false}
-            context="view" 
+            isChecked={plan.isChecked}
+            context="statistics"
             handleButtonClick={handleButtonClick}
-            image={plan.image} 
+            buttonStyle={`combined-button ${plan.isChecked ? 'checked' : ''}`}
           />
         ))
       ) : (

@@ -8,6 +8,7 @@ import styles from '../../../css/plan/plan-btn/edit-plan-input.module.css';
 const EditPlanInput = () => {
     const navigate = useNavigate();
     const { id: planId } = useParams(); 
+    const userId = localStorage.getItem('id');
 
     const [inputValue, setInputValue] = useState(""); 
     const [clickedButtons, setClickedButtons] = useState({
@@ -19,16 +20,20 @@ const EditPlanInput = () => {
     });
     const [planImage, setPlanImage] = useState("");
     const [previewImage, setPreviewImage] = useState("");
+    const [initialIsChecked, setInitialIsChecked] = useState(false);
 
     useEffect(() => {
         const fetchPlanDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8082/plans/${planId}`);
-                const { plan, image, categories } = response.data;
+                const response = await axios.get(`http://localhost:8082/plans/${userId}/${planId}`);
+                const { plan, image, categories, isChecked } = response.data;
+
+                console.log(response.data);
 
                 setInputValue(plan || "");  
                 setPlanImage(image || ""); 
                 setPreviewImage(image || ""); 
+                setInitialIsChecked(isChecked);
 
                 const updatedClickedButtons = { ...clickedButtons };
                 (categories || []).forEach(category => {
@@ -66,15 +71,20 @@ const EditPlanInput = () => {
             const data = {
                 plan: inputValue,
                 image: planImage,
-                categories: selectedCategories
+                categories: selectedCategories,
+                isChecked: initialIsChecked,
+                checkNum: 0 
             };
 
+            console.log(data)
+    
             await axios.put(`http://localhost:8082/plans/${planId}`, data);
             navigate(`/plan/plan-change-detail`);
         } catch (error) {
             console.error('Error updating plan:', error);
         }
     };
+    
     
     return (
         <>

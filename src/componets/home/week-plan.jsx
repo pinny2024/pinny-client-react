@@ -22,13 +22,11 @@ const WeekPlan = () => {
     try {
       const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
       const plansWithImages = response.data
-        .filter(plan => plan.plan !== null && plan.plan.trim() !== '') 
-        .map(plan => {
-          return ({
+        .map(plan => ({
           ...plan,
-          // isChecked: plan.isChecked,
-        })
-      });
+          checkNum: plan.checkNum 
+        }));
+        console.log(plansWithImages);
       setPlans(plansWithImages);
       console.log('Fetched week plans:', plansWithImages);
     } catch (error) {
@@ -51,17 +49,25 @@ const WeekPlan = () => {
 
   const handleButtonClick = async (index, plan) => {
     try {
-      const updatedPlan = { ...plan, isChecked: !plan.isChecked };
-      const response = await axios.put(`http://localhost:8082/plans/${plan.id}`, updatedPlan);
+
+      const response = await axios.post(`http://localhost:8082/plans/${plan.id}/check`);
 
       if (response.status === 200) {
+        const updatedPlan = { 
+          ...response.data,
+          isChecked: response.data.isChecked  
+        };
+
         const updatedPlans = [...plans];
         updatedPlans[index] = updatedPlan;
         setPlans(updatedPlans);
-        console.log(`Button clicked: ${index}, ${plan.id}, ${plan.plan}, isChecked: ${updatedPlan.isChecked}`);
+        localStorage.setItem(`plan-${plan.id}-lastChecked`, new Date().toISOString()); 
+
+        console.log(`Button clicked: ${index}, ${plan.id}, ${plan.plan}, isChecked: ${updatedPlan.isChecked}, checkNum: ${updatedPlan.checkNum}`);
       }
     } catch (error) {
-      console.error('Error updating plan isChecked state:', error);
+      console.error('Error checking plan:', error);
+      
     }
   };
 
@@ -103,9 +109,7 @@ const WeekPlan = () => {
               index={index}
               plan={plan}
               isChecked={plan.isChecked} 
-              context="view"
-              // image={plan.image}
-              handleButtonClick={handleButtonClick}
+              handleButtonClick={() => handleButtonClick(index, plan)}
               buttonStyle="week-checked-button" 
             />
           ))}

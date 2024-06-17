@@ -7,10 +7,10 @@ const PlanPage = () => {
 
   useEffect(() => {
     const fetchPlans = async () => {
+      const userId = localStorage.getItem('id');
       try {
-        const response = await axios.get('http://localhost:8082/plans');
+        const response = await axios.get(`http://localhost:8082/plans/${userId}`);
         const plansWithImages = response.data
-          .filter(plan => plan.plan !== null && plan.plan.trim() !== '') // 빈 값을 가진 계획 제외
           .map(plan => {
             const category = plan.category || 'undefined';
             const imagePath = `${process.env.PUBLIC_URL}/img/job-plan/category-button/category-${category}-white.svg`;
