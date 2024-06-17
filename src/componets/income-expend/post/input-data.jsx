@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "./dropdown"
 import { Icon } from "@iconify/react";
@@ -19,9 +19,9 @@ const InputData = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        switch(window.location.pathname){
-            case '/income/post' : setPath('incomes'); setType("수입"); break;
-            case '/expend/post' : setPath('expenditures'); setType("지출"); break;
+        switch (window.location.pathname) {
+            case '/income/post': setPath('incomes'); setType("수입"); break;
+            case '/expend/post': setPath('expenditures'); setType("지출"); break;
         }
     }, [navigate]);
 
@@ -48,14 +48,21 @@ const InputData = () => {
         };
 
         axios.post(`${config.baseUrl}/transactions/${userId}`, data)
-        .then(function(response) {
-            console.log(response);
-            navigate("/income-expend/seperate");
-        })
-        .catch(function(error){
-            console.log(error);
-        })
+            .then(function (response) {
+                console.log(response);
+                navigate("/income-expend/seperate");
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
+
+    const handleAmountChange = (e) => {
+        const value = e.target.value;
+        const cleanedValue = value.replace(/\D/g, '');
+        const formattedValue = cleanedValue ? Number(cleanedValue).toLocaleString() : '';
+        setAmount(formattedValue);
+    };
 
     return (
         <>
@@ -66,7 +73,7 @@ const InputData = () => {
                         type="text"
                         className={styles['textbox']}
                         value={amount}
-                        onChange={(e) => setAmount(e.target.value)} />
+                        onChange={handleAmountChange} />
                 </div>
                 <div className={styles['box']}>
                     <p className={styles['text']}>분류</p>

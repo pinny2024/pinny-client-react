@@ -21,12 +21,14 @@ const MoneyHistoryAttribute = ({price, description, type, category}) => {
         imgUrl += "-red.svg";
     }
 
+    const formattedPrice = price.toLocaleString();
+    
     return (
         <div className={styles['container']}>
             <div className={styles['content']}>
                 <img src={`${process.env.PUBLIC_URL}/img/income-expend/icon/${imgUrl}`} className={styles['icon']} />
                 <p className={styles['name']}>{description}</p>
-                <p className={styles['price']}>{price}</p>
+                <p className={styles['price']}>{formattedPrice}원</p>
             </div>
         </div>
     )

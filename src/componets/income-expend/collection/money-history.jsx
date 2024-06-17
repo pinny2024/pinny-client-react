@@ -29,7 +29,7 @@ const MoneyHistory = ({category}) => {
                     {group.transactions.map((transaction, index) => (
                         <MoneyHistoryAttribute
                             key={index}
-                            amount={transaction.amount}
+                            price={transaction.amount}
                             description={transaction.description}
                             type={transaction.type}
                             category={transaction.category}
