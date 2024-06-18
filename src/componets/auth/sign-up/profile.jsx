@@ -4,6 +4,7 @@ import axios from "axios";
 import config from '../../../config.js';
 
 import '../../../css/auth/sign-up/profile.css';
+import { contextType } from "react-modal";
 
 const Profile = () => {
     const { state } = useLocation();
@@ -11,6 +12,7 @@ const Profile = () => {
     const [showModal, setShowModal] = useState(false);
     const [isCompleted, setIsCompleted] = useState(false);
     const [profileImage, setProfileImage] = useState("");
+    const [profileImageFile, setProfileImageFile] = useState(null); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -47,20 +49,25 @@ const Profile = () => {
         const ageRange = parseInt(localStorage.getItem("ageGroup"));
         const introduction = localStorage.getItem("introduction");
 
-        const data = {
-            email: email,
-            password: password,
-            nickname: nickname,
-            career: career,
-            salary: salary,
-            saving: saving,
-            ageRange: ageRange,
-            introduction: introduction
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
+        formData.append("passwordConfirm", password);
+        formData.append("nickname", nickname);
+        formData.append("career", career);
+        formData.append("salary", salary);
+        formData.append("saving", saving);
+        formData.append("ageRange", ageRange);
+        formData.append("introduction", introduction);
+        if (profileImageFile) {
+            formData.append("file", profileImageFile);
         }
 
-        console.log(data)
-
-        axios.post(`${config.baseUrl}/join`, data)
+        axios.post(`${config.baseUrl}/join`, formData, {
+            header: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
         .then(function (response) {
             console.log(response);
             localStorage.removeItem("email");
@@ -124,7 +131,7 @@ const Profile = () => {
                 reader.onload = (e) => {
                     const imageUrl = e.target.result;
                     setProfileImage(imageUrl);
-                    localStorage.setItem("profileImage", imageUrl);
+                    setProfileImageFile(file);
                     setIsCompleted(true);
                     handleCloseModal();
                 };
