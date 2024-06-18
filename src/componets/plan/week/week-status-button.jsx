@@ -11,10 +11,10 @@ const WeekStatusButton = ({ plans }) => {
 
   return (
     <div className={styles.weekStatusButton}>
-      <button onClick={() => setSelectedWeek(<FirstWeek />)}>1주일</button>
-      <button onClick={() => setSelectedWeek(<SecondWeek />)}>2주일</button>
-      <button onClick={() => setSelectedWeek(<ThirdWeek />)}>3주일</button>
-      <button onClick={() => setSelectedWeek(<FourWeek />)}>4주일</button>
+      <button className = {styles.week}onClick={() => setSelectedWeek(<FirstWeek />)}>1주일</button>
+      <button className = {styles.week}onClick={() => setSelectedWeek(<SecondWeek />)}>2주일</button>
+      <button className = {styles.thirdweek}onClick={() => setSelectedWeek(<ThirdWeek />)}>3주일</button>
+      <button className = {styles.week}onClick={() => setSelectedWeek(<FourWeek />)}>4주일</button>
       <div>
         <WeekStatistics selectedWeek={selectedWeek} plans={plans} />
       </div>
