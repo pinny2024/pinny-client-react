@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../componets/comm/header";
 import PlanList from "../../componets/plan/plan-btn/plan-list";
-import axios from 'axios';
+import axios from '../../componets/utils/axiosInstance';
 import { useNavigate, useLocation } from "react-router-dom";
 
 const PlanChangeDetailPage = () => {
@@ -24,7 +24,7 @@ const PlanChangeDetailPage = () => {
 
     const fetchPlans = async (categoryName = 'undefined', image) => {
         try {
-            const response = await axios.get('http://localhost:8082/plans');
+            const response = await axios.get('/plans');
             const validPlans = response.data.filter(plan => {
                 return plan.plan && plan.plan.trim() !== '' && plan.category;
             });

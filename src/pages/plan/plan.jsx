@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../componets/utils/axiosInstance';
 import Plan from '../../componets/plan/plan';
 
 const PlanPage = () => {
@@ -9,7 +9,7 @@ const PlanPage = () => {
     const fetchPlans = async () => {
       const userId = localStorage.getItem('id');
       try {
-        const response = await axios.get(`http://localhost:8082/plans/${userId}`);
+        const response = await axios.get(`/plans/${userId}`);
         const plansWithImages = response.data
           .map(plan => {
             const category = plan.category || 'undefined';

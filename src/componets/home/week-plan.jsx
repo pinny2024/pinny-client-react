@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios';
+import axios from '../utils/axiosInstance';
 import Modal from "./Modal";
 import PlanButton from "../plan/plan-btn/plan-buton";
 import WeekPlanGragh from "./week-plan-gragh"; 
@@ -20,7 +20,7 @@ const WeekPlan = () => {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
+      const response = await axios.get(`/plans/${user_id}`);
       const plansWithImages = response.data
         .map(plan => ({
           ...plan,
@@ -50,7 +50,7 @@ const WeekPlan = () => {
   const handleButtonClick = async (index, plan) => {
     try {
 
-      const response = await axios.post(`http://localhost:8082/plans/${plan.id}/check`);
+      const response = await axios.post(`/plans/${plan.id}/check`);
 
       if (response.status === 200) {
         const updatedPlan = { 

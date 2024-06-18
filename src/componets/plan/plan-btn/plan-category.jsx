@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../utils/axiosInstance'; // axiosInstance 사용
 import TopPlanCategory from './top-plan-category';
 import '../../../css/plan/plan-btn/top-plan-category.css';
 
