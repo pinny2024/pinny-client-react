@@ -1,6 +1,8 @@
 .box{
     top: 8.75vh;
     position: fixed;
+    overflow: auto;
+    max-height: 90vh;
 }
 
 .day{
