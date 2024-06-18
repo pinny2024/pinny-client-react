@@ -1,18 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from '../utils/axiosInstance';
+import axios from "../utils/axiosInstance";
 import Modal from "./Modal";
 import PlanButton from "../plan/plan-btn/plan-buton";
-import WeekPlanGragh from "./week-plan-gragh"; 
+import WeekPlanGraph from "./week-plan-gragh"; 
 
 import "../../css/home/week-plan.css";
 
 const WeekPlan = () => {
   const [showModal, setShowModal] = useState(false);
   const [plans, setPlans] = useState([]);
-  const [budgetAmount, setBudgetAmount] = useState(0);
-  const user_id = localStorage.getItem("id");
-  const { id: planId } = useParams(); 
+  const [totalBudget, setTotalBudget] = useState(() => {
+    const savedBudget = localStorage.getItem("totalBudget");
+    return savedBudget !== null ? parseInt(savedBudget, 10) : 0;
+  });
+  const [remainingBudget, setRemainingBudget] = useState(() => {
+    const savedBudget = localStorage.getItem("remainingBudget");
+    return savedBudget !== null ? parseInt(savedBudget, 10) : 0;
+  });
+  const userId = localStorage.getItem("id");
+
+  useEffect(() => {
+    if (totalBudget > 0) {
+      localStorage.setItem("totalBudget", totalBudget);
+    }
+  }, [totalBudget]);
 
   useEffect(() => {
     fetchPlans();
@@ -20,15 +32,12 @@ const WeekPlan = () => {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get(`/plans/${user_id}`);
-      const plansWithImages = response.data
-        .map(plan => ({
-          ...plan,
-          checkNum: plan.checkNum 
-        }));
-        console.log(plansWithImages);
+      const response = await axios.get(`http://localhost:8082/plans/${userId}`);
+      const plansWithImages = response.data.map(plan => ({
+        ...plan,
+        checkNum: plan.checkNum
+      }));
       setPlans(plansWithImages);
-      console.log('Fetched week plans:', plansWithImages);
     } catch (error) {
       console.error('Error fetching week plans:', error);
     }
@@ -42,15 +51,14 @@ const WeekPlan = () => {
     setShowModal(false);
   };
 
-  const handleConfirmBudget = (amount) => {
-    setBudgetAmount(amount);
-    setShowModal(false);
+  const handleModalConfirm = (budgetAmount, remainingAmount) => {
+    setTotalBudget(budgetAmount);
+    setRemainingBudget(remainingAmount);
   };
 
   const handleButtonClick = async (index, plan) => {
     try {
-
-      const response = await axios.post(`/plans/${plan.id}/check`);
+      const response = await axios.post(`http://localhost:8082/plans/${plan.id}/check`);
 
       if (response.status === 200) {
         const updatedPlan = { 
@@ -67,21 +75,20 @@ const WeekPlan = () => {
       }
     } catch (error) {
       console.error('Error checking plan:', error);
-      
     }
   };
 
   return (
     <div className="bottom-plan">
       <div className="week-plan">
-        {budgetAmount > 0 ? (
+        {totalBudget > 0 ? (
           <>
             <div className="week-plan-name">
               남은 <span className="week-budget">일주일 예산</span>을
               <br />
               확인해보세요!
             </div>
-            <WeekPlanGragh budgetAmount={budgetAmount} />
+            <WeekPlanGraph totalBudget={totalBudget} remainingBudget={remainingBudget} />
           </>
         ) : (
           <div className="week-plan-button">
@@ -115,7 +122,7 @@ const WeekPlan = () => {
           ))}
         </div>
       </div>
-      <Modal show={showModal} handleClose={handleCloseModal} handleConfirm={handleConfirmBudget} />
+      <Modal show={showModal} handleClose={handleCloseModal} handleConfirm={handleModalConfirm} />
     </div>
   );
 };
