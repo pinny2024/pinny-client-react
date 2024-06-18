@@ -35,7 +35,7 @@ const PlanList = ({ context }) => {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
+      const response = await axios.get(`/plans/${user_id}`);
       const plansWithImages = response.data
         // .filter(plan => plan.plan !== null && plan.plan.trim() !== '') // 빈 값을 가진 계획 제외
         .map(plan => {
@@ -95,7 +95,7 @@ const PlanList = ({ context }) => {
       for (const index of clickedButtons) {
         const plan = plans[index];
         if (plan) {
-          await axios.delete(`http://localhost:8082/plans/${plan.id}`);
+          await axios.delete(`/plans/${plan.id}`);
         }
       }
       setClickedButtons([]);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axiosInstance';
 import PlanButton from '../plan-btn/plan-buton';
 import '../../../css/plan/week-plan-statistics-button.css'; 
 import '../../../css/plan/plan-btn/plan-list.css'; 
@@ -19,7 +19,7 @@ const WeekPlanStatisticsButton = () => {
         return;
       }
 
-      const response = await axios.get(`http://localhost:8082/plans/${user_id}`);
+      const response = await axios.get(`/plans/${user_id}`);
       const plansWithImages = response.data
         .filter(plan => !plan.isClosed)
         .map(plan => ({

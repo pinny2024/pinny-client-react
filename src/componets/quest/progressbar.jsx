@@ -36,7 +36,7 @@ const Progressbar = () => {
     useEffect(() => {
         console.log(questId)
         if (questId) {
-            axios.get(`${config.baseUrl}/transactions/${userId}/저축/${questId}`)
+            axios.get(`http://localhost:8082/${config.baseUrl}/transactions/${userId}/저축/${questId}`)
                 .then(response => {
                     let total = 0;
                     response.data.forEach(item => {

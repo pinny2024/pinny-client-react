@@ -13,7 +13,7 @@ const BackgroundQuest = () => {
     const [questId, setQuestId] = useState(null);
 
     useEffect(() => {
-        axios.get(`${config.baseUrl}/quests/${userId}`)
+        axios.get(`http://localhost:8082/${config.baseUrl}/quests/${userId}`)
             .then(function (response) {
                 console.log(response);
                 setPrice(response.data[0].price);
@@ -26,7 +26,7 @@ const BackgroundQuest = () => {
 
     useEffect(() => {
         if (questId) {
-            axios.get(`${config.baseUrl}/transactions/${userId}/저축/${questId}`)
+            axios.get(`http://localhost:8082/${config.baseUrl}/transactions/${userId}/저축/${questId}`)
                 .then(response => {
                     let total = 0;
                     response.data.forEach(item => {

@@ -30,7 +30,7 @@ const InputPrice = (props) => {
     })
 
     useEffect(() => {
-        axios.get(`${config.baseUrl}/quests/${userId}`)
+        axios.get(`http://localhost:8082/${config.baseUrl}/quests/${userId}`)
         .then(function (response) {
             console.log(response)
             setQuestId(response.data[0].questId)
@@ -48,7 +48,7 @@ const InputPrice = (props) => {
                 price: parseInt(inputValue),
                 questCategoryId: parseInt(localStorage.getItem("questId"))
             };    
-            axios.post(`${config.baseUrl}/quests`, data)
+            axios.post(`http://localhost:8082/${config.baseUrl}/quests`, data)
                 .then(function (response) {
                     console.log(response);
                     localStorage.removeItem("unit");
@@ -67,7 +67,7 @@ const InputPrice = (props) => {
                 price: parseInt(inputValue),
                 questCategoryId: parseInt(localStorage.getItem("questId"))
             };  
-            axios.put(`${config.baseUrl}/quests/${questId}`, data)
+            axios.put(`http://localhost:8082/${config.baseUrl}/quests/${questId}`, data)
             .then(response =>{
                 console.log(response);
                 localStorage.removeItem("unit");

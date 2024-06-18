@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from '../../utils/axiosInstance';
 import Header from "../../comm/header";
 import TopPlanCategory from "./top-plan-category";
 import styles from '../../../css/plan/plan-btn/edit-plan-input.module.css'; 
@@ -25,7 +25,7 @@ const EditPlanInput = () => {
     useEffect(() => {
         const fetchPlanDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8082/plans/${userId}/${planId}`);
+                const response = await axios.get(`/plans/${userId}/${planId}`);
                 const { plan, image, categories, isChecked } = response.data;
 
                 console.log(response.data);
@@ -78,7 +78,7 @@ const EditPlanInput = () => {
 
             console.log(data)
     
-            await axios.put(`http://localhost:8082/plans/${planId}`, data);
+            await axios.put(`/plans/${planId}`, data);
             navigate(`/plan/plan-change-detail`);
         } catch (error) {
             console.error('Error updating plan:', error);

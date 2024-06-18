@@ -25,7 +25,7 @@ const PlanDetail = () => {
   const handleNextButtonClick = async () => {
     try {
       if (inputValue.trim() !== '') {
-        await axios.post('http://localhost:8082/plans', {
+        await axios.post('/plans', {
           plan: inputValue,
           image: image,
           userId: userId,
