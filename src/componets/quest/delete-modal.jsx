@@ -13,7 +13,7 @@ const DeleteModal = ({ modalIsOpen, closeModal, content, onConfirm }) => {
     const navigate = useNavigate;
 
     useEffect(() => {
-        axios.get(`http://localhost:8082/${config.baseUrl}/quests/${userId}`)
+        axios.get(`${config.baseUrl}/quests/${userId}`)
             .then(function (response) {
                 setQuestId(response.data[0].questId);
             })

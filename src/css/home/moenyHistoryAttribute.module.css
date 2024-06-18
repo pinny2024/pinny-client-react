@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    height: 6.5vh;
+    border-bottom: 1px solid rgb(0,0,0,0.1);
+    margin-top: 1.5vh;
+}
+
+.container:last-child{
+    margin-bottom: 5vh;
+}
+
+.content{
+    width: 100vh;
+    height: 6.25vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    margin-left: 5.56vw;
+}
+
+.name{
+    margin-left: 3.61vw;
+    text-align: left;
+    font-size: 15px;
+    margin-top: 0.25vh;
+    color: rgb(0,0,0,0.87);
+}
+
+.price{
+    margin-right: 5.56vw;
+    font-size: 15px;
+    margin-top: 0.25vh;
+    color: rgb(0,0,0,0.87);
+    margin-left: auto;
+}
