@@ -41,7 +41,7 @@ const InputData = () => {
         const userId = localStorage.getItem("id");
 
         const data = {
-            amount: amount,
+            amount: parseInt(amount.replaceAll(",", "")),
             category: selectedCategory,
             type: type,
             description: content
