@@ -1,12 +1,13 @@
 .setting-bar{
     position : fixed;
     width: 100vw;
-    top: 65.75vh;
+    top: 60.75vh;
     border-top: 1px solid rgb(0,0,0,0.1);
 }
 
+
 .setting-bar-attribute{
-    height: 8.45vh;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,4 +24,11 @@
 
 .icon{
     font-size: 45px;
+    color: rgb(0,0,0,0.87);
+}
+
+
+.height{
+    max-height: 300px;
+    overflow-y: auto;
 }

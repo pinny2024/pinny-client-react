@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import styles from "../../../css/plan/plan-gragh-data.module.css";
+import axios from "axios";
+import config from "../../../config";
 
 const FirstWeek = () => {
     const [chartData, setChartData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [highestCategory, setHighestCategory] = useState("");
-    const userId = localStorage.getItem("id");
+    const userId = parseInt(localStorage.getItem("id"));
+    const [userData, setUserData] = useState([]);
 
     const allCategories = ["기타", "교통수단", "문화생활", "금융", "식비"];
 
@@ -48,6 +51,20 @@ const FirstWeek = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        axios.get(`${config.baseUrl}/users`)
+        .then(response => {
+            console.log("Dfdfds");
+            const user = response.data.find(user => user.id == userId);
+            setUserData(user);
+            console.log(userData)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, [userId]);
+
+
     const options = {
         maintainAspectRatio: false,
         layout: {
@@ -83,13 +100,14 @@ const FirstWeek = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-
+    
+    
     return (
         <div className={styles['graph-container']}>
             <div className={styles['graph']}>
                 {chartData ? <Bar data={chartData} options={options} /> : <p className={styles['nullplus']}>지출을 추가해주세요!</p>}
                 <p className={styles['title']}>
-                    핀핀이님 {highestCategory}에 쓰는 돈을<br />줄여보는 건 어떨까요?
+                    {userData.nickname}님 {highestCategory}에 쓰는 돈을<br />줄여보는 건 어떨까요?
                 </p>
             </div>
         </div>

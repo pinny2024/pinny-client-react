@@ -4,16 +4,21 @@ import Badge from "../../componets/mypage/badge"
 import SettingBar from "../../componets/mypage/settingbar";
 import Nav from "../../componets/comm/nav";
 import Graph from "../../componets/mypage/graph";
+import styles from "../../css/mypage/settingbar.module.css";
 
 const MypagePage = () => {
     return (
         <>
-            <Profile />
-            <Badge />
-            <Graph />
-            <SettingBar/>
+            <div className={styles.height}>
+                <Profile />
+                <Badge />
+                <Graph />
+                <SettingBar />
+            </div>
             <Nav />
         </>
+
+
     )
 }
 

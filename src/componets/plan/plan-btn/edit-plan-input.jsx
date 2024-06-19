@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from '../../utils/axiosInstance';
-import Header from "../../comm/header";
+import Header from "../Header";
 import TopPlanCategory from "./top-plan-category";
 import styles from '../../../css/plan/plan-btn/edit-plan-input.module.css'; 
 
@@ -89,6 +89,7 @@ const EditPlanInput = () => {
                     placeholder="편의점에서 3000원 이상 사지 않기"
                     value={inputValue} 
                     onChange={handleInputChange} 
+                    className={styles.inputBox}
                 />
             </div>
             <div className={styles.editPlanInputCheck}>

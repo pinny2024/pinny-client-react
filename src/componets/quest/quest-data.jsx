@@ -44,7 +44,7 @@ const BackgroundQuest = () => {
     useEffect(() => {
         if (price) {
             const calculatedPercent = 100 * (savedMoney / price);  // 1000이 저금된 돈 
-            setPercent(Math.floor(calculatedPercent));
+            setPercent(Math.min(Math.floor(calculatedPercent), 100));
         }
     }, [price, savedMoney]);
 
