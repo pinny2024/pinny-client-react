@@ -1,12 +1,13 @@
-import React from "react";
-import PlanGragh from "./plan-gragh-data";
+import React, { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
+import styles from "../../../css/plan/plan-gragh-data.module.css";
 
-const FourWeek = () =>{
+const FourWeek = () => {
     return (
-        <div className="four-week-button">
-            <PlanGragh />
+        <div className={styles['graph-container']}>
+            아직 4주일이 되지 않았어요
         </div>
-    )
-}
+    );
+};
 
 export default FourWeek;
