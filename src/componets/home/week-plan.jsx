@@ -32,7 +32,7 @@ const WeekPlan = () => {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get(`http://localhost:8082/plans/${userId}`);
+      const response = await axios.get(`/plans/${userId}`);
       const plansWithImages = response.data.map(plan => ({
         ...plan,
         checkNum: plan.checkNum
@@ -58,7 +58,7 @@ const WeekPlan = () => {
 
   const handleButtonClick = async (index, plan) => {
     try {
-      const response = await axios.post(`http://localhost:8082/plans/${plan.id}/check`);
+      const response = await axios.post(`/plans/${plan.id}/check`);
 
       if (response.status === 200) {
         const updatedPlan = { 
