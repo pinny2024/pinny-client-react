@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import styles from "../../css/mypage/graph.module.css";
+import axios from "axios";
+import config from "../../config";
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -9,9 +12,7 @@ import {
     Title,
     Tooltip,
     Legend,
-} from 'chart.js';
-import { resolve } from "chart.js/helpers";
-import { BsBorderWidth } from "react-icons/bs";
+} from 'chart.js';  
 
 ChartJS.register(
     CategoryScale,
@@ -23,6 +24,21 @@ ChartJS.register(
 );
 
 const Graph = () => {
+    const userId = parseInt(localStorage.getItem("id"));
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${config.baseUrl}/users`)
+        .then(response => {
+            const user = response.data.find(user => user.id == userId);
+            setUserData(user);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, [userId]);
+
+
     const data = {
         labels: ['평균', '핑핑이'],
         datasets: [{
@@ -81,7 +97,7 @@ const Graph = () => {
                 <Bar data={data} options={options} />
             </div>
             <p className={styles['name1']}>평균</p>
-            <p className={styles['name2']}>핑핑이님</p>
+            <p className={styles['name2']}>{userData.nickname}</p>
         </div>
     );
 };
