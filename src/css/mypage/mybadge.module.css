@@ -1,0 +1,53 @@
+.pageBackground {
+    background-color: #DCFFF8;     
+    min-height: 100vh; 
+}
+.headerBackground {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.mybadge {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 900px;
+}
+
+.hr {
+    border: 1px solid #38D6B8;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.badgelist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; 
+    margin-left: 40px;
+    
+}
+
+.badgeimage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badgelist img {
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+.text {
+    color: #38D6B8;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+.allmybadge{
+    background-color: #DCFFF8;
+}
