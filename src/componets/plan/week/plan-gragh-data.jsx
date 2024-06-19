@@ -62,7 +62,7 @@ const PlanGragh = () => {
         maintainAspectRatio: false,
         layout: {
             padding: {
-                top: 48,
+                top: 60,
                 right: 10,
                 left: 10,
             },
