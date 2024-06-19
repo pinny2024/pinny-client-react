@@ -1,5 +1,5 @@
 const config = {
-    baseUrl: 'http://43.203.192.255'
+    baseUrl: 'http://15.165.18.83'
 };
 
 export default config;  
