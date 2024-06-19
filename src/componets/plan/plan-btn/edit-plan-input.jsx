@@ -11,13 +11,7 @@ const EditPlanInput = () => {
     const userId = localStorage.getItem('id');
 
     const [inputValue, setInputValue] = useState(""); 
-    const [clickedButtons, setClickedButtons] = useState({
-        food: false,
-        car: false,
-        music: false,
-        money: false,
-        etc: false 
-    });
+    const [clickedButton, setClickedButton] = useState("");
     const [planImage, setPlanImage] = useState("");
     const [previewImage, setPreviewImage] = useState("");
     const [initialIsChecked, setInitialIsChecked] = useState(false);
@@ -35,24 +29,19 @@ const EditPlanInput = () => {
                 setPreviewImage(image || ""); 
                 setInitialIsChecked(isChecked);
 
-                const updatedClickedButtons = { ...clickedButtons };
-                (categories || []).forEach(category => {
-                    updatedClickedButtons[category] = true;
-                });
-                setClickedButtons(updatedClickedButtons);
+                if (categories && categories.length > 0) {
+                    setClickedButton(categories[0]);
+                }
             } catch (error) {
                 console.error('Error fetching plan details:', error);
             }
         };
 
         fetchPlanDetails();
-    }, [planId]);
+    }, [planId, userId]);
 
     const handleButtonClick = (category, image) => {
-        setClickedButtons(prevState => ({
-            ...prevState,
-            [category]: !prevState[category] 
-        }));
+        setClickedButton(category);
         handleImageChange(image);
     };
 
@@ -67,16 +56,15 @@ const EditPlanInput = () => {
 
     const handleNextButtonClick = async () => {
         try {
-            const selectedCategories = Object.keys(clickedButtons).filter(category => clickedButtons[category]);
             const data = {
                 plan: inputValue,
                 image: planImage,
-                categories: selectedCategories,
+                categories: [clickedButton],
                 isChecked: initialIsChecked,
                 checkNum: 0 
             };
 
-            console.log(data)
+            console.log(data);
     
             await axios.put(`/plans/${planId}`, data);
             navigate(`/plan/plan-change-detail`);
@@ -85,13 +73,12 @@ const EditPlanInput = () => {
         }
     };
     
-    
     return (
         <>
             <Header />
             <div className={styles.editPlanInputContainer}>
                 <TopPlanCategory 
-                    clickedButtons={clickedButtons} 
+                    clickedButtons={{ [clickedButton]: true }} 
                     handleButtonClick={handleButtonClick} 
                 />
             </div>

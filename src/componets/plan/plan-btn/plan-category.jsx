@@ -5,29 +5,24 @@ import '../../../css/plan/plan-btn/top-plan-category.css';
 
 const PlanCategory = () => {
   const navigate = useNavigate();
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const userId = localStorage.getItem("id");
 
   const handleButtonClick = (category, image) => {
     console.log('Selected category:', category);
     console.log('Selected image:', image);
-    console.log("Id",userId)
+    console.log("Id", userId);
 
-    setSelectedCategories((prevState) =>
-      prevState.find(cat => cat.name === category)
-        ? prevState.filter(cat => cat.name !== category)
-        : [...prevState, { name: category, image }]
-    );
+    setSelectedCategory({ name: category, image });
   };
 
   const handleNextButtonClick = async () => {
-    if (selectedCategories.length > 0) {
+    if (selectedCategory) {
       try {
-        
         navigate('/plan/plan-detail', {
           state: {
-            selectedCategories,
-            image: selectedCategories[0].image,
+            selectedCategories: [selectedCategory],
+            image: selectedCategory.image,
             userId: userId,
           }, 
         });
@@ -42,11 +37,11 @@ const PlanCategory = () => {
       <div className="plan-category-name">카테고리를 선택해주세요</div>
       <TopPlanCategory
         handleButtonClick={handleButtonClick}
-        clickedButtons={Object.fromEntries(selectedCategories.map(cat => [cat.name, true]))}
+        clickedButtons={selectedCategory ? { [selectedCategory.name]: true } : {}}
       />
       <div className="plan-category-next-button">
         <button
-          className={selectedCategories.length > 0 ? 'mint-button' : 'grey-button'}
+          className={selectedCategory ? 'mint-button' : 'grey-button'}
           onClick={handleNextButtonClick}
         >
           다음
