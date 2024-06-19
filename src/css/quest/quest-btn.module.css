@@ -1,14 +1,14 @@
 .container{
     position: fixed;
     display: flex;
-    top: 5vh;
+    top: 3vh;
     left: 70.83vw;
     align-content: center;
 
 }
 .button{
     background-color: #ffffff;
-    width: 10.83vw;
+    width: 39px;
     height: 2.75vh;
     border-radius: 100px;
     border: 0.7px solid #22806E;

@@ -1,6 +1,6 @@
 .container{
     position: fixed;
-    top:39.75vh;
+    top:35vh;
     left: 50%;
     transform: translateX(-50%);
     font-size: 20px;
@@ -23,8 +23,8 @@
 
 .name1{
     position: fixed;
-    top: 8.55vh;
-    margin-left: 8.5vw;
+    top: 9vh;
+    margin-left: 13vw;
     z-index: 100;
     color: rgb(0,0,0,0.5);
     font-size: 12px;
@@ -32,8 +32,8 @@
 
 .name2{
     position: fixed;
-    top: 14.5vh;
-    margin-left: 8.5vw;
+    top: 14vh;
+    margin-left: 13vw;
     z-index: 100;
     color: #38D6B8;
     font-size: 12px;

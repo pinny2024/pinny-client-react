@@ -26,7 +26,7 @@
 .input{
     margin-left: 2.77vw;
     width: 75.2vw;
-    height: 5vh;
+    height: 40px;
     border: 1px solid #5EDCC4;
     border-radius: 5px;
     outline: none;
@@ -39,11 +39,11 @@
 }
 
 .input-btn{
-    top: 90vh;
+    top: 80vh;
     position: fixed;
     width: calc(100% - 11.11vw);
     background-color: #D0D0D0;
-    height: 5vh;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
