@@ -3,6 +3,7 @@ import styles from '../../css/home/TopSheet.module.css';
 import Calendar from 'react-calendar';
 import calendarStyles from '../../css/home/Calendar.css';
 import BottomSheet from './BottomSheet';
+import NoneAttribute from './none-attibute';
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import axios from 'axios';
 import config from "../../config";
@@ -11,9 +12,9 @@ import MoneyHistoryAttribute from "./MoneyHistoryAttribute";
 const TopSheet = () => {
   const [open, setOpen] = useState(false);
   const [showFullCalendar, setShowFullCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date()); // Default to current date
   const [showBottomSheet, setShowBottomSheet] = useState(false);
-  const [bottomSheetData, setBottomSheetData] = useState(null);
+  const [bottomSheetData, setBottomSheetData] = useState([]);
   const userId = localStorage.getItem("id");
 
   const toggleSheet = () => {
@@ -45,8 +46,9 @@ const TopSheet = () => {
   };
 
   useEffect(() => {
-    if (selectedDate)
+    if (selectedDate) {
       fetchBottomSheetData(selectedDate);
+    }
   }, [selectedDate]);
 
   const fetchBottomSheetData = (selectedDate) => {
@@ -58,6 +60,7 @@ const TopSheet = () => {
       })
       .catch(error => {
         console.error('Error fetching bottom sheet data:', error);
+        setBottomSheetData([]); // Set to empty array on error to show NoneAttribute
       });
   }
 
@@ -65,7 +68,7 @@ const TopSheet = () => {
     <div className={`${styles.topSheet} ${open ? styles.open : ''}`}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <p>수입,지출기록</p>
+          <p>수입, 지출기록</p>
         </div>
 
         <div className={`${styles.calendarContainer} ${open ? styles.calendarContainerOpen : ''} ${showFullCalendar ? styles.calendarContainerShowFull : ''}`}>
@@ -99,7 +102,7 @@ const TopSheet = () => {
             />
           ))
         ) : (
-          <p>선택된 날짜에 데이터가 없습니다.</p>
+          <NoneAttribute />
         )}
       </BottomSheet>
     </div>
