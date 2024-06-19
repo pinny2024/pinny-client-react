@@ -1,39 +1,54 @@
-.weekPlanStatistics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .planGraph{
-    width: 100%;
-  }
-  
-  .weekPlanStatisticsName {
-    font-size: 20px;
-    font-weight: bold;
-    color: #0E332C;
-  }
-  
-  .allPlanStatistics {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 18px;
-  }
-  
-  .weekPlanStatisticsName {
-    padding-right: 120px; 
-  }
-  .weekPlanStatisticsButton{
-    width: 100%;
-  }
-  
-  .planCorrectionButton {
-    border: none;
-    background-color: transparent;
-    font-size: 15px;
-    cursor: pointer;
+.planGraph {
+  width: 100%;
+}
 
-  }
-  
- 
-  
+.weekPlanStatisticsName {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0E332C;
+}
+
+.allPlanStatistics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.weekPlanStatisticsName {
+  padding-right: 120px;
+}
+
+.weekPlanStatisticsButton {
+  width: 100%;
+}
+
+.planCorrectionButton {
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.weekButtons {
+  text-align: center;
+}
+
+.weekButtons > button {
+  width: 24%;
+  height: 28px;
+  margin-bottom: 20px;
+  border: none;
+  margin-left: 1.5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  transition: background-color 0.3s;
+  color: gray;
+  font-size: 12px;
+}
+
+.weekButtons > button:focus,
+.selectedButton {
+  background-color: #5edcc4;
+  color: #ffffff;
+}

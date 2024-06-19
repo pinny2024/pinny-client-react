@@ -1,20 +1,49 @@
-import React from "react";
-import PlanGragh from "./plan-gragh-data";
+import React, { useState } from "react";
+import FirstWeek from "./first-week-data";
+import SecondWeek from "./second-week-data";
+import ThirdWeek from "./third-week-data";
+import FourWeek from "./four-week-data";
 import WeekPlanStatisticsButton from "./week-plan-statistics-button";
 import styles from '../../../css/plan/plan-statistics.module.css'; 
+
 import { useNavigate } from "react-router-dom";
 
 const WeekStatistics = ({ plans }) => {
   const navigate = useNavigate();
+  const [selectedWeek, setSelectedWeek] = useState('third'); 
 
   const handleChangeButtonClick = () => {
     navigate('/plan/plan-change-detail');
   };
 
+  let selectedGraph;
+  switch (selectedWeek) {
+    case 'first':
+      selectedGraph = <FirstWeek />;
+      break;
+    case 'second':
+      selectedGraph = <SecondWeek />;
+      break;
+    case 'third':
+      selectedGraph = <ThirdWeek />;
+      break;
+    case 'fourth':
+      selectedGraph = <FourWeek />;
+      break;
+    default:
+      selectedGraph = <FirstWeek />;
+  }
+
   return (
     <div className={styles.weekPlanStatistics}>
+      <div className={styles.weekButtons}>
+        <button onClick={() => setSelectedWeek('first')}>1주일</button>
+        <button onClick={() => setSelectedWeek('second')}>2주일</button>
+        <button onClick={() => setSelectedWeek('third')}>3주일</button>
+        <button onClick={() => setSelectedWeek('fourth')}>4주일</button>
+      </div>
       <div className={styles.planGraph}>
-        <PlanGragh />
+        {selectedGraph}
       </div>
       <div className={styles.allPlanStatistics}>
         <div className={styles.weekPlanStatisticsName}>
