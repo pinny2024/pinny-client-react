@@ -12,6 +12,7 @@
   position: fixed;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 0 10px 4px rgb(0,0,0,0.13);
+  padding-bottom: 2vh;
 }
 
 .bottomSheetOpen {

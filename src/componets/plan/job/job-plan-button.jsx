@@ -1,5 +1,7 @@
 // JobPlanButton.js
 import React from "react";
+import styles from "../../../css/plan/job-plan-modal.module.css";
+
 
 const JobPlanButton = ({ plan, handleShowModal }) => {
   return (
@@ -8,6 +10,7 @@ const JobPlanButton = ({ plan, handleShowModal }) => {
       title: plan.title,
       job: plan.job,
     })}>
+
       <img className="button-image" src={`${process.env.PUBLIC_URL}/img/job-plan/job-plan-image(${plan.id}).svg`} />
       <div className="job-plan-img-name">
         {plan.title}

@@ -6,7 +6,7 @@ import styles from "../../css/mypage/mybadge.module.css";
 const MyBadgePage = () => {
   return (
     <>
-      <Header text="내 뱃지" />
+      <Header text="내 뱃지"/>
       <div className={styles.pageBackground}>
         <MyBadge />
       </div>

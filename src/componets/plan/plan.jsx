@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../comm/nav";
-import PostBtn from "../income-expend/post/post-btn";
+import PostBtn from "./plan-btn/post-btn";
 import TopWeekStatus from "./week/top-week-status";
 import JobPlan from "./job/job-plan";
 

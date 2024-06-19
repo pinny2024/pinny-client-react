@@ -1,15 +1,15 @@
 .container {
     height: 100vh;
     position: fixed;
-    top: 20.50vh;
+    top: 16.5vh;
     justify-content: center;
     text-align: center;
-    left: 11.11vw;
+    left: 12.11vw;
 }
 
 .background {
-    width: 77.78vw;
-    height: 77.78vw;
+    width: 75.78vw;
+    height: 75.78vw;
     background-color: #ffffff;
     border-radius: 50%;
     display: flex;
@@ -23,8 +23,8 @@
     width: 4.2vw;
     height: 4.2vw;
     border-radius: 50%;
-    background-color: #ffffff;
-    top: 22.8%;
+    background-color: #fff;
+    top: 21.3%;
     position: fixed;
     z-index: 100;
 }
@@ -38,7 +38,7 @@
 
 .icon {
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #38D6B8;
@@ -56,6 +56,6 @@
     color: #22806E;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 6px;
     text-align: center;
 }

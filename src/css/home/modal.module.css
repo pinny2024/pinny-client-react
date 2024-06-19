@@ -12,7 +12,7 @@
 .modalMain {
   position: fixed;
   background-color: white;
-  width: 370px;
+  width: 310px;
   height: 450px;
   top: 50%;
   left: 50%;
@@ -26,6 +26,7 @@
   height: 24px;
   margin-top: 10px;
   margin-right: 325px;
+  padding-left: 10px;
 }
 
 .modalMoney {
@@ -39,7 +40,7 @@
 }
 
 .modalMain input, .modalMain button {
-  width: 310px;
+  width: 280px;
   height: 40px;
   border-radius: 10px;
   border-width: 2px;

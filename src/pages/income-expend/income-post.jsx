@@ -1,16 +1,19 @@
 import React from "react";
-import Header from "../../componets/comm/header";
+import { useLocation } from "react-router-dom";
+import Header from "../../componets/income-expend/header";
 import SelectBtn from "../../componets/income-expend/post/select-btn";
 import InputData from "../../componets/income-expend/post/input-data";
 
 const ExpendPost = () => {
-    return(
-        <div>
-          <Header text="계획 세우기!"/>
-          <SelectBtn/>
-          <InputData/>
-        </div>
-    )
+  const location = useLocation();
+  return (
+
+    <div>
+      <Header text="수입" />
+      <SelectBtn />
+      <InputData />
+    </div>
+  )
 }
 
 export default ExpendPost;

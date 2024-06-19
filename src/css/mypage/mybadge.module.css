@@ -1,6 +1,7 @@
 .pageBackground {
     background-color: #DCFFF8;     
     min-height: 100vh; 
+
 }
 .headerBackground {
     background-color: #fff;
@@ -13,12 +14,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 900px;
 }
 
 .hr {
     border: 1px solid #38D6B8;
     width: 100%;
     margin-bottom: 20px;
+    margin-top: -5px;
 }
 
 .badgelist {
@@ -36,7 +40,7 @@
 }
 
 .badgelist img {
-    width: 90px;
+    width: 75px;
     margin-bottom: 10px;
 }
 
