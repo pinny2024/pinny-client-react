@@ -18,32 +18,40 @@ const MyInformation = () => {
   return (
     <>
       <div className="my-information-container">
-        <hr />
-        <button
-          className="my-information-button"
-          onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
-        >
-          닉네임 수정 <BsChevronRight size={20} />
-        </button>
-        <hr />
-        <button
-          className="my-information-button"
-          onClick={() => handleNavigation('')}
-        >
-          이메일 수정 <BsChevronRight size={20} />
-        </button>
-        <hr />
-        <button
-          className="my-information-button"
-          onClick={() => handleNavigation('')}
-        >
-          비밀번호 수정 <BsChevronRight size={20} />
-        </button>
-        <hr />
+
+        <div className="my-information-box">
+          <button
+            className="my-information-button"
+            onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
+          >
+            닉네임 수정 <BsChevronRight size={20} />
+          </button>
+        </div>
+
+        <div className="my-information-box">
+          <button
+            className="my-information-button"
+            onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
+          >
+            이메일 수정 <BsChevronRight size={20} />
+          </button>
+        </div>
+
+
+        <div className="my-information-box">
+          <button
+            className="my-information-button"
+            onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
+          >
+            비밀번호 수정 <BsChevronRight size={20} />
+          </button>
+        </div>
+
+
         <div className="my-information-div">
           <div className="my-information-name">내 소비패턴 공유</div>
           <div className={`my-information-toggle ${isToggleOn ? 'on' : ''}`} onClick={handleToggle}>
-             <span className="my-information-toggle-text" style={{ marginLeft: isToggleOn ? '-20px' : '20px' }}>{isToggleOn ? "끄기" : "켜기"}</span>
+            <span className="my-information-toggle-text" style={{ marginLeft: isToggleOn ? '-20px' : '20px' }}>{isToggleOn ? "끄기" : "켜기"}</span>
           </div>
         </div>
         <hr />
@@ -52,7 +60,7 @@ const MyInformation = () => {
             {/* 여기에 내용을 추가하세요 */}
           </div>
         )}
-      </div>
+      </div >
     </>
   );
 };
