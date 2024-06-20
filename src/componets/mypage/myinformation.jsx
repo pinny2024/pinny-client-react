@@ -22,7 +22,6 @@ const MyInformation = () => {
         <div className="my-information-box">
           <button
             className="my-information-button"
-            onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
           >
             닉네임 수정 <BsChevronRight size={20} />
           </button>
@@ -31,7 +30,6 @@ const MyInformation = () => {
         <div className="my-information-box">
           <button
             className="my-information-button"
-            onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
           >
             이메일 수정 <BsChevronRight size={20} />
           </button>
@@ -41,7 +39,6 @@ const MyInformation = () => {
         <div className="my-information-box">
           <button
             className="my-information-button"
-            onClick={() => handleNavigation('/mypage/myinformation/nickname-edit')}
           >
             비밀번호 수정 <BsChevronRight size={20} />
           </button>

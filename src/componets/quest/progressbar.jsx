@@ -69,7 +69,7 @@ const Progressbar = () => {
     useEffect(() => {
         if (price) {
             const calculatedPercent = 100 * (savedMoney / price);
-            setPercent(calculatedPercent);
+            setPercent(Math.min(Math.floor(calculatedPercent), 100));
         }
     }, [price, savedMoney]);
 

@@ -1,12 +1,12 @@
 .container {
     position: fixed;
-    top: 64.75vh;
+    top: 58.5vh;
     width: 100%; 
 }
 
 .title {
     color: #22806E;
-    font-size: 20px;
+    font-size: 19px;
     margin-left: 5.56vw;
 }
 

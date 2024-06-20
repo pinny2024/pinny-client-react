@@ -39,3 +39,13 @@
     color: rgb(0,0,0,0.87);
     margin-left: auto;
 }
+
+.text{
+    text-align: center;
+    margin-top: 45% ;
+}
+
+.text-content{
+    font-size: 17px;
+    color: rgb(0,0,0,0.56);
+}

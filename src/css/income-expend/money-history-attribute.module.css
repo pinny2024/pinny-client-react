@@ -2,11 +2,16 @@
     width: 100vw;
     display: flex;
     align-items: center;
-    height: 6.25vh;
+    height: 7vh;
     border-bottom: 1px solid rgb(0,0,0,0.1);
     text-align: center;
     justify-content: center;
 }
+
+.container:last-child{
+    margin-bottom: 3vh;
+}
+
 
 .content {
     width: 100vw;
@@ -36,3 +41,4 @@
     color: rgb(0,0,0,0.87);
     margin-left: auto;
 }
+
