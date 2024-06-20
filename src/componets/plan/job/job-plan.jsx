@@ -19,17 +19,17 @@ const JobPlan = () => {
     const jobPlans = [
         {
             id: 1,
-            title: '웨이드 웨이드',
-            job: '2년차 주니어 개발자',
+            title: '우락밤 성찬이님',
+            job: '2년차 초등학교 선생님',
         },
         {
             id: 2,
-            title: '어이거기너',
-            job: '네이버 백엔드 근무',
+            title: '불같은 마무리',
+            job: '네이버 백엔드 개발자',
         },
         {
             id: 3,
-            title: '워커홀릭',
+            title: '은돌이',
             job: '중학교 정보교사',
         },
     ];
