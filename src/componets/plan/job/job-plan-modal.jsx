@@ -22,7 +22,7 @@ const JobPlanModal = ({ handleClose, show, modalInfo }) => {
             <div className={styles.jobPlanJob}>{modalInfo.job}</div>
           </div>
         </div>
-        <img src={`${process.env.PUBLIC_URL}/img/job-plan/gragh.svg`} className={styles.modalGraghImg} alt="graph" />
+        <img src={modalInfo.img} className={styles.modalGraghImg} alt="graph-img" />
       </section>
     </div>
   );

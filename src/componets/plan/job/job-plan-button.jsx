@@ -9,6 +9,7 @@ const JobPlanButton = ({ plan, handleShowModal }) => {
       imageName: `${process.env.PUBLIC_URL}/img/job-plan/job-plan-image(${plan.id}).svg`,
       title: plan.title,
       job: plan.job,
+      img: `${process.env.PUBLIC_URL}/img/job-plan/gragh-${plan.id}.svg`
     })}>
 
       <img className="button-image" src={`${process.env.PUBLIC_URL}/img/job-plan/job-plan-image(${plan.id}).svg`} />
