@@ -40,16 +40,16 @@
   
   .plan-category-next-button {
     text-align: center;
-    margin-top: 370px; 
+    margin-top: 480px;
   }
   
   .plan-category-next-button button {
     width: 320px;
-    height: 44px;
-    border-radius: 10px;
+    height: 40px;
+    border-radius: 5px;
     border: 1px;
     color: white;
-    font-size: 15px;
+    font-size: 14px;
   }
   
   .plan-category-next-button .grey-button {
