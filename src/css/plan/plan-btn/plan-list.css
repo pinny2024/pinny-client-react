@@ -1,5 +1,5 @@
 .plan-list-name {
-    padding-top: 70px;
+    padding-top: 90px;
     font-size: 20px;
     font-weight: bold;
     margin-left: 20px;
@@ -20,7 +20,7 @@
 }
 
 .plan-list-item {
-    max-height: 535px;
+    max-height: 800px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 60px;
