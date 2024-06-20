@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FirstWeek from "./first-week-data";
 import SecondWeek from "./second-week-data";
 import ThirdWeek from "./third-week-data";
@@ -12,8 +12,16 @@ const WeekStatistics = ({ plans }) => {
   const navigate = useNavigate();
   const [selectedWeek, setSelectedWeek] = useState('third'); 
 
+  useEffect(() => {
+    setSelectedWeek('third');
+  }, []);
+
   const handleChangeButtonClick = () => {
     navigate('/plan/plan-change-detail');
+  };
+
+  const handleWeekButtonClick = (week) => {
+    setSelectedWeek(week);
   };
 
   let selectedGraph;
@@ -37,10 +45,30 @@ const WeekStatistics = ({ plans }) => {
   return (
     <div className={styles.weekPlanStatistics}>
       <div className={styles.weekButtons}>
-        <button onClick={() => setSelectedWeek('first')}>1주일</button>
-        <button onClick={() => setSelectedWeek('second')}>2주일</button>
-        <button onClick={() => setSelectedWeek('third')}>3주일</button>
-        <button onClick={() => setSelectedWeek('fourth')}>4주일</button>
+        <button 
+          className={selectedWeek === 'first' ? styles.selectedButton : ''} 
+          onClick={() => handleWeekButtonClick('first')}
+        >
+          1주일
+        </button>
+        <button 
+          className={selectedWeek === 'second' ? styles.selectedButton : ''} 
+          onClick={() => handleWeekButtonClick('second')}
+        >
+          2주일
+        </button>
+        <button 
+          className={selectedWeek === 'third' ? `${styles.selectedButton}` : styles.weekButton} 
+          onClick={() => handleWeekButtonClick('third')}
+        >
+          3주일
+        </button>
+        <button 
+          className={selectedWeek === 'fourth' ? styles.selectedButton : ''} 
+          onClick={() => handleWeekButtonClick('fourth')}
+        >
+          4주일
+        </button>
       </div>
       <div className={styles.planGraph}>
         {selectedGraph}
