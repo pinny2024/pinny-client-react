@@ -69,9 +69,12 @@
     font-size: 14px;
   }
   
+  .jobPlanImg{
+    width: 90px;
+  }
   .modalGraghImg {
     width: 279px;
     height: 98px;
-    margin-top: 20px;
+    margin-top: 35px;
   }
   
