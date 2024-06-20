@@ -42,7 +42,7 @@ const WeekPlanGraph = ({ totalBudget }) => {
 
 
   const usedBudget = totalBudget - remainingBudget;
-  const usedPercentage = ((usedBudget / totalBudget) * 100).toFixed(2);
+  const usedPercentage = Math.floor(((usedBudget / totalBudget) * 100).toFixed(2));
 
   const data = {
     labels: [''],
