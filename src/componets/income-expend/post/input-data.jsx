@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Dropdown from "./dropdown"
+import Dropdown from "./dropdown";
+import IncomeDropdown from "./income-dropdown";
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import config from "../../../config";
 
-import "../../../css/comm/index.css"
-import styles from "../../../css/income-expend/input-data.module.css"
+import "../../../css/comm/index.css";
+import styles from "../../../css/income-expend/input-data.module.css";
 
 const InputData = () => {
     const [isExpand, setIsExpand] = useState(false);
@@ -22,6 +23,7 @@ const InputData = () => {
         switch (window.location.pathname) {
             case '/income/post': setPath('incomes'); setType("수입"); break;
             case '/expend/post': setPath('expenditures'); setType("지출"); break;
+            default: break;
         }
     }, [navigate]);
 
@@ -84,8 +86,11 @@ const InputData = () => {
                             <Icon icon="uiw:down" className={styles['icon']}></Icon>
                         </button>
                     )}
-                    {isExpand && (
+                    {isExpand && path === "expenditures" && (
                         <Dropdown handleCategorySelection={handleCategorySelection} />
+                    )}
+                    {isExpand && path === "incomes" && (
+                        <IncomeDropdown handleCategorySelection={handleCategorySelection} />
                     )}
                 </div>
                 <div className={styles['box']}>
@@ -100,6 +105,7 @@ const InputData = () => {
                 <button
                     className={`${styles['done-btn']} ${isFormComplete ? styles['done-btn-active'] : ''}`}
                     onClick={handleSubmitClick}
+                    disabled={!isFormComplete} // Disables the button if the form is incomplete
                 >
                     확인
                 </button>
@@ -107,6 +113,5 @@ const InputData = () => {
         </>
     )
 }
-
 
 export default InputData;
