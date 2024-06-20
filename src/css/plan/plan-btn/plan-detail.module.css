@@ -32,18 +32,18 @@
 
 .planDetailCheck {
     text-align: center;
-    margin-top: 370px;
+    margin-top: 483px;
 }
 
 .planDetailCheck button {
     width: 320px;
-    height: 44px;
-    border-radius: 10px;
+    height: 40px;
+    border-radius: 5px;
     border: 1px;
     color: white;
-    margin-top: 5px;
-    font-size: 15px;
+    font-size: 14px;
 }
+
 
 .planDetailCheck button.greyButton {
     background-color: #ccc;
